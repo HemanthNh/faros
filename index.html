@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faros Legal — Corporate Law Firm, Bengaluru</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --fg-dark: #111;
+      --fg-grey: #4a4a4a;
+      --bg-light: #fff;
+      --bg-section: #f5f5f3;
+      --accent-blue: #295F9E;
+      --beige: #eae5dc;
+    }
+    body { font-family: 'Poppins', sans-serif; color: var(--fg-grey); background: var(--bg-light); }
+    h1, h2, h3, h4, h5 { color: var(--fg-dark); }
+    a { color: var(--accent-blue); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* hero */
+    .hero {
+      background: linear-gradient(135deg, #0d0d0d, #202020);
+      color: #fff;
+      text-align: center;
+      padding: 120px 20px;
+    }
+    .hero h1 { font-weight: 600; font-size: 2.5rem; }
+    .hero p { color: #ccc; max-width: 720px; margin: 20px auto; }
+
+    /* section spacing */
+    section { padding: 80px 0; }
+    .practice-card { background: var(--bg-section); border: none; border-radius: 8px; padding: 30px; height: 100%; transition: transform .2s; }
+    .practice-card:hover { transform: translateY(-4px); }
+
+    .card { border-radius: 8px; }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black py-3">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-white" href="index.html">Faros Legal</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="practice-areas.html">Practice Areas</a></li>
+          <li class="nav-item"><a class="nav-link" href="insights.html">Insights & Highlights</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="container">
+      <h1>Strategic Corporate Legal Services</h1>
+      <p>Faros Legal is a Bengaluru-based law firm providing end-to-end corporate legal advisory across transactions, real estate, IP, and litigation — combining regulatory depth with commercial clarity.</p>
+      <a href="practice-areas.html" class="btn btn-primary me-2">Explore Practice Areas</a>
+      <a href="contact.html" class="btn btn-outline-light">Speak to Us</a>
+    </div>
+  </section>
+
+  <!-- Practice Areas preview -->
+  <section id="practice-preview">
+    <div class="container">
+      <h2 class="mb-4 text-center">Practice Areas</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="practice-card h-100">
+            <h5>Corporate & Commercial</h5>
+            <p>Contracts, governance, and compliance across manufacturing, real estate, IT, and finance sectors.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="practice-card h-100">
+            <h5>M&A and Investments</h5>
+            <p>Advising on mergers, acquisitions, joint ventures, and investment transactions in India and abroad.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="practice-card h-100">
+            <h5>Real Estate & Infrastructure</h5>
+            <p>Title verification, due diligence, leasing, financing, and property-related dispute resolution.</p>
+          </div>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <a href="practice-areas.html" class="btn btn-outline-dark">View All Areas</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Insights & Highlights preview -->
+  <section id="insights-preview" style="background: var(--bg-section);">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-semibold">Insights & Highlights</h2>
+        <a href="insights.html" class="text-primary text-decoration-none">View all →</a>
+      </div>
+      <div id="insights-list" class="row g-4"></div>
+    </div>
+  </section>
+
+  <script>
+  fetch('data/insights.json')
+    .then(r => r.json())
+    .then(items => {
+      const container = document.getElementById('insights-list');
+      const latest = items.sort((a,b)=>new Date(b.date)-new Date(a.date)).slice(0,2);
+      latest.forEach(item=>{
+        container.innerHTML += `
+          <div class="col-md-6">
+            <div class="card shadow-sm border-0 p-4 h-100">
+              <small class="text-muted">${item.category} • ${new Date(item.date).toLocaleDateString()}</small>
+              <h5 class="mt-2">${item.title}</h5>
+              <p>${item.summary}</p>
+              <a href="${item.link}" class="stretched-link text-primary">Read more</a>
+            </div>
+          </div>`;
+      });
+    })
+    .catch(err=>console.error('Insights load error:',err));
+  </script>
+
+  <!-- Contact CTA -->
+  <section class="text-center" style="background: var(--accent-blue); color: white;">
+    <div class="container py-5">
+      <h2>Let’s Discuss Your Legal Needs</h2>
+      <p class="mb-4">Connect with our team for tailored advice and practical solutions.</p>
+      <a href="contact.html" class="btn btn-light">Contact Us</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white text-center py-3">
+    <small>© 2025 Faros Legal | Bengaluru, India</small>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
