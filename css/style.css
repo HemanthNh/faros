@@ -2,10 +2,10 @@
    FAROS LEGAL – SHARED PRESENTATION
    ----------------------------------- */
 :root {
-  --fg-dark: #0f0f0f;
+  --fg-dark: #141414;
   --fg-grey: #4a4a4a;
-  --bg-light: #f9fafb;
-  --bg-section: #f2f3f7;
+  --bg-light: #f7f7f4;
+  --bg-section: #f0f1f4;
   --accent-blue: #295f9e;
   --accent-emerald: #35c4a3;
   --beige: #eae5dc;
@@ -16,9 +16,10 @@
 body {
   font-family: 'Poppins', sans-serif;
   color: var(--fg-grey);
-  background: radial-gradient(circle at 20% 20%, rgba(53, 196, 163, 0.06), transparent 30%),
-              radial-gradient(circle at 80% 0%, rgba(41, 95, 158, 0.08), transparent 26%),
-              var(--bg-light);
+  background:
+    linear-gradient(180deg, rgba(234, 229, 220, 0.28), rgba(234, 229, 220, 0)) no-repeat,
+    radial-gradient(circle at 75% 10%, rgba(41, 95, 158, 0.08), transparent 32%),
+    var(--bg-light);
   line-height: 1.7;
   overflow-x: hidden;
 }
@@ -41,9 +42,9 @@ a:hover {
 
 /* Navigation */
 .navbar {
-  background: rgba(4, 4, 4, 0.9) !important;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+  background: rgba(12, 12, 12, 0.88) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.16);
 }
 
 .navbar-brand {
@@ -94,14 +95,14 @@ a:hover {
 }
 
 .btn-outline-light {
-  border: 2px solid #f6f8fb;
-  color: #f6f8fb;
+  border: 2px solid var(--fg-dark);
+  color: var(--fg-dark);
 }
 
 .btn-outline-light:hover {
-  background: #f6f8fb;
-  color: var(--accent-blue);
-  box-shadow: 0 14px 30px rgba(246, 248, 251, 0.25);
+  background: var(--fg-dark);
+  color: #fff;
+  box-shadow: 0 14px 30px rgba(20, 20, 20, 0.15);
 }
 
 .btn-outline-dark {
@@ -116,11 +117,13 @@ a:hover {
 }
 
 /* Hero */
+
 .hero {
-  background: radial-gradient(circle at 20% 20%, rgba(53, 196, 163, 0.16), transparent 30%),
-              radial-gradient(circle at 80% 0%, rgba(41, 95, 158, 0.22), transparent 32%),
-              linear-gradient(135deg, #0b0c10, #131824);
-  color: #f6f8fb;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(41, 95, 158, 0.12), transparent 32%),
+    radial-gradient(circle at 88% 18%, rgba(53, 196, 163, 0.14), transparent 30%),
+    linear-gradient(135deg, #f6f5f2, #e8edf5);
+  color: var(--fg-dark);
   text-align: center;
   padding: 150px 16px 120px;
   position: relative;
@@ -135,7 +138,7 @@ a:hover {
 .hero p {
   max-width: 760px;
   margin: 0 auto 28px;
-  color: #d8dfec;
+  color: #4f5561;
 }
 
 .hero .hero-badge {
@@ -143,33 +146,34 @@ a:hover {
   align-items: center;
   gap: 8px;
   padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(20, 20, 20, 0.06);
+  border: 1px solid rgba(20, 20, 20, 0.12);
   border-radius: 999px;
   margin-bottom: 22px;
   font-weight: 600;
   letter-spacing: 0.2px;
+  color: var(--fg-dark);
 }
 
 .floating-shape {
   position: absolute;
   border-radius: 50%;
   filter: blur(40px);
-  opacity: 0.6;
+  opacity: 0.5;
   animation: float 10s ease-in-out infinite;
 }
 
-.shape-1 { width: 180px; height: 180px; background: #295f9e; top: 20%; left: 12%; animation-delay: -2s; }
-.shape-2 { width: 220px; height: 220px; background: #35c4a3; bottom: 12%; right: 14%; animation-delay: 1s; }
-.shape-3 { width: 140px; height: 140px; background: #3a6eb5; bottom: 22%; left: 30%; animation-delay: -4s; }
+.shape-1 { width: 180px; height: 180px; background: rgba(41, 95, 158, 0.25); top: 18%; left: 12%; animation-delay: -2s; }
+.shape-2 { width: 220px; height: 220px; background: rgba(53, 196, 163, 0.24); bottom: 16%; right: 14%; animation-delay: 1s; }
+.shape-3 { width: 140px; height: 140px; background: rgba(58, 110, 181, 0.22); bottom: 24%; left: 32%; animation-delay: -4s; }
 
 .hero .card-spotlight {
   position: relative;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(20, 20, 20, 0.06);
   border-radius: 14px;
-  backdrop-filter: blur(16px);
-  box-shadow: 0 18px 50px rgba(12, 24, 43, 0.28);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 50px rgba(12, 24, 43, 0.12);
 }
 
 /* Sections */
@@ -230,10 +234,45 @@ section { padding: 96px 0; }
   color: #7d8697;
 }
 
+/* Bulletin blocks */
+.bulletin-section {
+  background: var(--beige);
+  border-radius: 16px;
+  padding: 32px;
+  box-shadow: 0 16px 46px rgba(12, 24, 43, 0.08);
+}
+
+.bulletin-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: rgba(20, 20, 20, 0.06);
+  border-radius: 999px;
+  font-weight: 600;
+  color: var(--fg-dark);
+  letter-spacing: 0.2px;
+}
+
+.bulletin-list {
+  list-style: none;
+  padding-left: 0;
+  margin: 18px 0 0;
+}
+
+.bulletin-list li {
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(20, 20, 20, 0.08);
+}
+
+.bulletin-list li:last-child {
+  border-bottom: none;
+}
+
 /* Call to action */
 .cta-section {
-  background: linear-gradient(135deg, #1c2740, #123259);
-  color: #f6f8fb;
+  background: linear-gradient(135deg, #ecf1f8, #dfe5ef);
+  color: var(--fg-dark);
   position: relative;
   overflow: hidden;
 }
@@ -242,10 +281,10 @@ section { padding: 96px 0; }
   content: '';
   position: absolute;
   inset: -80px;
-  background: radial-gradient(circle at 30% 40%, rgba(53, 196, 163, 0.25), transparent 30%),
-              radial-gradient(circle at 70% 60%, rgba(41, 95, 158, 0.3), transparent 28%);
+  background: radial-gradient(circle at 30% 40%, rgba(53, 196, 163, 0.2), transparent 30%),
+              radial-gradient(circle at 70% 60%, rgba(41, 95, 158, 0.22), transparent 28%);
   filter: blur(60px);
-  opacity: 0.9;
+  opacity: 0.8;
 }
 
 .cta-section .container { position: relative; z-index: 1; }
