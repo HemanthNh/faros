@@ -5,41 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Faros Legal — Corporate Law Firm, Bengaluru</title>
 
-  <!-- Bootstrap -->
+  <!-- Bootstrap & Fonts -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/lucide-static@latest/font/lucide.css" rel="stylesheet">
+
+  <!-- Shared styles -->
+  <link href="css/theme.css" rel="stylesheet" />
   <link href="css/style.css" rel="stylesheet" />
-
-  <style>
-    :root {
-      --fg-dark: #111;
-      --fg-grey: #4a4a4a;
-      --bg-light: #fff;
-      --bg-section: #f5f5f3;
-      --accent-blue: #295F9E;
-      --beige: #eae5dc;
-    }
-    body { font-family: 'Poppins', sans-serif; color: var(--fg-grey); background: var(--bg-light); }
-    h1, h2, h3, h4, h5 { color: var(--fg-dark); }
-    a { color: var(--accent-blue); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    /* hero */
-    .hero {
-      background: linear-gradient(135deg, #0d0d0d, #202020);
-      color: #fff;
-      text-align: center;
-      padding: 120px 20px;
-    }
-    .hero h1 { font-weight: 600; font-size: 2.5rem; }
-    .hero p { color: #ccc; max-width: 720px; margin: 20px auto; }
-
-    /* section spacing */
-    section { padding: 80px 0; }
-    .practice-card { background: var(--bg-section); border: none; border-radius: 8px; padding: 30px; height: 100%; transition: transform .2s; }
-    .practice-card:hover { transform: translateY(-4px); }
-
-    .card { border-radius: 8px; }
-  </style>
 </head>
 
 <body>
@@ -63,39 +38,60 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="container">
-      <h1>Strategic Corporate Legal Services</h1>
-      <p>Faros Legal is a Bengaluru-based law firm providing end-to-end corporate legal advisory across transactions, real estate, IP, and litigation — combining regulatory depth with commercial clarity.</p>
-      <a href="practice-areas.html" class="btn btn-primary me-2">Explore Practice Areas</a>
-      <a href="contact.html" class="btn btn-outline-light">Speak to Us</a>
+    <span class="floating-shape shape-1"></span>
+    <span class="floating-shape shape-2"></span>
+    <span class="floating-shape shape-3"></span>
+    <div class="container position-relative">
+      <div class="hero-badge">
+        <i class="lucide lucide-shield-check"></i>
+        Trusted advisors for complex, high-stakes mandates
+      </div>
+      <div class="card card-spotlight mx-auto p-4 p-md-5 text-center" style="max-width: 860px;">
+        <h1 class="fw-semibold mb-3">Strategic Corporate Legal Services</h1>
+        <p>Faros Legal is a Bengaluru-based law firm providing end-to-end corporate legal advisory across transactions, real estate, IP, and litigation — combining regulatory depth with commercial clarity.</p>
+        <div class="d-flex flex-column flex-md-row justify-content-center gap-3 mt-3">
+          <a href="practice-areas.html" class="btn btn-primary">Explore Practice Areas</a>
+          <a href="contact.html" class="btn btn-outline-light">Speak to Us</a>
+        </div>
+        <div class="scroll-cue">
+          <span class="chevron"></span>
+          <small>Scroll to explore</small>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Practice Areas preview -->
   <section id="practice-preview">
-    <div class="container">
-      <h2 class="mb-4 text-center">Practice Areas</h2>
-      <div class="row g-4">
+    <div class="container text-center">
+      <div class="section-heading justify-content-center">What we do</div>
+      <h2 class="section-title">Practice Areas</h2>
+      <p class="section-desc mx-auto">Multi-disciplinary support across corporate, investment, real estate, technology, and dispute mandates — delivered with clarity and measurable outcomes.</p>
+      <div class="divider"></div>
+      <div class="row g-4 mt-4">
         <div class="col-md-4">
-          <div class="practice-card h-100">
-            <h5>Corporate & Commercial</h5>
-            <p>Contracts, governance, and compliance across manufacturing, real estate, IT, and finance sectors.</p>
+          <div class="practice-card h-100 p-4 reveal-up">
+            <i class="lucide lucide-briefcase"></i>
+            <h5 class="mt-3">Corporate & Commercial</h5>
+            <p class="mb-0">Contracts, governance, and compliance across manufacturing, real estate, IT, and finance sectors.</p>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="practice-card h-100">
-            <h5>M&A and Investments</h5>
-            <p>Advising on mergers, acquisitions, joint ventures, and investment transactions in India and abroad.</p>
+          <div class="practice-card h-100 p-4 reveal-up" style="transition-delay: .1s;">
+            <i class="lucide lucide-building-2"></i>
+            <h5 class="mt-3">M&A and Investments</h5>
+            <p class="mb-0">Advising on mergers, acquisitions, joint ventures, and investment transactions in India and abroad.</p>
           </div>
         </div>
         <div class="col-md-4">
-          <div class="practice-card h-100">
-            <h5>Real Estate & Infrastructure</h5>
-            <p>Title verification, due diligence, leasing, financing, and property-related dispute resolution.</p>
+          <div class="practice-card h-100 p-4 reveal-up" style="transition-delay: .2s;">
+            <i class="lucide lucide-city"></i>
+            <h5 class="mt-3">Real Estate & Infrastructure</h5>
+            <p class="mb-0">Title verification, due diligence, leasing, financing, and property-related dispute resolution.</p>
           </div>
         </div>
       </div>
-      <div class="text-center mt-4">
+      <div class="text-center mt-5">
         <a href="practice-areas.html" class="btn btn-outline-dark">View All Areas</a>
       </div>
     </div>
@@ -105,8 +101,11 @@
   <section id="insights-preview" style="background: var(--bg-section);">
     <div class="container">
       <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2 class="fw-semibold">Insights & Highlights</h2>
-        <a href="insights.html" class="text-primary text-decoration-none">View all →</a>
+        <div>
+          <div class="section-heading">Firm updates</div>
+          <h2 class="section-title mb-0">Insights & Highlights</h2>
+        </div>
+        <a href="insights.html" class="text-primary text-decoration-none fw-semibold">View all →</a>
       </div>
       <div id="insights-list" class="row g-4"></div>
     </div>
@@ -118,27 +117,36 @@
     .then(items => {
       const container = document.getElementById('insights-list');
       const latest = items.sort((a,b)=>new Date(b.date)-new Date(a.date)).slice(0,2);
-      latest.forEach(item=>{
-        container.innerHTML += `
-          <div class="col-md-6">
-            <div class="card shadow-sm border-0 p-4 h-100">
-              <small class="text-muted">${item.category} • ${new Date(item.date).toLocaleDateString()}</small>
-              <h5 class="mt-2">${item.title}</h5>
-              <p>${item.summary}</p>
-              <a href="${item.link}" class="stretched-link text-primary">Read more</a>
-            </div>
+      latest.forEach((item, idx)=>{
+        const date = new Date(item.date).toLocaleDateString();
+        const card = document.createElement('div');
+        card.className = 'col-md-6';
+        card.innerHTML = `
+          <div class="insight-card h-100 p-4 reveal-up" style="transition-delay:${idx * 0.1}s">
+            <small>${item.category} • ${date}</small>
+            <h5 class="mt-2">${item.title}</h5>
+            <p class="mb-3">${item.summary}</p>
+            <a href="${item.link}" class="stretched-link fw-semibold">Read more</a>
           </div>`;
+        container.appendChild(card);
       });
+      triggerReveal();
     })
     .catch(err=>console.error('Insights load error:',err));
   </script>
 
   <!-- Contact CTA -->
-  <section class="text-center" style="background: var(--accent-blue); color: white;">
+  <section class="cta-section text-center text-lg-start">
     <div class="container py-5">
-      <h2>Let’s Discuss Your Legal Needs</h2>
-      <p class="mb-4">Connect with our team for tailored advice and practical solutions.</p>
-      <a href="contact.html" class="btn btn-light">Contact Us</a>
+      <div class="row align-items-center g-4">
+        <div class="col-lg-8">
+          <h2 class="fw-semibold">Let’s Discuss Your Legal Needs</h2>
+          <p class="mb-0">Connect with our team for tailored advice and practical solutions. We respond quickly and work collaboratively to resolve complex matters.</p>
+        </div>
+        <div class="col-lg-4 text-lg-end">
+          <a href="contact.html" class="btn btn-light">Contact Us</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -153,9 +161,25 @@
 <script>
 const btn = document.getElementById('scrollTopBtn');
 window.addEventListener('scroll', () => {
-  btn.style.display = window.scrollY > 300 ? 'block' : 'none';
+  btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
 });
 btn.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
+
+const revealTargets = () => document.querySelectorAll('.reveal-up');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+function triggerReveal() {
+  revealTargets().forEach(el => observer.observe(el));
+}
+
+document.addEventListener('DOMContentLoaded', triggerReveal);
 </script>
 
 </body>
