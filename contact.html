@@ -5,26 +5,107 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Faros Legal</title>
 
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap & Fonts -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/lucide-static@latest/font/lucide.css" rel="stylesheet">
+
+  <!-- Shared styles -->
+  <link href="css/theme.css" rel="stylesheet" />
   <link href="css/style.css" rel="stylesheet" />
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/theme.css">
-<link href="https://unpkg.com/lucide-static@latest/font/lucide.css" rel="stylesheet">
 
   <style>
-    :root {
-      --fg-dark: #111;
-      --fg-grey: #4a4a4a;
-      --bg-light: #fff;
-      --bg-section: #f5f5f3;
-      --accent-blue: #295F9E;
+    .contact-highlights .info-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 14px;
+      padding: 14px 18px;
+      border: 1px solid rgba(17,24,39,0.08);
+      box-shadow: var(--card-shadow);
+      height: 100%;
+      text-align: left;
     }
-    body { font-family: 'Poppins', sans-serif; color: var(--fg-grey); background: var(--bg-light); }
-    h1, h2, h3, h4, h5 { color: var(--fg-dark); }
-    a { color: var(--accent-blue); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    input, textarea { border-radius: 6px !important; }
-    .form-section { padding: 80px 0; }
+    .contact-highlights i {
+      color: var(--accent-blue);
+      font-size: 1.2rem;
+    }
+    .contact-card,
+    .map-card,
+    .form-card {
+      border-radius: 14px;
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      background: #fff;
+      box-shadow: var(--card-shadow);
+      height: 100%;
+    }
+    .contact-card h3 {
+      font-size: 1.25rem;
+    }
+    .contact-list {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+    .contact-list li {
+      display: flex;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(17,24,39,0.08);
+    }
+    .contact-list li:last-child {
+      border-bottom: none;
+    }
+    .contact-list i {
+      color: var(--accent-blue);
+      font-size: 1.1rem;
+    }
+    .info-points {
+      list-style: none;
+      padding-left: 0;
+      margin: 24px 0 0;
+    }
+    .info-points li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 12px;
+      color: #4f5561;
+    }
+    .info-points i {
+      color: var(--accent-emerald);
+      font-size: 1.1rem;
+      margin-top: 3px;
+    }
+    .map-card iframe {
+      border: 0;
+      border-radius: 12px;
+    }
+    .contact-form-section {
+      background: linear-gradient(135deg, rgba(234,229,220,0.45), rgba(211,222,238,0.7));
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-form-section::before {
+      content: '';
+      position: absolute;
+      inset: -120px;
+      background: radial-gradient(circle at 30% 40%, rgba(53,196,163,0.18), transparent 34%),
+                  radial-gradient(circle at 70% 60%, rgba(41,95,158,0.15), transparent 36%);
+      filter: blur(60px);
+      opacity: 0.8;
+    }
+    .contact-form-section .container {
+      position: relative;
+      z-index: 1;
+    }
+    .form-card label {
+      font-weight: 500;
+      color: var(--fg-dark);
+    }
   </style>
 </head>
 
@@ -48,91 +129,272 @@
   </nav>
 
   <!-- Hero -->
-  <section class="py-5 text-center" style="background: var(--bg-section);">
-    <div class="container">
-      <h1 class="fw-semibold">Contact Us</h1>
-      <p class="text-muted mb-0">Get in touch with our team for legal consultations and business enquiries.</p>
+  <section class="hero contact-hero">
+    <span class="floating-shape shape-1"></span>
+    <span class="floating-shape shape-2"></span>
+    <span class="floating-shape shape-3"></span>
+    <div class="container position-relative">
+      <div class="hero-badge">
+        <i class="lucide lucide-phone-call"></i>
+        Bengaluru-based corporate counsel
+      </div>
+      <div class="card card-spotlight mx-auto p-4 p-md-5 text-center" style="max-width: 960px;">
+        <h1 class="fw-semibold mb-3">Speak with the Faros Legal Team</h1>
+        <p>We partner with growth-focused businesses, investors, and promoters on complex transactions, regulatory questions, and disputes. Share your brief and a partner will respond within one business day.</p>
+        <div class="row row-cols-1 row-cols-md-3 g-3 mt-3 contact-highlights">
+          <div class="col">
+            <div class="info-pill">
+              <i class="lucide lucide-mail"></i>
+              Rapid responses and clear scopes for new mandates.
+            </div>
+          </div>
+          <div class="col">
+            <div class="info-pill">
+              <i class="lucide lucide-shield-check"></i>
+              Discreet handling of sensitive and high-stakes matters.
+            </div>
+          </div>
+          <div class="col">
+            <div class="info-pill">
+              <i class="lucide lucide-users"></i>
+              Dedicated partner oversight on every engagement.
+            </div>
+          </div>
+        </div>
+        <div class="d-flex flex-column flex-md-row justify-content-center gap-3 mt-4">
+          <a href="#contact-form" class="btn btn-primary">Send a Brief</a>
+          <a href="tel:+919611320568" class="btn btn-outline-dark">Call +91 96113 20568</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Contact Form + Info -->
-  <section class="form-section">
+  <!-- Contact Details -->
+  <section id="contact-details">
     <div class="container">
-      <div class="row g-5 align-items-center">
-        <div class="col-md-6">
-          <h2 class="fw-semibold mb-4">Send a Message</h2>
-          <form id="contact-form">
-            <div class="mb-3">
-              <label for="name" class="form-label">Full Name</label>
-              <input type="text" id="name" name="name" class="form-control" required />
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Email Address</label>
-              <input type="email" id="email" name="email" class="form-control" required />
-            </div>
-            <div class="mb-3">
-              <label for="message" class="form-label">Message</label>
-              <textarea id="message" name="message" rows="5" class="form-control" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary px-4">Submit</button>
-            <div id="form-status" class="mt-3"></div>
-          </form>
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="contact-card p-4 h-100 reveal-up">
+            <h3 class="fw-semibold mb-2">Office</h3>
+            <p class="mb-0">Faros Legal<br>Bengaluru, Karnataka, India</p>
+            <ul class="contact-list mt-4">
+              <li>
+                <i class="lucide lucide-phone"></i>
+                <div>
+                  <small class="text-uppercase text-muted d-block">Phone</small>
+                  <a href="tel:+919611320568" class="fw-semibold text-decoration-none text-dark">+91 96113 20568</a>
+                </div>
+              </li>
+              <li>
+                <i class="lucide lucide-mail"></i>
+                <div>
+                  <small class="text-uppercase text-muted d-block">Email</small>
+                  <a href="mailto:info@faroslegal.com" class="fw-semibold text-decoration-none text-dark">info@faroslegal.com</a>
+                </div>
+              </li>
+              <li>
+                <i class="lucide lucide-map-pin"></i>
+                <div>
+                  <small class="text-uppercase text-muted d-block">Service footprint</small>
+                  India-wide with strategic cross-border support.
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
-
-        <div class="col-md-6">
-          <h2 class="fw-semibold mb-4">Office</h2>
-          <p><strong>Faros Legal</strong><br>
-          Bengaluru, Karnataka, India</p>
-          <p><strong>Phone:</strong> +91 96113 20568<br>
-          <strong>Email:</strong> <a href="mailto:info@faroslegal.com">info@faroslegal.com</a></p>
-          <p class="text-muted small">For professional enquiries, please include your organization details and a brief description of your matter.</p>
-          <div class="ratio ratio-16x9 mt-3 rounded overflow-hidden">
-            <iframe
-              src="https://www.google.com/maps?q=Bengaluru%2C%20India&output=embed"
-              style="border:0;" allowfullscreen=""
-              loading="lazy">
-            </iframe>
+        <div class="col-lg-4 col-md-6">
+          <div class="contact-card p-4 h-100 reveal-up" style="transition-delay: .1s;">
+            <h3 class="fw-semibold mb-2">Client Services</h3>
+            <p class="mb-3">We structure bespoke teams across key practice areas.</p>
+            <ul class="contact-list">
+              <li>
+                <i class="lucide lucide-briefcase"></i>
+                <div>Investments, M&A, joint ventures, and governance advisory.</div>
+              </li>
+              <li>
+                <i class="lucide lucide-city"></i>
+                <div>Real estate, infrastructure, and regulatory clearances.</div>
+              </li>
+              <li>
+                <i class="lucide lucide-file-text"></i>
+                <div>Commercial contracting, disputes, and risk mitigation.</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="contact-card p-4 h-100 reveal-up" style="transition-delay: .2s;">
+            <h3 class="fw-semibold mb-2">Consultation Windows</h3>
+            <p class="mb-3">Let us know your preferred mode and timeline.</p>
+            <ul class="contact-list">
+              <li>
+                <i class="lucide lucide-clock-8"></i>
+                <div>Monday to Friday &middot; 9:30 AM - 7:30 PM IST</div>
+              </li>
+              <li>
+                <i class="lucide lucide-monitor-smartphone"></i>
+                <div>Virtual briefings on Teams, Zoom, or secure conference lines.</div>
+              </li>
+              <li>
+                <i class="lucide lucide-calendar"></i>
+                <div>Weekend slots available for urgent diligence or filings.</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-12">
+          <div class="map-card p-3 p-md-4 mt-3 reveal-up">
+            <div class="d-flex flex-column flex-lg-row justify-content-between align-items-lg-center mb-3 gap-3">
+              <div>
+                <div class="section-heading mb-1">Visit us</div>
+                <h3 class="mb-0">Central Bengaluru access</h3>
+                <p class="text-muted mb-0">Meetings by appointment for confidentiality.</p>
+              </div>
+              <a class="btn btn-outline-dark" href="https://maps.google.com/?q=Bengaluru%2C%20India" target="_blank" rel="noopener">Open in Google Maps</a>
+            </div>
+            <div class="ratio ratio-21x9 rounded overflow-hidden">
+              <iframe src="https://www.google.com/maps?q=Bengaluru%2C%20India&output=embed" loading="lazy" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Contact form -->
+  <section class="contact-form-section">
+    <div class="container">
+      <div class="row g-5 align-items-start">
+        <div class="col-lg-5">
+          <div class="section-heading">Start a conversation</div>
+          <h2 class="section-title">Send us a detailed brief</h2>
+          <p>Outline your transaction, diligence requirement, or dispute so we can align the right partner and turnaround. Wherever possible, include timing considerations, counterparties, and jurisdictions involved.</p>
+          <ul class="info-points">
+            <li><i class="lucide lucide-check-circle"></i>Receive an introductory call or email within one business day.</li>
+            <li><i class="lucide lucide-check-circle"></i>Signed NDAs available on request prior to sharing data rooms.</li>
+            <li><i class="lucide lucide-check-circle"></i>Engagement letters, scopes, and budgets issued digitally.</li>
+          </ul>
+        </div>
+        <div class="col-lg-7">
+          <div class="form-card p-4 p-md-5">
+            <form id="contact-form">
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="name" class="form-label">Full Name</label>
+                  <input type="text" id="name" name="name" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="company" class="form-label">Company / Organization</label>
+                  <input type="text" id="company" name="company" class="form-control">
+                </div>
+                <div class="col-md-6">
+                  <label for="email" class="form-label">Email Address</label>
+                  <input type="email" id="email" name="email" class="form-control" required>
+                </div>
+                <div class="col-md-6">
+                  <label for="phone" class="form-label">Phone</label>
+                  <input type="tel" id="phone" name="phone" class="form-control">
+                </div>
+                <div class="col-12">
+                  <label for="message" class="form-label">How can we assist?</label>
+                  <textarea id="message" name="message" rows="5" class="form-control" placeholder="Share mandate details, timelines, and supporting links." required></textarea>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-primary mt-4">Submit enquiry</button>
+              <div id="form-status" class="mt-3"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section text-center">
+    <div class="container py-5">
+      <h2 class="fw-semibold mb-3">Need an urgent turnaround?</h2>
+      <p class="mb-4">Call us directly for time-sensitive closings, filings, or dispute strategy. We mobilize specialist teams quickly and coordinate across jurisdictions.</p>
+      <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+        <a href="tel:+919611320568" class="btn btn-primary">Call the firm</a>
+        <a href="mailto:info@faroslegal.com" class="btn btn-outline-dark">Email detailed brief</a>
+      </div>
+    </div>
+  </section>
+
   <!-- Footer -->
   <footer class="bg-black text-white text-center py-3">
-    <small>© 2025 Faros Legal | Bengaluru, India</small>
+    <small>Ac 2025 Faros Legal | Bengaluru, India</small>
   </footer>
+
+  <button id="scrollTopBtn"><i class="lucide-arrow-up"></i></button>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script>
-    emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('contact-form');
+      if (!form) return;
 
-    document.getElementById("contact-form").addEventListener("submit", function(e) {
-      e.preventDefault();
-      emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
-        name: this.name.value,
-        email: this.email.value,
-        message: this.message.value
-      })
-      .then(() => {
-        document.getElementById("form-status").innerHTML =
-          '<div class="alert alert-success">Message sent successfully.</div>';
-        this.reset();
-      }, (err) => {
-        console.error("EmailJS Error:", err);
-        document.getElementById("form-status").innerHTML =
-          '<div class="alert alert-danger">Error sending message. Please try again later.</div>';
+      const status = document.getElementById('form-status');
+      const submitBtn = form.querySelector('[type="submit"]');
+
+      if (window.emailjs) {
+        emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
+      }
+
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        if (!window.emailjs) {
+          status.innerHTML = '<div class="alert alert-warning">Email service unavailable. Please call or email us directly.</div>';
+          return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.innerText = 'Sending...';
+        status.innerHTML = '<div class="alert alert-info mb-0">Sending your message...</div>';
+
+        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+          name: this.name.value,
+          company: this.company.value,
+          email: this.email.value,
+          phone: this.phone.value,
+          message: this.message.value
+        }).then(() => {
+          status.innerHTML = '<div class="alert alert-success mb-0">Message sent. We will respond shortly.</div>';
+          form.reset();
+        }).catch(err => {
+          console.error('EmailJS Error:', err);
+          status.innerHTML = '<div class="alert alert-danger mb-0">Error sending message. Please try again or email us directly.</div>';
+        }).finally(() => {
+          submitBtn.disabled = false;
+          submitBtn.innerText = 'Submit enquiry';
+        });
       });
     });
   </script>
   <script>
-const btn = document.getElementById('scrollTopBtn');
-window.addEventListener('scroll', () => {
-  btn.style.display = window.scrollY > 300 ? 'block' : 'none';
-});
-btn.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
-</script>
+    const btn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
+    const revealTargets = () => document.querySelectorAll('.reveal-up');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    function triggerReveal() {
+      revealTargets().forEach(el => observer.observe(el));
+    }
+
+    document.addEventListener('DOMContentLoaded', triggerReveal);
+  </script>
 </body>
 </html>

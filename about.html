@@ -5,26 +5,132 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About | Faros Legal</title>
 
+  <!-- Bootstrap & Fonts -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/lucide-static@latest/font/lucide.css" rel="stylesheet">
+
+  <!-- Shared styles -->
+  <link href="css/theme.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/theme.css">
-<link href="https://unpkg.com/lucide-static@latest/font/lucide.css" rel="stylesheet">
 
   <style>
-    :root {
-      --fg-dark: #111;
-      --fg-grey: #4a4a4a;
-      --bg-light: #fff;
-      --bg-section: #f5f5f3;
-      --accent-blue: #295F9E;
-      --beige: #eae5dc;
+    .about-hero .card-spotlight {
+      max-width: 940px;
     }
-    body { font-family: 'Poppins', sans-serif; background: var(--bg-light); color: var(--fg-grey); }
-    h1, h2, h3, h4, h5 { color: var(--fg-dark); }
-    a { color: var(--accent-blue); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .section { padding: 80px 0; }
+    .metrics-card {
+      border-radius: 14px;
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      background: #fff;
+      box-shadow: var(--card-shadow);
+      padding: 28px;
+      height: 100%;
+    }
+    .metrics-card h3 {
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      margin-bottom: 6px;
+    }
+    .story-card,
+    .value-card,
+    .timeline-card {
+      border-radius: 14px;
+      border: 1px solid rgba(17, 24, 39, 0.08);
+      background: #fff;
+      box-shadow: var(--card-shadow);
+      padding: 32px;
+      height: 100%;
+    }
+    .value-card i,
+    .story-card i {
+      color: var(--accent-blue);
+      font-size: 1.4rem;
+    }
+    .value-card h5 {
+      margin-top: 12px;
+    }
+    .timeline-card::before {
+      content: '';
+      position: absolute;
+      left: 32px;
+      top: 40px;
+      bottom: 40px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent-blue), var(--accent-emerald));
+      opacity: 0.5;
+    }
+    .timeline-list {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+    .timeline-list li {
+      position: relative;
+      padding-left: 60px;
+      margin-bottom: 28px;
+    }
+    .timeline-list li:last-child {
+      margin-bottom: 0;
+    }
+    .timeline-list strong {
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      color: var(--accent-blue);
+    }
+    .timeline-list span {
+      position: absolute;
+      left: 18px;
+      top: 4px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      border: 2px solid var(--accent-blue);
+      background: #fff;
+    }
+    .team-stack {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+    .team-stack .item {
+      border-radius: 14px;
+      border: 1px dashed rgba(17,24,39,0.18);
+      padding: 18px;
+      background: rgba(255,255,255,0.92);
+    }
+    .team-stack .item strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+    .principles-list {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 0;
+    }
+    .principles-list li {
+      display: flex;
+      gap: 12px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(17,24,39,0.08);
+    }
+    .principles-list li:last-child {
+      border-bottom: none;
+    }
+    .principles-list i {
+      color: var(--accent-emerald);
+      font-size: 1.1rem;
+      margin-top: 3px;
+    }
+    .culture-card {
+      border-radius: 18px;
+      border: 1px solid rgba(17,24,39,0.08);
+      background: linear-gradient(135deg, #111, #1f1f1f);
+      color: #fff;
+      padding: 40px;
+    }
   </style>
 </head>
 
@@ -48,61 +154,125 @@
   </nav>
 
   <!-- Hero -->
-  <section class="py-5 text-center" style="background: var(--bg-section);">
-    <div class="container">
-      <h1 class="fw-semibold">About Faros Legal</h1>
-      <p class="text-muted mb-0">A Bengaluru-based corporate law firm with an international outlook and a commitment to clarity, precision, and service.</p>
-    </div>
-  </section>
-
-  <!-- Our Story -->
-  <section class="section">
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-md-6">
-          <h2 class="fw-semibold mb-3">Our Story</h2>
-          <p>Faros Legal was founded with a simple vision: deliver legal counsel that’s both commercially pragmatic and deeply meticulous. Our team brings diverse experience across sectors — from technology to real estate, media, manufacturing, and financial services — ensuring that every matter we handle is grounded in both legal and business realities.</p>
-          <p>We operate with a “professional yet personal” philosophy — building relationships where collaboration with clients leads to sharper, faster, and more sustainable outcomes.</p>
+  <section class="hero about-hero">
+    <span class="floating-shape shape-1"></span>
+    <span class="floating-shape shape-2"></span>
+    <span class="floating-shape shape-3"></span>
+    <div class="container position-relative">
+      <div class="hero-badge">
+        <i class="lucide lucide-beacon"></i>
+        Strategic counsel anchored in Bengaluru
+      </div>
+      <div class="card card-spotlight mx-auto p-4 p-md-5 text-center">
+        <h1 class="fw-semibold mb-3">A Modern Corporate Law Firm Built for Momentum</h1>
+        <p>Faros Legal blends senior partner experience with agile execution. We advise on complex corporate transactions, investments, real estate, and disputes &mdash; always with measurable business outcomes in mind.</p>
+        <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+          <a href="practice-areas.html" class="btn btn-primary">Explore our capabilities</a>
+          <a href="contact.html" class="btn btn-outline-light">Meet the partners</a>
         </div>
-        <div class="col-md-6">
-          <img src="images/office-team.jpg" alt="Faros Legal team" class="img-fluid rounded shadow-sm">
+        <div class="row row-cols-1 row-cols-md-3 g-3 mt-4">
+          <div class="col">
+            <div class="metrics-card">
+              <h3>12+</h3>
+              <p class="mb-0">years of multi-disciplinary partner experience.</p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="metrics-card">
+              <h3>150+</h3>
+              <p class="mb-0">transactions, disputes, and diligence assignments delivered.</p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="metrics-card">
+              <h3>8</h3>
+              <p class="mb-0">core practice clusters covering corporate to contentious mandates.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Philosophy -->
-  <section class="section" style="background: var(--bg-section);">
+  <!-- Story -->
+  <section id="firm-overview">
     <div class="container">
       <div class="row g-5 align-items-center">
-        <div class="col-md-5">
-          <h2 class="fw-semibold">Our Philosophy</h2>
-          <p>Legal advice should not complicate business decisions — it should empower them. Our lawyers combine analytical rigor with strategic clarity to create value, minimize risk, and protect our clients’ interests in a fast-changing environment.</p>
+        <div class="col-lg-6">
+          <div class="story-card reveal-up">
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <i class="lucide lucide-compass"></i>
+              <div>
+                <div class="section-heading mb-1">Our origin</div>
+                <h2 class="section-title mb-0">Why Faros?</h2>
+              </div>
+            </div>
+            <p>Founded in Bengaluru, Faros (Greek for &ldquo;lighthouse&rdquo;) captures our role as steady navigators for founders, investors, and enterprises scaling new horizons. We recognized that clients needed legal partners who could move with deal pace, pre-empt regulatory issues, and provide crisp communication across stakeholders.</p>
+            <p>Our partners bring Big Law pedigree and in-house leadership experience. We intentionally built a lean structure that pairs senior involvement on every mandate with technology-enabled project management.</p>
+            <ul class="principles-list mt-4">
+              <li>
+                <i class="lucide lucide-check-circle"></i>
+                <div><strong>Outcome-first</strong> &mdash; advice framed around commercial decisions, not legal jargon.</div>
+              </li>
+              <li>
+                <i class="lucide lucide-check-circle"></i>
+                <div><strong>Co-building</strong> &mdash; we work alongside CFOs, investment teams, and founders as embedded partners.</div>
+              </li>
+              <li>
+                <i class="lucide lucide-check-circle"></i>
+                <div><strong>Accountability</strong> &mdash; transparent scopes, clear budgets, and proactive timelines.</div>
+              </li>
+            </ul>
+          </div>
         </div>
-        <div class="col-md-7">
+        <div class="col-lg-6">
+          <img src="images/office-team.jpg" alt="Faros Legal team" class="img-fluid rounded-4 shadow-lg reveal-up" style="max-height: 460px; object-fit: cover;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Differentiators -->
+  <section id="strengths" style="background: var(--bg-section);">
+    <div class="container">
+      <div class="row g-4 align-items-center">
+        <div class="col-lg-5">
+          <div class="section-heading">How we work</div>
+          <h2 class="section-title mb-3">Principles that shape every mandate</h2>
+          <p>From investment term sheets to dispute strategy, our approach is deliberately collaborative. We combine sector fluency, regulatory foresight, and well-documented processes to help clients maintain control of their timelines.</p>
+          <div class="culture-card mt-4">
+            <h4 class="fw-semibold mb-3">Culture of clarity</h4>
+            <p class="mb-0">Every associate understands the business context, so work product stays strategic &mdash; not just compliant. We review key deliverables in squads to ensure rigor, speed, and alignment.</p>
+          </div>
+        </div>
+        <div class="col-lg-7">
           <div class="row g-4">
             <div class="col-md-6">
-              <div class="p-4 bg-white rounded shadow-sm h-100">
-                <h5 class="fw-semibold mb-2">Client-Focused</h5>
-                <p>We understand each client’s context before offering solutions, ensuring precision and practicality.</p>
+              <div class="value-card reveal-up">
+                <i class="lucide lucide-layers"></i>
+                <h5>Cross-functional</h5>
+                <p class="mb-0">Corporate, funds, real estate, technology, and litigation lawyers collaborate daily, preventing silos.</p>
               </div>
             </div>
             <div class="col-md-6">
-              <div class="p-4 bg-white rounded shadow-sm h-100">
-                <h5 class="fw-semibold mb-2">Integrity & Transparency</h5>
-                <p>We believe clear communication and ethical practice form the foundation of long-term trust.</p>
+              <div class="value-card reveal-up" style="transition-delay: .1s;">
+                <i class="lucide lucide-gavel"></i>
+                <h5>Regulatory depth</h5>
+                <p class="mb-0">We track evolving SEBI, RBI, RERA, and DLI frameworks, translating them into actionable playbooks.</p>
               </div>
             </div>
             <div class="col-md-6">
-              <div class="p-4 bg-white rounded shadow-sm h-100">
-                <h5 class="fw-semibold mb-2">Commercial Understanding</h5>
-                <p>Our team translates legal insight into business strategy that strengthens operations and growth.</p>
+              <div class="value-card reveal-up" style="transition-delay: .2s;">
+                <i class="lucide lucide-rocket"></i>
+                <h5>Execution pace</h5>
+                <p class="mb-0">Purpose-built templates, diligence checklists, and deal rooms allow us to respond within hours &mdash; not days.</p>
               </div>
             </div>
             <div class="col-md-6">
-              <div class="p-4 bg-white rounded shadow-sm h-100">
-                <h5 class="fw-semibold mb-2">Responsiveness</h5>
-                <p>Speed and precision go hand-in-hand. We prioritize prompt, clear, and actionable advice.</p>
+              <div class="value-card reveal-up" style="transition-delay: .3s;">
+                <i class="lucide lucide-users-round"></i>
+                <h5>Partner access</h5>
+                <p class="mb-0">Senior lawyers remain involved from kick-off to close, providing a single point of accountability.</p>
               </div>
             </div>
           </div>
@@ -111,36 +281,108 @@
     </div>
   </section>
 
-  <!-- Team Ethos -->
-  <section class="section">
-    <div class="container text-center">
-      <h2 class="fw-semibold mb-4">Our Team Ethos</h2>
-      <p class="mx-auto" style="max-width: 720px;">Faros Legal’s team blends senior expertise with youthful energy. Each member contributes specialized knowledge — from corporate structuring and investment law to dispute resolution and IP — enabling the firm to handle matters that span multiple domains with agility and insight.</p>
+  <!-- Timeline & leadership -->
+  <section id="leadership">
+    <div class="container">
+      <div class="row g-5">
+        <div class="col-lg-6">
+          <div class="timeline-card position-relative reveal-up">
+            <div class="section-heading">Milestones</div>
+            <h2 class="section-title">Growth with intent</h2>
+            <ul class="timeline-list mt-4">
+              <li>
+                <span></span>
+                <strong>2017</strong>
+                <p class="mb-0">Founding partners establish Faros Legal after leading corporate practices across national firms.</p>
+              </li>
+              <li>
+                <span></span>
+                <strong>2019</strong>
+                <p class="mb-0">Launch of dedicated real estate and infrastructure desk to support institutional investors and developers.</p>
+              </li>
+              <li>
+                <span></span>
+                <strong>2021</strong>
+                <p class="mb-0">Technology transactions and venture financing team formalized to guide emerging and growth-stage companies.</p>
+              </li>
+              <li>
+                <span></span>
+                <strong>2023</strong>
+                <p class="mb-0">Integrated disputes and risk practice formed to deliver preventive strategy plus courtroom advocacy.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="section-heading">Leadership focus</div>
+          <h2 class="section-title">Partner-led, collaborative execution</h2>
+          <p>Our leadership team has advised on marquee M&amp;A deals, cross-border investments, and high-value litigations. They bring boardroom communication skills, regulatory foresight, and empathy for decision-makers under pressure.</p>
+          <div class="team-stack mt-4">
+            <div class="item">
+              <strong>Corporate &amp; Funds</strong>
+              Structuring, governance, and complex commercial contracts for domestic and international clients.
+            </div>
+            <div class="item">
+              <strong>Real Estate &amp; Infrastructure</strong>
+              Title verification, development agreements, financing, and regulatory interface across states.
+            </div>
+            <div class="item">
+              <strong>Disputes &amp; Risk</strong>
+              Strategists experienced in arbitration, company law tribunals, and urgent injunctive relief.
+            </div>
+            <div class="item">
+              <strong>Technology &amp; Data</strong>
+              Expertise spanning IP strategy, SaaS contracting, privacy compliance, and digital policy.
+            </div>
+          </div>
+          <p class="mt-4 mb-0 text-muted">Clients engage us for focused partner attention paired with energetic associates and project managers who keep files moving.</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="text-center" style="background: var(--accent-blue); color: white;">
+  <section class="cta-section text-center">
     <div class="container py-5">
-      <h2>Work With Us</h2>
-      <p class="mb-4">Looking for trusted legal counsel for your business? We’d love to hear from you.</p>
-      <a href="contact.html" class="btn btn-light">Get in Touch</a>
+      <h2 class="fw-semibold mb-3">Partner with Faros Legal</h2>
+      <p class="mb-4">Whether you are evaluating an acquisition, restructuring assets, or navigating litigation, we provide informed strategy with fast response times.</p>
+      <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
+        <a href="contact.html" class="btn btn-primary">Request a consultation</a>
+        <a href="practice-areas.html" class="btn btn-outline-dark">See practice coverage</a>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="bg-black text-white text-center py-3">
-    <small>© 2025 Faros Legal | Bengaluru, India</small>
+    <small>Ac 2025 Faros Legal | Bengaluru, India</small>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-const btn = document.getElementById('scrollTopBtn');
-window.addEventListener('scroll', () => {
-  btn.style.display = window.scrollY > 300 ? 'block' : 'none';
-});
-btn.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
-</script>
+  <button id="scrollTopBtn"><i class="lucide-arrow-up"></i></button>
 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const btn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      btn.style.display = window.scrollY > 300 ? 'flex' : 'none';
+    });
+    btn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    const revealTargets = () => document.querySelectorAll('.reveal-up');
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    function triggerReveal() {
+      revealTargets().forEach(el => observer.observe(el));
+    }
+
+    document.addEventListener('DOMContentLoaded', triggerReveal);
+  </script>
 </body>
 </html>

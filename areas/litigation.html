@@ -7,9 +7,38 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="../css/style.css" rel="stylesheet">
   <style>
-    body { font-family: 'Poppins', sans-serif; color: #4a4a4a; }
-    h1, h2, h3, h4, h5 { color: #111; }
+    :root {
+      --fg-dark: #111;
+      --fg-grey: #4a4a4a;
+      --accent-blue: #295F9E;
+      --border-soft: rgba(17,17,17,0.1);
+      --bg-soft: #f8f9fb;
+    }
+    body { font-family: 'Poppins', sans-serif; color: var(--fg-grey); background:#fff; line-height:1.7; }
+    h1, h2, h3, h4, h5 { color: var(--fg-dark); }
     section { padding: 80px 0; }
+    .eyebrow { text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.78rem; color: var(--accent-blue); font-weight: 600; display:block; margin-bottom:12px; }
+    .hero {
+      background: radial-gradient(circle at 20% 20%, rgba(41,95,158,0.08), transparent 45%),
+                  radial-gradient(circle at 80% 0%, rgba(41,95,158,0.12), transparent 55%),
+                  linear-gradient(120deg, #fdfdfd, #eef2fb);
+      border-bottom:1px solid var(--border-soft);
+    }
+    .hero h1 { font-size: 2.6rem; font-weight: 600; margin-bottom: 1rem; }
+    .hero h1 span { color: var(--accent-blue); }
+    .hero p { font-size:1.05rem; }
+    .hero p.lead { font-size:1.15rem; opacity:0.9; }
+    .hero-media { border-radius:24px; overflow:hidden; position:relative; min-height:320px; box-shadow:0 40px 90px rgba(41,95,158,0.22); border:1px solid rgba(17,17,17,0.08); }
+    .hero-media::after { content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(17,17,17,0.05), rgba(17,17,17,0.35)); }
+    .hero-media img { width:100%; height:100%; object-fit:cover; display:block; }
+    .content-section { background:#fff; position:relative; }
+    .content-section::before { content:''; position:absolute; inset:0; background:linear-gradient(180deg, rgba(41,95,158,0.05), transparent); pointer-events:none; }
+    .content-card { background:var(--bg-soft); border-radius:20px; padding:32px; height:100%; border:1px solid rgba(17,17,17,0.05); position:relative; overflow:hidden; }
+    .content-card::after { content:''; position:absolute; width:120px; height:120px; border-radius:50%; background:rgba(41,95,158,0.08); bottom:-40px; right:-30px; }
+    .content-card h2 { font-size:1.15rem; font-weight:600; margin-bottom:1rem; }
+    .list-check { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px; }
+    .list-check li { padding-left:0; }
+    @media (max-width: 991px) { .hero { text-align:center; } }
   </style>
 </head>
 
@@ -20,42 +49,58 @@
     </div>
   </nav>
 
-  <section class="py-5 text-center bg-light">
-    <div class="container">
-      <h1 class="fw-semibold">Litigation & Dispute Resolution</h1>
-      <p class="text-muted mb-0">Strategic, efficient, and business-oriented representation across courts and tribunals in India.</p>
-    </div>
-  </section>
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6">
+            <span class="eyebrow">Dispute resolution</span>
+            <h1>Litigation &amp; <span>Disputes</span></h1>
+            <p class="lead">Strategic, efficient representation across courts, tribunals, and arbitral forums in India.</p>
+            <p class="mb-0">We blend deep sector knowledge with proactive risk assessments so that every matter is run with clarity on outcomes, stakeholders, and timelines.</p>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero-media">
+              <img src="https://images.unsplash.com/photo-1505664063603-28e48ca204eb?auto=format&fit=crop&w=1200&q=80" alt="Court building">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
-  <section>
-    <div class="container">
-      <p>Our firm’s litigation practice provides end-to-end legal representation and dispute resolution services across a broad spectrum of industries. We advise and represent clients before courts, tribunals, and regulatory authorities across India, including the Supreme Court, various High Courts, and the National Company Law Tribunals (NCLTs).</p>
-      <p>Our team combines strategic insight with practical, business-oriented solutions to ensure efficient and effective dispute resolution. We focus on safeguarding our clients’ interests while minimizing legal and commercial risks.</p>
-
-      <h4 class="mt-5 mb-3">Our Expertise</h4>
-      <ul>
-        <li><strong>Commercial and Contractual Disputes</strong> – Breach of contract, shareholder and partnership disputes, joint ventures, and recovery actions.</li>
-        <li><strong>Corporate and Insolvency Matters</strong> – Representation before the NCLT and NCLAT on insolvency and restructuring issues.</li>
-        <li><strong>Real Estate Disputes</strong> – Title, development, and lease-related matters.</li>
-        <li><strong>Employment and Labour Disputes</strong> – Termination, non-compete, and industrial relations issues.</li>
-        <li><strong>Intellectual Property Enforcement</strong> – Trademark and copyright infringement, passing off, and trade secret protection.</li>
-        <li><strong>Banking and Financial Services Litigation</strong> – Recovery proceedings and regulatory disputes.</li>
-        <li><strong>Arbitration and Alternate Dispute Resolution</strong> – Representation in domestic and international arbitrations and enforcement of awards.</li>
-        <li><strong>Regulatory and White-Collar Matters</strong> – Advisory and representation in investigations and enforcement proceedings.</li>
-      </ul>
-    </div>
-  </section>
-
-  <section class="text-center" style="background:#295F9E;color:white;">
-    <div class="container py-5">
-      <h2>Need Legal Representation?</h2>
-      <p class="mb-4">Speak with our dispute resolution team for strategic, outcome-driven counsel.</p>
-      <a href="../contact.html" class="btn btn-light">Contact Us</a>
-    </div>
-  </section>
+    <section class="content-section">
+      <div class="container">
+        <div class="row g-4 align-items-stretch">
+          <div class="col-lg-6">
+            <div class="content-card h-100">
+              <h2>Representation spectrum</h2>
+              <p class="mb-3">End-to-end handling from pre-litigation strategy to enforcement.</p>
+              <ul class="list-check mb-0">
+                <li>Commercial and contractual disputes, shareholder issues, and recovery actions.</li>
+                <li>Corporate insolvency, restructuring, and appearances before NCLT/NCLAT.</li>
+                <li>Real estate, employment, banking, and financial services litigation.</li>
+                <li>Domestic and international arbitration, including award enforcement.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="content-card h-100">
+              <h2>Dispute toolkit</h2>
+              <p class="mb-3">We maintain specialised pods that stay ready for rapid turnarounds.</p>
+              <ul class="list-check mb-0">
+                <li>Investigation support and crisis playbooks for regulatory actions.</li>
+                <li>IP enforcement, customs seizures, and anti-counterfeiting drives.</li>
+                <li>White-collar advisory and representation before enforcement agencies.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <footer class="bg-black text-white text-center py-3">
-    <small>© 2025 Faros Legal | Bengaluru, India</small>
+    <small>&copy; 2025 Faros Legal | Bengaluru, India</small>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
