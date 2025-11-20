@@ -98,7 +98,7 @@
   </section>
 
   <!-- Insights & Highlights preview -->
-  <section id="insights-preview" style="background: var(--bg-section);">
+  <!-- <section id="insights-preview" style="background: var(--bg-section);">
     <div class="container">
       <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
@@ -109,30 +109,30 @@
       </div>
       <div id="insights-list" class="row g-4"></div>
     </div>
-  </section>
+  </section> -->
 
   <script>
-  fetch('data/insights.json')
-    .then(r => r.json())
-    .then(items => {
-      const container = document.getElementById('insights-list');
-      const latest = items.sort((a,b)=>new Date(b.date)-new Date(a.date)).slice(0,2);
-      latest.forEach((item, idx)=>{
-        const date = new Date(item.date).toLocaleDateString();
-        const card = document.createElement('div');
-        card.className = 'col-md-6';
-        card.innerHTML = `
-          <div class="insight-card h-100 p-4 reveal-up" style="transition-delay:${idx * 0.1}s">
-            <small>${item.category} • ${date}</small>
-            <h5 class="mt-2">${item.title}</h5>
-            <p class="mb-3">${item.summary}</p>
-            <a href="${item.link}" class="stretched-link fw-semibold">Read more</a>
-          </div>`;
-        container.appendChild(card);
-      });
-      triggerReveal();
-    })
-    .catch(err=>console.error('Insights load error:',err));
+  // fetch('data/insights.json')
+  //   .then(r => r.json())
+  //   .then(items => {
+  //     const container = document.getElementById('insights-list');
+  //     const latest = items.sort((a,b)=>new Date(b.date)-new Date(a.date)).slice(0,2);
+  //     latest.forEach((item, idx)=>{
+  //       const date = new Date(item.date).toLocaleDateString();
+  //       const card = document.createElement('div');
+  //       card.className = 'col-md-6';
+  //       card.innerHTML = `
+  //         <div class="insight-card h-100 p-4 reveal-up" style="transition-delay:${idx * 0.1}s">
+  //           <small>${item.category} • ${date}</small>
+  //           <h5 class="mt-2">${item.title}</h5>
+  //           <p class="mb-3">${item.summary}</p>
+  //           <a href="${item.link}" class="stretched-link fw-semibold">Read more</a>
+  //         </div>`;
+  //       container.appendChild(card);
+  //     });
+  //     triggerReveal();
+  //   })
+  //   .catch(err=>console.error('Insights load error:',err));
   </script>
 
   <!-- Contact CTA -->
