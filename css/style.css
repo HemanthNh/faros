@@ -48,7 +48,20 @@ a:hover {
 }
 
 .navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
   letter-spacing: 0.5px;
+}
+.navbar-brand img {
+  height: 44px;
+  width: auto;
+  display: block;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+.navbar-brand:hover img {
+  transform: scale(1.08);
+  filter: drop-shadow(0 12px 24px rgba(74, 158, 255, 0.34));
 }
 
 .nav-link {
@@ -125,7 +138,7 @@ a:hover {
     linear-gradient(135deg, #f6f5f2, #e8edf5);
   color: var(--fg-dark);
   text-align: center;
-  padding: 150px 16px 120px;
+  padding: 90px 16px 100px;
   position: relative;
   overflow: hidden;
 }
@@ -379,5 +392,5 @@ section { padding: 96px 0; }
 
 @media (max-width: 768px) {
   section { padding: 72px 0; }
-  .hero { padding: 120px 16px 100px; }
+  .hero { padding: 72px 16px 80px; }
 }

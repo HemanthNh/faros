@@ -53,12 +53,12 @@
     .timeline-card::before {
       content: '';
       position: absolute;
-      left: 32px;
+      left: 30px;
       top: 40px;
       bottom: 40px;
       width: 2px;
-      background: linear-gradient(180deg, var(--accent-blue), var(--accent-emerald));
-      opacity: 0.5;
+      background: linear-gradient(180deg, #d6e2ff, #c9f1e5);
+      opacity: 0.9;
     }
     .timeline-list {
       list-style: none;
@@ -67,27 +67,37 @@
     }
     .timeline-list li {
       position: relative;
-      padding-left: 60px;
-      margin-bottom: 28px;
+      padding: 14px 16px 14px 70px;
+      margin-bottom: 16px;
+      border-radius: 10px;
+      border: 1px solid rgba(17,24,39,0.08);
+      background: rgba(255,255,255,0.9);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .timeline-list li:last-child {
       margin-bottom: 0;
     }
+    .timeline-list li:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(12, 24, 43, 0.12);
+    }
     .timeline-list strong {
-      font-size: 0.95rem;
+      display: inline-block;
+      font-size: 1rem;
       letter-spacing: 0.3px;
       text-transform: uppercase;
-      color: var(--accent-blue);
+      color: #1f2937;
     }
     .timeline-list span {
       position: absolute;
-      left: 18px;
-      top: 4px;
+      left: 20px;
+      top: 18px;
       width: 16px;
       height: 16px;
       border-radius: 50%;
-      border: 2px solid var(--accent-blue);
-      background: #fff;
+      border: 2px solid #fff;
+      background: linear-gradient(135deg, #4a9eff, #34d399);
+      box-shadow: 0 0 0 5px rgba(74, 158, 255, 0.12);
     }
     .team-stack {
       display: grid;
@@ -131,6 +141,9 @@
       color: #fff;
       padding: 40px;
     }
+    .culture-card h4 {
+      color: #4a9eff;
+    }
   </style>
 </head>
 
@@ -146,7 +159,6 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="practice-areas.html">Practice Areas</a></li>
-          <li class="nav-item"><a class="nav-link" href="insights.html">Insights & Highlights</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -226,7 +238,7 @@
           </div>
         </div>
         <div class="col-lg-6">
-          <img src="images/office-team.jpg" alt="Faros Legal team" class="img-fluid rounded-4 shadow-lg reveal-up" style="max-height: 460px; object-fit: cover;">
+          <img src="images/team2.jpg" alt="Faros Legal team" class="img-fluid rounded-4 shadow-lg reveal-up" style="max-height: 460px; object-fit: cover;">
         </div>
       </div>
     </div>
@@ -335,8 +347,9 @@
               Expertise spanning IP strategy, SaaS contracting, privacy compliance, and digital policy.
             </div>
           </div>
-          <p class="mt-4 mb-0 text-muted">Clients engage us for focused partner attention paired with energetic associates and project managers who keep files moving.</p>
         </div>
+          <!-- <p class="mt-4 mb-0 text-muted">Clients engage us for focused partner attention paired with energetic associates and project managers who keep files moving.</p> -->
+
       </div>
     </div>
   </section>

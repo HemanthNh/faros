@@ -19,7 +19,15 @@
       --accent-blue: #295F9E;
       --beige: #eae5dc;
     }
-    body { font-family: 'Poppins', sans-serif; color: var(--fg-grey); background: var(--bg-light); }
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: var(--fg-grey);
+      background:
+        radial-gradient(circle at 14% 18%, rgba(41,95,158,0.12), transparent 32%),
+        radial-gradient(circle at 84% 10%, rgba(234,229,220,0.6), transparent 36%),
+        radial-gradient(circle at 72% 88%, rgba(41,95,158,0.08), transparent 32%),
+        linear-gradient(180deg, #f9fafc 0%, #f4f7fb 48%, #f8f3ec 100%);
+    }
     h1, h2, h3, h4, h5 { color: var(--fg-dark); }
     a { color: var(--accent-blue); text-decoration: none; }
     a:hover { text-decoration: underline; }
