@@ -31,7 +31,7 @@
     }
     .contact-highlights i {
       color: var(--accent-blue);
-      font-size: 1.2rem;
+      font-size: 1.5rem;
     }
     .contact-card,
     .map-card,
@@ -61,7 +61,7 @@
     }
     .contact-list i {
       color: var(--accent-blue);
-      font-size: 1.1rem;
+      font-size: 1.35rem;
     }
     .info-points {
       list-style: none;
@@ -83,6 +83,10 @@
     .map-card iframe {
       border: 0;
       border-radius: 12px;
+    }
+    #contact-details {
+      margin-top: -22px;
+      padding-top: 70px;
     }
     .contact-form-section {
       background: linear-gradient(135deg, rgba(234,229,220,0.45), rgba(211,222,238,0.7));
@@ -113,7 +117,10 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-black py-3">
     <div class="container">
-      <a class="navbar-brand fw-bold text-white" href="index.html">Faros Legal</a>
+      <a class="navbar-brand fw-bold text-white" href="index.html">
+        <img src="images/Faros_Logo.jpeg" alt="Faros Legal">
+        <span>Faros Legal</span>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -121,7 +128,6 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="practice-areas.html">Practice Areas</a></li>
-          <li class="nav-item"><a class="nav-link" href="insights.html">Insights & Highlights</a></li>
           <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -135,7 +141,7 @@
     <span class="floating-shape shape-3"></span>
     <div class="container position-relative">
       <div class="hero-badge">
-        <i class="lucide lucide-phone-call"></i>
+        <i data-lucide="phone-call"></i>
         Bengaluru-based corporate counsel
       </div>
       <div class="card card-spotlight mx-auto p-4 p-md-5 text-center" style="max-width: 960px;">
@@ -144,19 +150,19 @@
         <div class="row row-cols-1 row-cols-md-3 g-3 mt-3 contact-highlights">
           <div class="col">
             <div class="info-pill">
-              <i class="lucide lucide-mail"></i>
+              <i data-lucide="mail"></i>
               Rapid responses and clear scopes for new mandates.
             </div>
           </div>
           <div class="col">
             <div class="info-pill">
-              <i class="lucide lucide-shield-check"></i>
+              <i data-lucide="shield-check"></i>
               Discreet handling of sensitive and high-stakes matters.
             </div>
           </div>
           <div class="col">
             <div class="info-pill">
-              <i class="lucide lucide-users"></i>
+              <i data-lucide="users"></i>
               Dedicated partner oversight on every engagement.
             </div>
           </div>
@@ -172,6 +178,11 @@
   <!-- Contact Details -->
   <section id="contact-details">
     <div class="container">
+      <div class="text-center mb-4">
+        <div class="section-heading justify-content-center">Get in touch</div>
+        <h2 class="section-title mb-1">Contact Details</h2>
+        <p class="section-desc mx-auto">Reach us for mandates, filings, and quick consultations across our practice areas.</p>
+      </div>
       <div class="row g-4">
         <div class="col-lg-4 col-md-6">
           <div class="contact-card p-4 h-100 reveal-up">
@@ -179,21 +190,21 @@
             <p class="mb-0">Faros Legal<br>Bengaluru, Karnataka, India</p>
             <ul class="contact-list mt-4">
               <li>
-                <i class="lucide lucide-phone"></i>
+                <i data-lucide="phone"></i>
                 <div>
                   <small class="text-uppercase text-muted d-block">Phone</small>
                   <a href="tel:+919611320568" class="fw-semibold text-decoration-none text-dark">+91 96113 20568</a>
                 </div>
               </li>
               <li>
-                <i class="lucide lucide-mail"></i>
+                <i data-lucide="mail"></i>
                 <div>
                   <small class="text-uppercase text-muted d-block">Email</small>
                   <a href="mailto:info@faroslegal.com" class="fw-semibold text-decoration-none text-dark">info@faroslegal.com</a>
                 </div>
               </li>
               <li>
-                <i class="lucide lucide-map-pin"></i>
+                <i data-lucide="map-pin"></i>
                 <div>
                   <small class="text-uppercase text-muted d-block">Service footprint</small>
                   India-wide with strategic cross-border support.
@@ -208,15 +219,15 @@
             <p class="mb-3">We structure bespoke teams across key practice areas.</p>
             <ul class="contact-list">
               <li>
-                <i class="lucide lucide-briefcase"></i>
+                <i data-lucide="briefcase"></i>
                 <div>Investments, M&A, joint ventures, and governance advisory.</div>
               </li>
               <li>
-                <i class="lucide lucide-city"></i>
+                <i data-lucide="building-2"></i>
                 <div>Real estate, infrastructure, and regulatory clearances.</div>
               </li>
               <li>
-                <i class="lucide lucide-file-text"></i>
+                <i data-lucide="file-text"></i>
                 <div>Commercial contracting, disputes, and risk mitigation.</div>
               </li>
             </ul>
@@ -228,15 +239,15 @@
             <p class="mb-3">Let us know your preferred mode and timeline.</p>
             <ul class="contact-list">
               <li>
-                <i class="lucide lucide-clock-8"></i>
+                <i data-lucide="clock-8"></i>
                 <div>Monday to Friday &middot; 9:30 AM - 7:30 PM IST</div>
               </li>
               <li>
-                <i class="lucide lucide-monitor-smartphone"></i>
+                <i data-lucide="monitor-smartphone"></i>
                 <div>Virtual briefings on Teams, Zoom, or secure conference lines.</div>
               </li>
               <li>
-                <i class="lucide lucide-calendar"></i>
+                <i data-lucide="calendar"></i>
                 <div>Weekend slots available for urgent diligence or filings.</div>
               </li>
             </ul>
@@ -270,9 +281,9 @@
           <h2 class="section-title">Send us a detailed brief</h2>
           <p>Outline your transaction, diligence requirement, or dispute so we can align the right partner and turnaround. Wherever possible, include timing considerations, counterparties, and jurisdictions involved.</p>
           <ul class="info-points">
-            <li><i class="lucide lucide-check-circle"></i>Receive an introductory call or email within one business day.</li>
-            <li><i class="lucide lucide-check-circle"></i>Signed NDAs available on request prior to sharing data rooms.</li>
-            <li><i class="lucide lucide-check-circle"></i>Engagement letters, scopes, and budgets issued digitally.</li>
+            <li><i data-lucide="check-circle"></i>Receive an introductory call or email within one business day.</li>
+            <li><i data-lucide="check-circle"></i>Signed NDAs available on request prior to sharing data rooms.</li>
+            <li><i data-lucide="check-circle"></i>Engagement letters, scopes, and budgets issued digitally.</li>
           </ul>
         </div>
         <div class="col-lg-7">
@@ -326,7 +337,7 @@
     <small>Ac 2025 Faros Legal | Bengaluru, India</small>
   </footer>
 
-  <button id="scrollTopBtn"><i class="lucide-arrow-up"></i></button>
+  <button id="scrollTopBtn"><i data-lucide="arrow-up"></i></button>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
@@ -396,5 +407,8 @@
 
     document.addEventListener('DOMContentLoaded', triggerReveal);
   </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

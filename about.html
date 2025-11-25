@@ -10,8 +10,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link href="https://unpkg.com/lucide-static@latest/font/lucide.css" rel="stylesheet">
+  <!-- <link href="https://unpkg.com/lucide-static@latest/font/lucide.css" rel="stylesheet"> -->
+  <!-- <script src="https://unpkg.com/lucide@latest"></script> -->
+   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
+  <script>
+    lucide.createIcons();
+  </script>
   <!-- Shared styles -->
   <link href="css/theme.css" rel="stylesheet">
   <link href="css/style.css" rel="stylesheet">
@@ -144,6 +149,49 @@
     .culture-card h4 {
       color: #4a9eff;
     }
+    .image-stack {
+      position: relative;
+      border-radius: 18px;
+      padding: 12px;
+      background: #fff;
+      border: 1px solid rgba(17,24,39,0.08);
+      box-shadow: 0 12px 30px rgba(12, 24, 43, 0.12);
+      overflow: hidden;
+    }
+    .image-stack::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #e8f2ff, #def7ed);
+      transform: translate(16px, 16px);
+      z-index: 0;
+      box-shadow: 0 18px 40px rgba(12, 24, 43, 0.08);
+    }
+    .image-stack img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      max-height: 460px;
+      object-fit: cover;
+      border-radius: 14px;
+      display: block;
+    }
+    .image-chip {
+      position: absolute;
+      bottom: 16px;
+      right: 16px;
+      background: rgba(15, 23, 42, 0.85);
+      color: #e7f2ff;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 10px 24px rgba(12, 24, 43, 0.18);
+      z-index: 1;
+    }
   </style>
 </head>
 
@@ -151,7 +199,10 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-black py-3">
     <div class="container">
-      <a class="navbar-brand fw-bold text-white" href="index.html">Faros Legal</a>
+      <a class="navbar-brand fw-bold text-white" href="index.html">
+        <img src="images/Faros_Logo.jpeg" alt="Faros Legal">
+        <span>Faros Legal</span>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -172,7 +223,7 @@
     <span class="floating-shape shape-3"></span>
     <div class="container position-relative">
       <div class="hero-badge">
-        <i class="lucide lucide-beacon"></i>
+        <i data-lucide="beacon"></i>
         Strategic counsel anchored in Bengaluru
       </div>
       <div class="card card-spotlight mx-auto p-4 p-md-5 text-center">
@@ -213,7 +264,9 @@
         <div class="col-lg-6">
           <div class="story-card reveal-up">
             <div class="d-flex align-items-center gap-3 mb-3">
-              <i class="lucide lucide-compass"></i>
+              <i data-lucide="compass"></i>
+                <!-- <i data-lucide="menu"></i> -->
+
               <div>
                 <div class="section-heading mb-1">Our origin</div>
                 <h2 class="section-title mb-0">Why Faros?</h2>
@@ -223,22 +276,25 @@
             <p>Our partners bring Big Law pedigree and in-house leadership experience. We intentionally built a lean structure that pairs senior involvement on every mandate with technology-enabled project management.</p>
             <ul class="principles-list mt-4">
               <li>
-                <i class="lucide lucide-check-circle"></i>
+                <i data-lucide="check-circle"></i>
                 <div><strong>Outcome-first</strong> &mdash; advice framed around commercial decisions, not legal jargon.</div>
               </li>
               <li>
-                <i class="lucide lucide-check-circle"></i>
+                <i data-lucide="check-circle"></i>
                 <div><strong>Co-building</strong> &mdash; we work alongside CFOs, investment teams, and founders as embedded partners.</div>
               </li>
               <li>
-                <i class="lucide lucide-check-circle"></i>
+                <i data-lucide="check-circle"></i>
                 <div><strong>Accountability</strong> &mdash; transparent scopes, clear budgets, and proactive timelines.</div>
               </li>
             </ul>
           </div>
         </div>
         <div class="col-lg-6">
-          <img src="images/team2.jpg" alt="Faros Legal team" class="img-fluid rounded-4 shadow-lg reveal-up" style="max-height: 460px; object-fit: cover;">
+          <div class="image-stack reveal-up">
+            <img src="images/team2.jpg" alt="Faros Legal team">
+            <span class="image-chip">Bengaluru team</span>
+          </div>
         </div>
       </div>
     </div>
@@ -261,28 +317,28 @@
           <div class="row g-4">
             <div class="col-md-6">
               <div class="value-card reveal-up">
-                <i class="lucide lucide-layers"></i>
+                <i data-lucide="layers"></i>
                 <h5>Cross-functional</h5>
                 <p class="mb-0">Corporate, funds, real estate, technology, and litigation lawyers collaborate daily, preventing silos.</p>
               </div>
             </div>
             <div class="col-md-6">
               <div class="value-card reveal-up" style="transition-delay: .1s;">
-                <i class="lucide lucide-gavel"></i>
+                <i data-lucide="gavel"></i>
                 <h5>Regulatory depth</h5>
                 <p class="mb-0">We track evolving SEBI, RBI, RERA, and DLI frameworks, translating them into actionable playbooks.</p>
               </div>
             </div>
             <div class="col-md-6">
               <div class="value-card reveal-up" style="transition-delay: .2s;">
-                <i class="lucide lucide-rocket"></i>
+                <i data-lucide="rocket"></i>
                 <h5>Execution pace</h5>
                 <p class="mb-0">Purpose-built templates, diligence checklists, and deal rooms allow us to respond within hours &mdash; not days.</p>
               </div>
             </div>
             <div class="col-md-6">
               <div class="value-card reveal-up" style="transition-delay: .3s;">
-                <i class="lucide lucide-users-round"></i>
+                <i data-lucide="users-round"></i>
                 <h5>Partner access</h5>
                 <p class="mb-0">Senior lawyers remain involved from kick-off to close, providing a single point of accountability.</p>
               </div>
@@ -371,7 +427,7 @@
     <small>Ac 2025 Faros Legal | Bengaluru, India</small>
   </footer>
 
-  <button id="scrollTopBtn"><i class="lucide-arrow-up"></i></button>
+  <button id="scrollTopBtn"><i data-lucide="arrow-up"></i></button>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
@@ -396,6 +452,11 @@
     }
 
     document.addEventListener('DOMContentLoaded', triggerReveal);
+  </script>
+
+   <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
   </script>
 </body>
 </html>

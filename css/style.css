@@ -192,6 +192,12 @@ a:hover {
 /* Sections */
 section { padding: 96px 0; }
 
+/* Bring practice preview closer to hero */
+#practice-preview {
+  margin-top: -28px;
+  padding-top: 68px;
+}
+
 .section-heading {
   display: inline-flex;
   align-items: center;

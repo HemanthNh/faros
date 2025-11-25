@@ -23,19 +23,25 @@
       font-family: 'Poppins', sans-serif;
       color: var(--fg-grey);
       background:
-        radial-gradient(circle at 14% 18%, rgba(41,95,158,0.12), transparent 32%),
-        radial-gradient(circle at 84% 10%, rgba(234,229,220,0.6), transparent 36%),
-        radial-gradient(circle at 72% 88%, rgba(41,95,158,0.08), transparent 32%),
-        linear-gradient(180deg, #f9fafc 0%, #f4f7fb 48%, #f8f3ec 100%);
+        linear-gradient(180deg, rgba(234, 229, 220, 0.28), rgba(234, 229, 220, 0)) no-repeat,
+        radial-gradient(circle at 75% 10%, rgba(41, 95, 158, 0.08), transparent 32%),
+        var(--bg-light);
     }
     h1, h2, h3, h4, h5 { color: var(--fg-dark); }
     a { color: var(--accent-blue); text-decoration: none; }
     a:hover { text-decoration: underline; }
     .section { padding: 80px 0; }
-    .section-soft { background: var(--bg-section); }
+    .practice-areas-section {
+      position: relative;
+      background: transparent;
+    }
+    .section-soft { background: rgba(255,255,255,0.5); }
     .eyebrow { letter-spacing: 0.25em; text-transform: uppercase; font-size: 0.75rem; font-weight: 600; color: var(--accent-blue); display: inline-block; margin-bottom: 12px; }
     .hero-section {
-      background: linear-gradient(135deg, var(--bg-section) 0%, #fafaf8 100%);
+      background:
+        radial-gradient(circle at 12% 20%, rgba(41, 95, 158, 0.12), transparent 32%),
+        radial-gradient(circle at 88% 18%, rgba(53, 196, 163, 0.14), transparent 30%),
+        linear-gradient(135deg, #f6f5f2, #e8edf5);
       padding: 80px 0 60px;
     }
     .hero-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; align-items: center; }
@@ -90,7 +96,7 @@
     @media (min-width: 768px) and (max-width: 1199px) { .cards-grid { grid-template-columns: repeat(2, 1fr); column-gap: 28px; row-gap: 64px; } }
     @media (min-width: 1200px) { .cards-grid { grid-template-columns: repeat(3, 1fr); column-gap: 32px; row-gap: 72px; } }
     
-    .card-item { background: linear-gradient(135deg, rgba(245,245,243,0.85) 0%, rgba(255,255,255,0.8) 100%) !important; border-radius: 20px; padding: 64px 32px 32px 32px !important; display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: 12px; cursor: pointer; transition: all .3s ease; border: 1px solid rgba(41,95,158,0.08); margin-bottom: 32px !important; position: relative; min-height: 360px; }
+    .card-item { background: #fff !important; border-radius: 20px; padding: 64px 32px 32px 32px !important; display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: 12px; cursor: pointer; transition: all .3s ease; border: 1px solid rgba(17,24,39,0.08); margin-bottom: 32px !important; position: relative; min-height: 360px; box-shadow: var(--card-shadow); }
     .card-item:hover { transform: translateY(-8px); box-shadow: 0 16px 40px rgba(41,95,158,0.15); }
     .card-item:focus { outline: 2px solid var(--accent-blue); outline-offset: 2px; }
     
@@ -117,6 +123,17 @@
     .card-cta { border: none; background: rgba(41,95,158,0.12); color: var(--accent-blue); padding: 10px 18px; border-radius: 999px; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; margin-top: 8px; transition: all .2s ease; }
     .card-cta .material-icons { font-size: 1rem; }
     .card-item:hover .card-cta { background: var(--accent-blue); color: white; }
+    .card-link { text-decoration: none; color: inherit; display: block; }
+    .card-link:focus { outline: none; }
+    .card-link:focus .card-item { outline: 2px solid var(--accent-blue); outline-offset: 2px; }
+    .cta-band {
+      background: linear-gradient(135deg, #1f4d7c 0%, #295f9e 55%, #1a3c61 100%);
+      color: #fdfdfd;
+    }
+    .cta-band h2,
+    .cta-band p {
+      color: #fff;
+    }
     .timeline { overflow-x:auto; padding:24px 0; }
     .timeline-track { display:flex; gap:16px; align-items:center; min-width:680px; scroll-snap-type:x mandatory; }
     .timeline-item { min-width:220px; max-width:280px; background:white; border-radius:16px; padding:20px; box-shadow:0 6px 18px rgba(17,17,17,0.08); display:flex; flex-direction:column; gap:8px; border:1px solid rgba(17,17,17,0.06); }
@@ -147,7 +164,10 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-black py-3">
     <div class="container">
-      <a class="navbar-brand fw-bold text-white" href="index.html">Faros Legal</a>
+      <a class="navbar-brand fw-bold text-white" href="index.html">
+        <img src="images/Faros_Logo.jpeg" alt="Faros Legal">
+        <span>Faros Legal</span>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -155,7 +175,6 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
           <li class="nav-item"><a class="nav-link active" href="practice-areas.html">Practice Areas</a></li>
-          <li class="nav-item"><a class="nav-link" href="insights.html">Insights & Highlights</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -227,7 +246,7 @@
     </div>
   </section>
   <!-- Practice Areas Grid -->
-  <section class="section">
+  <section class="section practice-areas-section">
     <div class="container-xxl px-4 px-xl-5">
       <div class="practice-intro">
         <div>
@@ -256,77 +275,10 @@
       </div>
       <!-- Cards Grid (3 columns) -->
       <div class="cards-grid" id="cards-grid"></div>
-      <!-- Modal (Bootstrap) -->
-      <div class="modal fade" id="areaModal" tabindex="-1" aria-labelledby="areaModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg modal-dialog-centered">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="areaModalLabel">Practice Area</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <div style="display:flex; gap:16px; align-items:flex-start;">
-                <div id="modal-icon" style="font-size:34px; width:56px; height:56px; display:flex; align-items:center; justify-content:center; border-radius:8px; background:var(--bg-section);"></div>
-                <div>
-                  <h4 id="modal-title" style="margin-top:0"></h4>
-                  <p id="modal-desc" class="text-muted"></p>
-                  <a id="modal-link" href="#" class="fw-semibold d-inline-flex align-items-center gap-1">Read full details</a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!-- Process -->
-  <section class="section section-soft">
-    <div class="container">
-      <div class="row align-items-start g-4">
-        <div class="col-lg-4">
-          <span class="eyebrow">How we partner</span>
-          <h2 class="fw-semibold mb-3">From diagnosis to steady state</h2>
-          <p>Every engagement follows a structured launch, governance cadence, and reporting rhythm so you always know what is next.</p>
-          <ul class="list-check">
-            <li><span class="material-icons">check_circle</span><span>Partner visibility on each workstream with fortnightly steering check-ins.</span></li>
-            <li><span class="material-icons">check_circle</span><span>Shared dashboards for matters, timelines, regulators, and budget usage.</span></li>
-            <li><span class="material-icons">check_circle</span><span>Rapid-response lanes for urgent litigation or regulatory notices.</span></li>
-          </ul>
-        </div>
-        <div class="col-lg-8">
-          <div class="timeline">
-            <div class="timeline-track">
-              <div class="timeline-item">
-                <div class="step">01</div>
-                <h4>Discovery & prioritization</h4>
-                <p>Map mandates, stakeholders, and risk appetite to set the agenda.</p>
-              </div>
-              <div class="timeline-connector"></div>
-              <div class="timeline-item">
-                <div class="step">02</div>
-                <h4>Blueprint & playbooks</h4>
-                <p>Define workflows, templates, escalation ladders, and reporting formats.</p>
-              </div>
-              <div class="timeline-connector"></div>
-              <div class="timeline-item">
-                <div class="step">03</div>
-                <h4>Execution pods</h4>
-                <p>Partner-led pods run day-to-day matters with transparent status signals.</p>
-              </div>
-              <div class="timeline-connector"></div>
-              <div class="timeline-item">
-                <div class="step">04</div>
-                <h4>Review & scale</h4>
-                <p>Quarterly retros, horizon scanning, and scale-up of additional support.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
   <!-- Matrix -->
-  <section class="section pt-0">
+  <!-- <section class="section pt-0">
     <div class="container">
       <div class="row align-items-center mb-4">
         <div class="col-lg-8">
@@ -338,7 +290,7 @@
           <a href="contact.html" class="btn btn-outline-dark">Book a scoping call</a>
         </div>
       </div>
-      <!-- <div class="matrix-container">
+      <div class="matrix-container">
         <table class="matrix-table">
           <thead>
             <tr>
@@ -378,7 +330,7 @@
               </td>
               <td>Private equity, VC, and strategic tie-ups with multi-disciplinary diligence.</td>
               <td>Cross-functional squads across tax, regulatory, disputes, and HR.</td>
-              <td><a href="areas/mergers-acquisitions.html" class="matrix-link">View capability <span class="material-icons">arrow_outward</span></a></td>
+              <td><a href="areas/investment-transactions.html" class="matrix-link">View capability <span class="material-icons">arrow_outward</span></a></td>
             </tr>
             <tr>
               <td class="matrix-icon"><span class="material-icons">real_estate_agent</span></td>
@@ -398,7 +350,7 @@
               </td>
               <td>IT, cloud, and media agreements plus cybersecurity, IP, and compliance.</td>
               <td>Product-counsel pods partnering with engineering and product owners.</td>
-              <td><a href="areas/intellectual-property.html" class="matrix-link">View capability <span class="material-icons">arrow_outward</span></a></td>
+              <td><a href="areas/communication-technology-media.html" class="matrix-link">View capability <span class="material-icons">arrow_outward</span></a></td>
             </tr>
             <tr>
               <td class="matrix-icon"><span class="material-icons">gavel</span></td>
@@ -412,15 +364,15 @@
             </tr>
           </tbody>
         </table>
-      </div> -->
+      </div>
     </div>
-  </section>
+  </section> -->
   <!-- CTA -->
-  <section class="text-white py-5" style="background: linear-gradient(135deg, var(--accent-blue) 0%, #1e4a7a 100%);">
+  <section class="text-white py-5 cta-band">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-8">
-          <h2 class="fw-semibold mb-2">Ready to Discuss Your Legal Needs-</h2>
+          <h2 class="fw-semibold mb-2">Ready to Discuss Your Legal Needs?</h2>
           <p class="mb-0">Our team is ready to provide tailored advice and practical solutions for your business challenges.</p>
         </div>
         <div class="col-lg-4 text-lg-end mt-4 mt-lg-0">
@@ -441,10 +393,10 @@
       { id: 3, title: 'Real Estate', category: 'realstate', icon: 'real_estate_agent', desc: 'Title verification, diligence, transaction documentation, financing support, and liaison with authorities for developers, investors, and occupiers across India\'s real estate ecosystem.', subtitle: 'High-value sales, leasing, and financing counsel.', meta: ['Title diligence', 'Developer support'], link: 'areas/real-estate.html' },
       { id: 4, title: 'Intellectual Property', category: 'corporate', icon: 'lightbulb', desc: 'Advisory, transactional, and enforcement support for trademarks, copyrights, patents, designs, and data privacy matters, covering prosecution strategy, litigation, and commercialization.', subtitle: 'Prosecution, enforcement, and technology transfers.', meta: ['Trademarks & patents', 'Data privacy'], link: 'areas/intellectual-property.html' },
       { id: 5, title: 'Mergers & Acquisitions', category: 'transactions', icon: 'handshake', desc: 'End-to-end advice from diligence to negotiation and finalization of transaction documents for listed companies, multinational groups, and the start-up ecosystem.', subtitle: 'Buy-side, sell-side, and cross-border integration.', meta: ['Deal strategy', 'Structured closings'], link: 'areas/mergers-acquisitions.html' },
-      { id: 6, title: 'Investment Transactions', category: 'transactions', icon: 'sync_alt', desc: 'Private equity, venture capital, and strategic alliances handled with multidisciplinary input on corporate, litigation, tax, employment, and regulatory considerations throughout the deal lifecycle.', subtitle: 'Capital solutions managed from diligence to integration.', meta: ['PE/VC focus', 'Reg approvals'], link: 'areas/mergers-acquisitions.html' },
+      { id: 6, title: 'Investment Transactions', category: 'transactions', icon: 'sync_alt', desc: 'Private equity, venture capital, and strategic alliances handled with multidisciplinary input on corporate, litigation, tax, employment, and regulatory considerations throughout the deal lifecycle.', subtitle: 'Capital solutions managed from diligence to integration.', meta: ['PE/VC focus', 'Reg approvals'], link: 'areas/investment-transactions.html' },
       { id: 7, title: 'Foreign Investment & Exchange Control', category: 'transactions', icon: 'public', desc: 'Inbound and outbound investment structuring under FEMA, RBI, and sectoral caps, including market entry for highly regulated industries and technology collaborations.', subtitle: 'FEMA, RBI, and sectoral roadmaps for capital flows.', meta: ['Entry strategies', 'Regulatory liaisons'], link: 'areas/foreign-investment.html' },
       { id: 8, title: 'Human Resources and Employment', category: 'corporate', icon: 'groups', desc: 'Employment structuring, ESOP design, employee transfers, terminations, restrictive covenants, and multi-jurisdictional compliance for fast-scaling businesses.', subtitle: 'People-first policies, transitions, and investigations.', meta: ['ESOP design', 'Cross-border HR'], link: 'areas/employment.html' },
-      { id: 9, title: 'Communication, Technology & Media', category: 'corporate', icon: 'memory', desc: 'IT law, cybersecurity, and media counsel covering software development, licensing, outsourcing, cloud agreements, platform documentation, and e-commerce compliance.', subtitle: 'Product counsel for software, media, and digital platforms.', meta: ['IT & cyber', 'Cloud/SaaS docs'], link: 'areas/intellectual-property.html' },
+      { id: 9, title: 'Communication, Technology & Media', category: 'corporate', icon: 'memory', desc: 'IT law, cybersecurity, and media counsel covering software development, licensing, outsourcing, cloud agreements, platform documentation, and e-commerce compliance.', subtitle: 'Product counsel for software, media, and digital platforms.', meta: ['IT & cyber', 'Cloud/SaaS docs'], link: 'areas/communication-technology-media.html' },
       { id: 10, title: 'Maritime', category: 'dispute', icon: 'directions_boat', desc: 'Maritime and offshore transactions, ship finance, vessel sale/purchase, shipbuilding, arrests, regulatory matters, and dispute management for global operators.', subtitle: 'Shipping finance, offshore, and port advisory.', meta: ['Vessel finance', 'Arrest & disputes'], link: 'areas/maritime.html' },
       { id: 11, title: 'Agribusiness & FMCG', category: 'dispute', icon: 'agriculture', desc: 'Advisory for agribusiness and consumer brands on advertising claims, legal metrology, labeling, product liability, brand protection, e-labelling, and GST-led pricing.', subtitle: 'Consumer and agri compliance for brand-safe growth.', meta: ['Advertising & labeling', 'Product risk audits'], link: 'areas/agribusiness.html' },
       { id: 12, title: 'Litigation', category: 'dispute', icon: 'gavel', desc: 'Representation before courts, tribunals, and regulators on commercial, insolvency, real estate, employment, IP, banking, arbitration, and white-collar mandates.', subtitle: 'Dispute resolution and regulatory defence nationwide.', meta: ['Courts & tribunals', 'Arbitration support'], link: 'areas/litigation.html' }
@@ -456,12 +408,6 @@
       dispute: 'Disputes & Specialized'
     };
     const filterBtns = document.querySelectorAll('.filter-btn');
-    const modalEl = document.getElementById('areaModal');
-    const modalTitle = document.getElementById('modal-title');
-    const modalDesc = document.getElementById('modal-desc');
-    const modalLink = document.getElementById('modal-link');
-    const modalIcon = document.getElementById('modal-icon');
-    const bsModal = new bootstrap.Modal(modalEl, { keyboard: true });
     const colorClasses = ['color-1', 'color-2', 'color-3', 'color-4', 'color-5', 'color-6', 'color-7', 'color-8', 'color-9', 'color-10'];
     
     function renderCards(list) {
@@ -474,43 +420,22 @@
           ? `<div class="card-meta">${area.meta.map((item, i) => `${i ? '<span class="dot"></span>' : ''}<span>${item}</span>`).join('')}</div>`
           : '';
         return `
-          <div class="card-item" data-id="${area.id}" tabindex="0">
-            <div class="card-icon material-icons ${colorClass}">${area.icon}</div>
-            <span class="card-category-pill">${categoryLabel}</span>
-            <div class="card-title">${area.title}</div>
-            <div class="card-desc">${area.desc}</div>
-            ${subtitleMarkup}
-            ${metaMarkup}
-            <button class="card-cta" type="button">
-              Explore details
-              <span class="material-icons">arrow_outward</span>
-            </button>
-          </div>
+          <a class="card-link" href="${area.link}">
+            <div class="card-item" data-id="${area.id}" tabindex="0">
+              <div class="card-icon material-icons ${colorClass}">${area.icon}</div>
+              <span class="card-category-pill">${categoryLabel}</span>
+              <div class="card-title">${area.title}</div>
+              <div class="card-desc">${area.desc}</div>
+              ${subtitleMarkup}
+              ${metaMarkup}
+              <span class="card-cta">
+                Explore details
+                <span class="material-icons">arrow_outward</span>
+              </span>
+            </div>
+          </a>
         `;
       }).join('');
-      grid.querySelectorAll('.card-item').forEach(card => {
-        card.addEventListener('click', () => {
-          const id = parseInt(card.getAttribute('data-id'));
-          const area = practiceAreas.find(a => a.id === id);
-          if (area) openModal(area);
-        });
-        card.addEventListener('keydown', (e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            const id = parseInt(card.getAttribute('data-id'));
-            const area = practiceAreas.find(a => a.id === id);
-            if (area) openModal(area);
-          }
-        });
-      });
-    }
-    function openModal(area) {
-      modalTitle.textContent = area.title;
-      modalDesc.textContent = area.desc;
-      modalLink.href = area.link;
-      modalLink.innerHTML = 'Read full details <span class="material-icons" style="font-size:1rem; vertical-align:middle;">arrow_outward</span>';
-      modalIcon.innerHTML = `<span class="material-icons" style="font-size: 2.5rem;">` + area.icon + `</span>`;
-      bsModal.show();
     }
     filterBtns.forEach(btn => {
       btn.addEventListener('click', () => {
@@ -523,5 +448,8 @@
     });
     renderCards(practiceAreas);
   </script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>

@@ -29,6 +29,7 @@
                   radial-gradient(circle at 88% 18%, rgba(41,95,158,0.08), transparent 30%),
                   #fdfdfd;
       border-bottom: 1px solid var(--border);
+      padding: 72px 0;
     }
     .hero-title { font-size: clamp(2.4rem, 4vw, 3.1rem); margin-bottom: 12px; }
     .hero-lead { font-size: 1.05rem; max-width: 640px; }
@@ -59,7 +60,7 @@
       content:'';
       position:absolute;
       inset:0;
-      background: linear-gradient(180deg, rgba(15,23,42,0.1), rgba(15,23,42,0.55));
+      background: linear-gradient(180deg, rgba(15,23,42,0.06), rgba(15,23,42,0.22));
     }
     .hero-card .overlay {
       position:absolute;
@@ -68,8 +69,10 @@
       flex-direction:column;
       justify-content:flex-end;
       padding:24px;
-      color:#eef2ff;
+      color:#ffffff;
       gap:12px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.12));
+      text-shadow: 0 4px 14px rgba(0,0,0,0.38);
     }
     .hero-card .badge {
       display:inline-flex;
@@ -82,7 +85,7 @@
       font-weight:700;
       letter-spacing:0.3px;
     }
-    .hero-card p { margin:0; font-size:0.98rem; color:#dbe4ff; }
+    .hero-card p { margin:0; font-size:0.98rem; color:#f1f5ff; }
     .ribbon-card {
       background: #fff;
       border-radius: 18px;
@@ -134,7 +137,24 @@
     @media (max-width: 991px) {
       .hero-grid .divider { display: none; }
       .hero-card { min-height: 280px; margin-top: 12px; }
+      .hero-block { padding: 56px 0; }
       .mini-cta { flex-direction: column; align-items: flex-start; }
+    }
+  
+    .back-bar {
+      margin-bottom: 10px;
+      padding-top: 6px;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .back-link:hover {
+      color: var(--accent);
     }
   </style>
 </head>
@@ -142,7 +162,10 @@
 <body>
   <nav class="navbar navbar-expand-lg navbar-dark bg-black py-3">
     <div class="container">
-      <a class="navbar-brand fw-bold text-white" href="../index.html">Faros Legal</a>
+      <a class="navbar-brand fw-bold text-white" href="../index.html">
+        <img src="../images/Faros_Logo.jpeg" alt="Faros Legal">
+        <span>Faros Legal</span>
+      </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -150,7 +173,6 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="../about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="../practice-areas.html">Practice Areas</a></li>
-          <li class="nav-item"><a class="nav-link" href="../insights.html">Insights</a></li>
           <li class="nav-item"><a class="nav-link" href="../contact.html">Contact</a></li>
         </ul>
       </div>
@@ -160,6 +182,9 @@
   <main>
     <section class="hero-block">
       <div class="container">
+        <div class="back-bar">
+          <a class="back-link" href="../practice-areas.html" onclick="if (history.length > 1) { history.back(); return false; }">&larr; Back to Practice Areas</a>
+        </div>
         <div class="row g-4 align-items-center hero-grid">
           <div class="col-lg-5">
             <span class="eyebrow">Corporate & Commercial</span>
@@ -261,5 +286,8 @@
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>lucide.createIcons();</script>
 </body>
 </html>
