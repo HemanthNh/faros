@@ -114,6 +114,8 @@
     .back-bar {
       margin-bottom: 10px;
       padding-top: 6px;
+      position: relative;
+      z-index: 2;
     }
     .back-link {
       display: inline-flex;
@@ -122,6 +124,7 @@
       font-weight: 600;
       color: var(--ink);
       text-decoration: none;
+      pointer-events: auto;
     }
     .back-link:hover {
       color: var(--accent);
@@ -153,7 +156,7 @@
     <section class="hero-block">
       <div class="container">
         <div class="back-bar">
-          <a class="back-link" href="../practice-areas.html" onclick="if (history.length > 1) { history.back(); return false; }">&larr; Back to Practice Areas</a>
+          <a class="back-link" href="../practice-areas.html" onclick="try { if (document.referrer && new URL(document.referrer).origin === location.origin) { history.back(); } else { location.href = '../practice-areas.html'; } } catch (e) { location.href = '../practice-areas.html'; } return false;">&larr; Back to Practice Areas</a>
         </div>
         <div class="row g-4 align-items-center hero-grid">
           <div class="col-lg-5">

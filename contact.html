@@ -146,8 +146,8 @@
         Bengaluru-based corporate counsel
       </div>
       <div class="card card-spotlight mx-auto p-4 p-md-5 text-center" style="max-width: 960px;">
-        <h1 class="fw-semibold mb-3">Speak with the Faros Legal Team</h1>
-        <p>We partner with growth-focused businesses, investors, and promoters on complex transactions, regulatory questions, and disputes. Share your brief and a partner will respond quickly.</p>
+        <h1 class="fw-semibold mb-3">Meet The Team</h1>
+        <p>Our partners are hands-on corporate, transactions, real estate, and disputes lawyers who stay close to each matter with a business-first lens. Share your brief and one of them will respond quickly.</p>
         <div class="d-flex flex-column flex-md-row justify-content-center gap-3 mt-4">
           <a href="#contact-form" class="btn btn-primary">Send a Brief</a>
           <a href="tel:+919611320568" class="btn btn-outline-dark">Call +91 96113 20568</a>
@@ -332,7 +332,7 @@ HSR Layout, Bangalore 560102</p>
       const submitBtn = form.querySelector('[type="submit"]');
 
       if (window.emailjs) {
-        emailjs.init('YOUR_PUBLIC_KEY'); // Replace with your EmailJS public key
+        emailjs.init('2ew_fIB-YoYjFuEKN'); // Replace with your EmailJS public key
       }
 
       form.addEventListener('submit', function(e) {
@@ -347,7 +347,7 @@ HSR Layout, Bangalore 560102</p>
         submitBtn.innerText = 'Sending...';
         status.innerHTML = '<div class="alert alert-info mb-0">Sending your message...</div>';
 
-        emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+        emailjs.send('service_w7v6w9z', 'template_8712klr', {
           name: this.name.value,
           company: this.company.value,
           email: this.email.value,

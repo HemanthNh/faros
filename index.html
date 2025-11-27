@@ -130,6 +130,14 @@ window.addEventListener('scroll', () => {
 });
 btn.addEventListener('click', () => window.scrollTo({ top:0, behavior:'smooth' }));
 
+const scrollCue = document.querySelector('.scroll-cue');
+if (scrollCue) {
+  scrollCue.addEventListener('click', () => {
+    const target = document.getElementById('practice-preview');
+    if (target) target.scrollIntoView({ behavior: 'smooth' });
+  });
+}
+
 const revealTargets = () => document.querySelectorAll('.reveal-up');
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
