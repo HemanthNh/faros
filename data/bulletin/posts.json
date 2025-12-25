@@ -1,3 +1,16 @@
 {
-  "posts": []
+  "posts": [
+    {
+      "status": "draft",
+      "id": "2",
+      "title": "Some title",
+      "date": "2025-12-26",
+      "summary": "What ever",
+      "body": "Body",
+      "video": {
+        "url": "https://www.youtube.com/watch?v=aEiQ4T3XkNY",
+        "type": "youtube"
+      }
+    }
+  ]
 }
