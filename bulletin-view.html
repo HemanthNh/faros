@@ -283,7 +283,7 @@
     if (!postId) {
       renderNotFound();
     } else {
-      fetch('/data/bulletin/posts.json', { cache: 'no-store' })
+      fetch('data/bulletin/posts.json', { cache: 'no-store' })
         .then(response => {
           if (!response.ok) throw new Error('Unable to load bulletin data.');
           return response.json();
