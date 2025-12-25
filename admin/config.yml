@@ -1,7 +1,7 @@
 backend:
   name: github
   repo: HemanthNh/faros
-  branch: codex/review-design-for-readability-and-updates
+  branch: cms
   base_url: https://faros-cms-auth.hemanth-nh3.workers.dev/
   auth_endpoint: auth
 
