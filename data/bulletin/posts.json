@@ -23,6 +23,18 @@
         "url": "https://www.youtube.com/watch?v=aEiQ4T3XkNY"
       },
       "date": "2025-12-26"
+    },
+    {
+      "status": "draft",
+      "id": "LEGAL-COMP-001",
+      "title": "Compliance Isn’t About Fear. It’s About Discipline.",
+      "date": "2025-12-26",
+      "summary": "Most legal risks don’t come from lawsuits. They arise from small oversights—outdated contracts, unclear terms, and missed documentation. Strong compliance is built on consistency and discipline, not fear.",
+      "body": "Most legal risks don’t emerge overnight or from dramatic courtroom battles.\nThey build quietly through small oversights—outdated agreements, vague clauses, missing records, and unchecked assumptions.\n\nOrganizations that treat compliance as a one-time exercise often discover issues only when they become costly. In contrast, disciplined compliance practices focus on regular reviews, clear documentation, and accountability across teams.\n\nCompliance works best when it is embedded into everyday decision-making. It reduces uncertainty, protects reputation, and allows businesses to move forward with confidence rather than caution.",
+      "video": {
+        "type": "youtube",
+        "url": "https://www.youtube.com/watch?v=j6wwBqfSk-o&pp=ygUEZ2Rwcg%3D%3D"
+      }
     }
   ]
 }
