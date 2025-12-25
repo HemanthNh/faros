@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bulletin Detail | Faros Legal</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/lucide-static@latest/font/lucide.css" rel="stylesheet">
+
+  <link href="css/theme.css" rel="stylesheet" />
+  <link href="css/style.css" rel="stylesheet" />
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-black py-3">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-white" href="index.html">
+        <img src="images/Faros_Logo.jpeg" alt="Faros Legal">
+        <span>Faros Legal</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="practice-areas.html">Practice Areas</a></li>
+          <li class="nav-item"><a class="nav-link" href="insights.html">Insights & Highlights</a></li>
+          <li class="nav-item"><a class="nav-link active" href="bulletin.html">Bulletin</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <section class="py-5 text-center" style="background: var(--bg-section);">
+    <div class="container">
+      <h1 class="fw-semibold">Bulletin Detail</h1>
+      <p class="text-muted mb-0">Review the full bulletin entry and related resources.</p>
+    </div>
+  </section>
+
+  <section class="py-5">
+    <div class="container">
+      <div id="bulletin-status" class="alert alert-info" style="display: none;"></div>
+      <div id="bulletin-detail"></div>
+    </div>
+  </section>
+
+  <footer class="bg-black text-white text-center py-3">
+    <small>Ac 2025 Faros Legal | Bengaluru, India</small>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const detailEl = document.getElementById('bulletin-detail');
+    const statusEl = document.getElementById('bulletin-status');
+
+    function setStatus(message, type) {
+      statusEl.textContent = message;
+      statusEl.className = `alert alert-${type}`;
+      statusEl.style.display = 'block';
+    }
+
+    function clearDetail() {
+      while (detailEl.firstChild) {
+        detailEl.removeChild(detailEl.firstChild);
+      }
+    }
+
+    function formatDate(value) {
+      const date = new Date(value);
+      if (Number.isNaN(date.getTime())) return value;
+      return date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+    }
+
+    function appendPlainTextWithBreaks(target, text) {
+      const lines = (text || '').split(/\r?\n/);
+      lines.forEach((line, index) => {
+        target.appendChild(document.createTextNode(line));
+        if (index < lines.length - 1) {
+          target.appendChild(document.createElement('br'));
+        }
+      });
+    }
+
+    function getYouTubeId(url) {
+      try {
+        const parsed = new URL(url);
+        let id = null;
+        if (parsed.hostname.includes('youtu.be')) {
+          id = parsed.pathname.slice(1);
+        } else if (parsed.hostname.includes('youtube.com')) {
+          if (parsed.pathname === '/watch') {
+            id = parsed.searchParams.get('v');
+          } else if (parsed.pathname.startsWith('/shorts/')) {
+            id = parsed.pathname.split('/')[2];
+          } else if (parsed.pathname.startsWith('/embed/')) {
+            id = parsed.pathname.split('/')[2];
+          }
+        }
+        if (id && /^[\w-]{6,}$/.test(id)) return id;
+      } catch (err) {
+        return null;
+      }
+      return null;
+    }
+
+    function getVimeoId(url) {
+      try {
+        const parsed = new URL(url);
+        if (!parsed.hostname.includes('vimeo.com')) return null;
+        const match = parsed.pathname.match(/\/(\d+)(?:$|\/)/);
+        return match ? match[1] : null;
+      } catch (err) {
+        return null;
+      }
+    }
+
+    function renderNotFound() {
+      clearDetail();
+      const wrapper = document.createElement('div');
+      wrapper.className = 'text-center';
+      const title = document.createElement('h3');
+      title.className = 'mb-3';
+      title.textContent = 'Not found or unpublished';
+      const text = document.createElement('p');
+      text.className = 'text-muted';
+      text.textContent = 'The requested bulletin is unavailable.';
+      const link = document.createElement('a');
+      link.href = 'bulletin.html';
+      link.className = 'btn btn-outline-dark';
+      link.textContent = 'Back to Bulletin';
+      wrapper.append(title, text, link);
+      detailEl.appendChild(wrapper);
+    }
+
+    function renderSection(titleText) {
+      const section = document.createElement('div');
+      section.className = 'mt-4';
+      const heading = document.createElement('h4');
+      heading.textContent = titleText;
+      section.appendChild(heading);
+      return section;
+    }
+
+    function renderDetail(post) {
+      clearDetail();
+      statusEl.style.display = 'none';
+
+      const header = document.createElement('div');
+      header.className = 'mb-4';
+
+      const title = document.createElement('h2');
+      title.className = 'fw-semibold';
+      title.textContent = post.title || 'Untitled bulletin';
+
+      const meta = document.createElement('div');
+      meta.className = 'bulletin-meta';
+      meta.textContent = formatDate(post.date);
+
+      header.append(title, meta);
+
+      if (post.summary) {
+        const summary = document.createElement('p');
+        summary.className = 'mt-2 text-muted';
+        summary.textContent = post.summary;
+        header.appendChild(summary);
+      }
+
+      detailEl.appendChild(header);
+
+      const bodySection = renderSection('Update');
+      const body = document.createElement('div');
+      body.className = 'bulletin-body';
+      appendPlainTextWithBreaks(body, post.body || '');
+      bodySection.appendChild(body);
+      detailEl.appendChild(bodySection);
+
+      if (Array.isArray(post.links) && post.links.length) {
+        const linksSection = renderSection('Links');
+        const list = document.createElement('ul');
+        list.className = 'list-unstyled';
+        post.links.forEach(item => {
+          if (!item || !item.url) return;
+          const li = document.createElement('li');
+          const link = document.createElement('a');
+          link.href = item.url;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.textContent = item.label || item.url;
+          li.appendChild(link);
+          list.appendChild(li);
+        });
+        linksSection.appendChild(list);
+        detailEl.appendChild(linksSection);
+      }
+
+      if (Array.isArray(post.images) && post.images.length) {
+        const imagesSection = renderSection('Images');
+        const grid = document.createElement('div');
+        grid.className = 'row g-4 bulletin-media';
+        post.images.forEach(item => {
+          if (!item || !item.src) return;
+          const col = document.createElement('div');
+          col.className = 'col-md-6';
+          const figure = document.createElement('figure');
+          const img = document.createElement('img');
+          img.src = item.src;
+          img.alt = item.caption || post.title || 'Bulletin image';
+          const caption = document.createElement('figcaption');
+          caption.textContent = item.caption || '';
+          figure.append(img, caption);
+          col.appendChild(figure);
+          grid.appendChild(col);
+        });
+        imagesSection.appendChild(grid);
+        detailEl.appendChild(imagesSection);
+      }
+
+      if (post.video && post.video.url) {
+        const videoSection = renderSection('Video');
+        let embedUrl = null;
+
+        if (post.video.type === 'youtube') {
+          const id = getYouTubeId(post.video.url);
+          if (id) embedUrl = `https://www.youtube.com/embed/${id}`;
+        }
+
+        if (post.video.type === 'vimeo') {
+          const id = getVimeoId(post.video.url);
+          if (id) embedUrl = `https://player.vimeo.com/video/${id}`;
+        }
+
+        if (embedUrl) {
+          const ratio = document.createElement('div');
+          ratio.className = 'ratio ratio-16x9';
+          const iframe = document.createElement('iframe');
+          iframe.src = embedUrl;
+          iframe.title = 'Embedded video';
+          iframe.allowFullscreen = true;
+          ratio.appendChild(iframe);
+          videoSection.appendChild(ratio);
+        } else {
+          const link = document.createElement('a');
+          link.href = post.video.url;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.textContent = post.video.url;
+          videoSection.appendChild(link);
+        }
+
+        detailEl.appendChild(videoSection);
+      }
+
+      if (Array.isArray(post.attachments) && post.attachments.length) {
+        const attachmentsSection = renderSection('Attachments');
+        const list = document.createElement('ul');
+        list.className = 'list-unstyled';
+        post.attachments.forEach(item => {
+          if (!item || !item.url) return;
+          const li = document.createElement('li');
+          const link = document.createElement('a');
+          link.href = item.url;
+          link.target = '_blank';
+          link.rel = 'noopener noreferrer';
+          link.textContent = item.label || item.url;
+          li.appendChild(link);
+          list.appendChild(li);
+        });
+        attachmentsSection.appendChild(list);
+        detailEl.appendChild(attachmentsSection);
+      }
+    }
+
+    const params = new URLSearchParams(window.location.search);
+    const postId = params.get('id');
+
+    if (!postId) {
+      renderNotFound();
+    } else {
+      fetch('/data/bulletin/posts.json', { cache: 'no-store' })
+        .then(response => {
+          if (!response.ok) throw new Error('Unable to load bulletin data.');
+          return response.json();
+        })
+        .then(data => {
+          const posts = Array.isArray(data.posts) ? data.posts : [];
+          const post = posts.find(item => item.id === postId && item.status === 'published');
+          if (!post) {
+            renderNotFound();
+            return;
+          }
+          renderDetail(post);
+        })
+        .catch(() => {
+          setStatus('We could not load the bulletin right now. Please try again later.', 'warning');
+        });
+    }
+  </script>
+
+  <script src="js/disclaimer.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>lucide.createIcons();</script>
+</body>
+</html>

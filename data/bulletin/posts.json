@@ -1,28 +1,3 @@
 {
-  "posts": [
-    {
-      "body": "Greater Mesopotamians considered the sun as their God and other heavenly bodies as the disciples of God.",
-      "summary": "The Apocalypse. ",
-      "attachments": [],
-      "status": "draft",
-      "title": "This is it",
-      "images": [
-        {
-          "src": "https://cdn.pixabay.com/photo/2023/12/16/19/33/christmas-8453173_1280.jpg",
-          "caption": "Merry Christmas!"
-        }
-      ],
-      "links": [
-        {
-          "label": "Mesopotamians ",
-          "url": "Mesopotamians.com"
-        }
-      ],
-      "video": {
-        "type": "youtube",
-        "url": "https://www.youtube.com/watch?v=aEiQ4T3XkNY"
-      },
-      "id": "1"
-    }
-  ]
+  "posts": []
 }

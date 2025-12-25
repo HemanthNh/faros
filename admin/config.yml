@@ -1,0 +1,67 @@
+backend:
+  name: github
+  repo: HemanthNh/faros
+  branch: codex/review-design-for-readability-and-updates
+  base_url: https://faros-cms-auth.hemanth-nh3.workers.dev/
+  auth_endpoint: auth
+
+media_folder: "static/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "bulletin"
+    label: "Bulletin"
+    files:
+      - name: "posts"
+        label: "Posts"
+        file: "data/bulletin/posts.json"
+        format: "json"
+        fields:
+          - name: "posts"
+            label: "Posts"
+            widget: "list"
+            fields:
+              - { name: "id", label: "ID", widget: "string" }
+              - { name: "title", label: "Title", widget: "string" }
+              - name: "date"
+                label: "Date"
+                widget: "datetime"
+                format: "YYYY-MM-DD"
+                date_format: "YYYY-MM-DD"
+                time_format: false
+              - name: "status"
+                label: "Status"
+                widget: "select"
+                options: ["draft", "published"]
+                default: "draft"
+              - { name: "summary", label: "Summary", widget: "text" }
+              - { name: "body", label: "Body", widget: "text" }
+              - name: "links"
+                label: "Links"
+                widget: "list"
+                fields:
+                  - { name: "label", label: "Label", widget: "string" }
+                  - { name: "url", label: "URL", widget: "string" }
+              - name: "images"
+                label: "Images"
+                widget: "list"
+                fields:
+                  - { name: "src", label: "Image", widget: "image" }
+                  - { name: "caption", label: "Caption", widget: "string" }
+              - name: "video"
+                label: "Video"
+                widget: "object"
+                required: false
+                default: null
+                fields:
+                  - name: "type"
+                    label: "Type"
+                    widget: "select"
+                    options: ["youtube", "vimeo"]
+                  - { name: "url", label: "URL", widget: "string" }
+              - name: "attachments"
+                label: "Attachments"
+                widget: "list"
+                fields:
+                  - { name: "label", label: "Label", widget: "string" }
+                  - { name: "url", label: "URL", widget: "string" }

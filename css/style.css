@@ -289,6 +289,43 @@ section { padding: 96px 0; }
   border-bottom: none;
 }
 
+/* Bulletin pages */
+.bulletin-card {
+  border-radius: 14px;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+  background: #fff;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bulletin-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 50px rgba(12, 24, 43, 0.14);
+}
+
+.bulletin-meta {
+  color: #7d8697;
+  letter-spacing: 0.2px;
+}
+
+.bulletin-body {
+  color: #4f5561;
+  line-height: 1.8;
+}
+
+.bulletin-media img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(17, 24, 39, 0.08);
+}
+
+.bulletin-media figcaption {
+  margin-top: 8px;
+  color: #6c7686;
+  font-size: 0.95rem;
+}
+
 /* Call to action */
 .cta-section {
   background: linear-gradient(135deg, #ecf1f8, #dfe5ef);
