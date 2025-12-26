@@ -64,6 +64,20 @@
         "url": "https://youtu.be/Qd4jGgu06dw",
         "type": "youtube"
       }
+    },
+    {
+      "status": "published",
+      "id": "q2",
+      "title": "asd",
+      "date": "2025-12-27",
+      "summary": "asdasd",
+      "body": "registerEditorComponentregisterEditorComponentregisterEditorComponentregisterEditorComponent\n\n![](/images/uploads/maritime.jpg)",
+      "images": [
+        {
+          "src": "/images/uploads/real_estate.jpg",
+          "caption": "asdsd"
+        }
+      ]
     }
   ]
 }
