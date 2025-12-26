@@ -33,7 +33,11 @@ collections:
                 options: ["draft", "published"]
                 default: "draft"
               - { name: "summary", label: "Summary", widget: "text" }
-              - { name: "body", label: "Body", widget: "text" }
+              - name: "body"
+                label: "Body"
+                widget: "markdown"
+                buttons: ["bold", "italic", "heading-one", "heading-two", "quote", "code", "link", "bulleted-list", "numbered-list"]
+                editor_components: ["image", "youtube", "vimeo"]
               - name: "links"
                 label: "Links"
                 widget: "list"
