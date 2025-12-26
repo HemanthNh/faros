@@ -106,7 +106,10 @@
     function formatDate(value) {
       const date = new Date(value);
       if (Number.isNaN(date.getTime())) return value;
-      return date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' });
+      const dd = String(date.getDate()).padStart(2, '0');
+      const mm = String(date.getMonth() + 1).padStart(2, '0');
+      const yyyy = date.getFullYear();
+      return `${dd}-${mm}-${yyyy}`;
     }
 
     function renderPosts(posts) {
@@ -133,7 +136,8 @@
 
         const summary = document.createElement('p');
         summary.className = 'mb-3';
-        summary.textContent = post.summary || '';
+        const summarySource = post.summary || (post.body ? `${post.body.slice(0, 240)}...` : '');
+        summary.innerHTML = renderMarkdown(summarySource);
 
         const link = document.createElement('a');
         link.href = `bulletin-view.html?id=${encodeURIComponent(post.id)}`;

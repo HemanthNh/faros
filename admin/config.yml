@@ -25,14 +25,17 @@ collections:
                 label: "Date"
                 widget: "datetime"
                 format: "YYYY-MM-DD"
-                date_format: "YYYY-MM-DD"
+                date_format: "DD-MM-YYYY"
                 time_format: false
               - name: "status"
                 label: "Status"
                 widget: "select"
                 options: ["draft", "published"]
                 default: "draft"
-              - { name: "summary", label: "Summary", widget: "text" }
+              - name: "summary"
+                label: "Summary"
+                widget: "text"
+                required: false
               - name: "body"
                 label: "Body"
                 widget: "markdown"
@@ -41,12 +44,14 @@ collections:
               - name: "links"
                 label: "Links"
                 widget: "list"
+                required: false
                 fields:
                   - { name: "label", label: "Label", widget: "string" }
                   - { name: "url", label: "URL", widget: "string" }
               - name: "images"
                 label: "Images"
                 widget: "list"
+                required: false
                 fields:
                   - { name: "src", label: "Image", widget: "image" }
                   - { name: "caption", label: "Caption", widget: "string" }
@@ -64,6 +69,7 @@ collections:
               - name: "attachments"
                 label: "Attachments"
                 widget: "list"
+                required: false
                 fields:
                   - { name: "label", label: "Label", widget: "string" }
                   - { name: "url", label: "URL", widget: "string" }
