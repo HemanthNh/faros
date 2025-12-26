@@ -41,6 +41,18 @@
         "url": "https://www.youtube.com/watch?v=aEiQ4T3XkNY",
         "type": "youtube"
       }
+    },
+    {
+      "status": "published",
+      "body": "\n\n\n# HTTP headers\n\n**HTTP headers** let the client and the server pass additional information with a message in a request or response. In HTTP/1.X, a header is a case-insensitive name followed by a colon, then optional whitespace which will be ignored, and finally by its value (for example: `Allow: POST`). In HTTP/2 and above, headers are displayed in lowercase when viewed in developer tools (`accept: */*`), and prefixed with a colon for a special group of [pseudo-headers](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Messages#pseudo-headers) (`:status: 200`). You can find more information on the syntax in each protocol version in the [HTTP messages](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Messages) page.\n\n\n\n![](/images/uploads/maritime.jpg)\n\nCustom proprietary headers have historically been used with an `X-` prefix, but this convention was deprecated in 2012 because of the inconveniences it caused when nonstandard fields became standard in [RFC 6648](https://datatracker.ietf.org/doc/html/rfc6648); others are listed in the [IANA HTTP Field Name Registry](https://www.iana.org/assignments/http-fields/http-fields.xhtml), whose original content was defined in [RFC 4229](https://datatracker.ietf.org/doc/html/rfc4229). The IANA registry lists headers, including [information about their status](https://github.com/protocol-registries/http-fields?tab=readme-ov-file#choosing-the-right-status).\n\nHeaders can be grouped according to their contexts:\n\n\n\n![](https://res.cloudinary.com/imgtoxyz/image/upload/c_limit,w_1920/f_auto/q_auto/v1/assets/imgtoxyz-quality-compression_wqtda6?_a=BAVFB+DW0)\n\nContain more information about the resource to be fetched, or about the client requesting the resource.\n\n[Request headers](https://developer.mozilla.org/en-US/docs/Glossary/Request_header)[Response headers](https://developer.mozilla.org/en-US/docs/Glossary/Response_header)",
+      "id": "Test00",
+      "title": "WYSIWYG",
+      "summary": "WYSIWYGWYSIWYGWYSIWYG",
+      "date": "2025-12-27",
+      "video": {
+        "type": "youtube",
+        "url": "https://youtu.be/p13Cn0mONP8?list=RDMMF1jwjElaKKc"
+      }
     }
   ]
 }
