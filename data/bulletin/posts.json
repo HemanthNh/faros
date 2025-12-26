@@ -10,7 +10,13 @@
       "video": {
         "type": "youtube",
         "url": "https://www.youtube.com/watch?v=j6wwBqfSk-o&pp=ygUEZ2Rwcg%3D%3D"
-      }
+      },
+      "images": [
+        {
+          "src": "/uploads/the-indian-legal-system-needs-revamp.-an-analysis.jpg",
+          "caption": "Rebound"
+        }
+      ]
     },
     {
       "status": "published",
