@@ -3,8 +3,8 @@ backend:
   branch: cms-netlify
   repo: HemanthNh/faros
 
-media_folder: "static/uploads"
-public_folder: "/uploads"
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
 
 collections:
   - name: "bulletin"
