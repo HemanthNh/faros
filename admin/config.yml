@@ -64,6 +64,7 @@ collections:
                   - name: "type"
                     label: "Type"
                     widget: "select"
+                    required: false
                     options: ["youtube", "vimeo"]
                   - { name: "url", label: "URL", widget: "string" }
               - name: "attachments"
