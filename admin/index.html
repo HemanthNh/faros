@@ -19,6 +19,69 @@
         }
       });
     }
+
+    function escapeHtml(str) {
+      return (str || "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    // Custom editor component for sized/aligned images
+    CMS.registerEditorComponent({
+      id: "image_sized",
+      label: "Image (Sized)",
+      fields: [
+        { name: "image", label: "Image", widget: "image" },
+        {
+          name: "size",
+          label: "Size",
+          widget: "select",
+          options: [
+            { label: "Small", value: "img-sm" },
+            { label: "Medium", value: "img-md" },
+            { label: "Large", value: "img-lg" },
+            { label: "Full", value: "img-full" }
+          ]
+        },
+        {
+          name: "align",
+          label: "Alignment",
+          widget: "select",
+          options: [
+            { label: "Left", value: "align-left" },
+            { label: "Center", value: "align-center" },
+            { label: "Right", value: "align-right" }
+          ]
+        },
+        { name: "alt", label: "Alt text", widget: "string", required: false }
+      ],
+      pattern: /^<figure class="img-wrap (align-(?:left|center|right))">\s*<img src="([^"]+)" class="(img-(?:sm|md|lg|full))" alt="([^"]*)" ?\/?>\s*<\/figure>$/i,
+      fromBlock: function(match) {
+        return {
+          align: match[1],
+          image: match[2],
+          size: match[3],
+          alt: match[4] || ""
+        };
+      },
+      toBlock: function(obj) {
+        const src = obj.image || "";
+        const size = obj.size || "img-md";
+        const align = obj.align || "align-left";
+        const alt = escapeHtml(obj.alt);
+        return `<figure class="img-wrap ${align}">\n  <img src="${src}" class="${size}" alt="${alt}" />\n</figure>`;
+      },
+      toPreview: function(obj) {
+        const src = obj.image || "";
+        const size = obj.size || "img-md";
+        const align = obj.align || "align-left";
+        const alt = escapeHtml(obj.alt);
+        return `<figure class="img-wrap ${align}">\n  <img src="${src}" class="${size}" alt="${alt}" />\n</figure>`;
+      }
+    });
   </script>
 </body>
 </html>

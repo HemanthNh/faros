@@ -490,3 +490,33 @@ section { padding: 96px 0; }
   section { padding: 72px 0; }
   .hero { padding: 72px 16px 80px; }
 }
+
+/* Bulletin content formatting for markdown/HTML blocks */
+.bulletin-content img {
+  max-width: 100%;
+  height: auto;
+}
+.bulletin-content .img-wrap {
+  margin: 1rem 0;
+}
+.bulletin-content .img-wrap.align-center {
+  text-align: center;
+}
+.bulletin-content .img-wrap.align-left {
+  text-align: left;
+}
+.bulletin-content .img-wrap.align-right {
+  text-align: right;
+}
+.bulletin-content img.img-sm {
+  max-width: 320px;
+}
+.bulletin-content img.img-md {
+  max-width: 600px;
+}
+.bulletin-content img.img-lg {
+  max-width: 900px;
+}
+.bulletin-content img.img-full {
+  max-width: 100%;
+}

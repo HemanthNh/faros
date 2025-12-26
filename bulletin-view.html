@@ -200,7 +200,7 @@
 
       const bodySection = renderSection('Update');
       const body = document.createElement('div');
-      body.className = 'bulletin-body';
+      body.className = 'bulletin-body bulletin-content';
       body.innerHTML = renderMarkdown(post.body);
       bodySection.appendChild(body);
       detailEl.appendChild(bodySection);
