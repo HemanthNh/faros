@@ -366,6 +366,12 @@ section { padding: 96px 0; }
   margin: 0;
 }
 
+.bulletin-gallery .bulletin-media img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
 /* Call to action */
 .cta-section {
   background: linear-gradient(135deg, #ecf1f8, #dfe5ef);
