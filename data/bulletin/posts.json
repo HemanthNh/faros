@@ -40,7 +40,7 @@
       "id": "Hero-LA-001"
     },
     {
-      "status": "draft",
+      "status": "published",
       "hero": {
         "layout": "contained"
       },
