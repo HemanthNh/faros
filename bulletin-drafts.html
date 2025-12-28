@@ -94,6 +94,12 @@
       });
     }
 
+    function renderPlainText(md) {
+      const html = marked.parse(md || '');
+      const clean = DOMPurify.sanitize(html, { ALLOWED_TAGS: [], ALLOWED_ATTR: [] });
+      return clean.replace(/\s+/g, ' ').trim();
+    }
+
     function renderPosts(posts) {
       clearList();
       if (!posts.length) {
@@ -119,7 +125,7 @@
         const summary = document.createElement('p');
         summary.className = 'mb-3';
         const summarySource = post.summary || (post.body ? `${post.body.slice(0, 240)}...` : '');
-        summary.innerHTML = renderMarkdown(summarySource);
+        summary.textContent = renderPlainText(summarySource);
 
         const link = document.createElement('a');
         link.href = `bulletin-view.html?id=${encodeURIComponent(post.id)}&preview=1`;
