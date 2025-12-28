@@ -85,25 +85,36 @@
 
     // Add a drafts link into the CMS header so drafts are accessible only from admin
     (function addDraftsShortcut() {
-      function insert() {
-        const header = document.querySelector('.nc-app-header');
-        if (!header || header.dataset.draftsLinkAdded) return false;
+      const LINK_ID = 'drafts-shortcut-link';
+
+      function findContainer() {
+        return (
+          document.querySelector('.nc-app-header .nc-header-actions') ||
+          document.querySelector('.nc-app-header') ||
+          document.querySelector('header[class*="AppHeader"] .nc-header-actions') ||
+          document.querySelector('header[class*="AppHeader"]')
+        );
+      }
+
+      function ensureLink() {
+        if (document.getElementById(LINK_ID)) return;
+        const container = findContainer();
+        if (!container) return;
         const link = document.createElement('a');
+        link.id = LINK_ID;
         link.href = '/bulletin-drafts.html';
         link.className = 'btn btn-outline-secondary btn-sm';
         link.textContent = 'View drafts';
         link.style.marginLeft = '12px';
-
-        const container = header.querySelector('.nc-header-actions') || header;
         container.appendChild(link);
-        header.dataset.draftsLinkAdded = 'true';
-        return true;
       }
 
-      const interval = setInterval(() => {
-        if (insert()) clearInterval(interval);
-      }, 600);
-      setTimeout(() => clearInterval(interval), 10000);
+      const observer = new MutationObserver(() => ensureLink());
+      observer.observe(document.body, { childList: true, subtree: true });
+      // Try immediately in case the header is already there
+      ensureLink();
+      // Stop observing after 15s to avoid leaks
+      setTimeout(() => observer.disconnect(), 15000);
     })();
   </script>
 </body>
