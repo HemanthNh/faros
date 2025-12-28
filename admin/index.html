@@ -16,34 +16,76 @@
     (function() {
       const h = window.h || CMS.h;
 
-      const PostPreview = ({ entry }) => {
-        const posts = entry.getIn(['data', 'posts'])?.toJS?.() || [];
-        if (!posts.length) {
-          return h('div', { className: 'container py-4' },
-            h('h2', { className: 'fw-semibold mb-3' }, 'Bulletin Preview'),
-            h('p', { className: 'text-muted' }, 'No posts to preview yet.')
-          );
-        }
+      // Load marked for markdown preview
+      const loadMarked = new Promise(resolve => {
+        if (window.marked) return resolve();
+        const script = document.createElement('script');
+        script.src = 'https://cdn.jsdelivr.net/npm/marked/marked.min.js';
+        script.onload = () => resolve();
+        script.onerror = () => resolve();
+        document.head.appendChild(script);
+      });
 
-        return h('div', { className: 'container py-4' },
-          h('h2', { className: 'fw-semibold mb-3' }, 'Bulletin Preview'),
-          h('div', { className: 'row g-4' },
-            posts.map((post, idx) => {
-              const summary = post.summary || (post.body ? `${post.body.slice(0, 200)}...` : '');
-              return h('div', { className: 'col-md-6 col-lg-4', key: idx },
-                h('div', { className: 'bulletin-card p-4 h-100' },
-                  h('small', { className: 'bulletin-meta' }, post.date || '—'),
-                  h('h5', { className: 'mt-2' }, post.title || 'Untitled bulletin'),
-                  h('p', { className: 'mb-3' }, summary || 'No summary provided.'),
-                  h('span', { className: 'text-primary fw-semibold' }, 'Read full bulletin')
+      const renderMarkdown = text => {
+        if (window.marked) return window.marked.parse(text || '');
+        const safe = (text || '').replace(/[&<>]/g, s => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[s]));
+        return `<p>${safe}</p>`;
+      };
+
+      const PostDetailPreview = ({ entry }) => {
+        const posts = entry.getIn(['data', 'posts'])?.toJS?.() || [];
+        const post = posts[0] || {};
+
+        const gallery = Array.isArray(post.gallery) ? post.gallery : [];
+        const links = Array.isArray(post.links) ? post.links : [];
+        const attachments = Array.isArray(post.attachments) ? post.attachments : [];
+
+        return h('div', { className: 'container py-4 bulletin-body' },
+          h('h2', { className: 'fw-semibold mb-2' }, post.title || 'Untitled bulletin'),
+          h('div', { className: 'bulletin-meta mb-3' }, post.date || '—'),
+          post.summary ? h('p', { className: 'text-muted' }, post.summary) : null,
+          post.hero && post.hero.image ? h('figure', { className: 'bulletin-hero layout-contained mb-4' },
+            h('img', { src: post.hero.image, alt: post.hero.alt || '' })
+          ) : null,
+          h('div', {
+            className: 'bulletin-content mb-4',
+            dangerouslySetInnerHTML: { __html: renderMarkdown(post.body || '') }
+          }),
+          links.length ? h('div', { className: 'mb-4' },
+            h('h5', null, 'Links'),
+            h('ul', null, links.map((item, idx) =>
+              h('li', { key: idx },
+                h('span', null, item.label || item.url || '')
+              )
+            ))
+          ) : null,
+          gallery.length ? h('div', { className: 'bulletin-gallery mb-4' },
+            h('h5', null, 'Gallery'),
+            h('div', { className: 'row g-3 bulletin-media' },
+              gallery.map((item, idx) =>
+                h('div', { className: 'col-12 col-md-6 col-lg-4', key: idx },
+                  h('figure', null,
+                    h('img', { src: item.image || item.src, alt: item.alt || '' }),
+                    item.caption ? h('figcaption', null, item.caption) : null
+                  )
                 )
-              );
-            })
-          )
+              )
+            )
+          ) : null,
+          attachments.length ? h('div', { className: 'mb-3' },
+            h('h5', null, 'Attachments'),
+            h('ul', null, attachments.map((item, idx) =>
+              h('li', { key: idx }, item.label || item.url || '')
+            ))
+          ) : null
         );
       };
 
-      CMS.registerPreviewTemplate('posts', PostPreview);
+      CMS.registerPreviewTemplate('posts', props => {
+        const [ready, setReady] = React.useState(Boolean(window.marked));
+        React.useEffect(() => { loadMarked.then(() => setReady(true)); }, []);
+        return h(PostDetailPreview, props);
+      });
     })();
 
     // Redirect to the admin once logged in through Netlify Identity
