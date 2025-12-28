@@ -157,6 +157,45 @@
       setTimeout(() => observer.disconnect(), 15000);
     })();
 
+    // Replace Netlify callout logo/text in Identity widget
+    (function replaceNetlifyCallout() {
+      const LOGO_SRC = '/images/Faros_Logo.jpeg';
+
+      function swap() {
+        const callout = document.querySelector('a.callOut[href*="netlify.com"]');
+        if (!callout) return;
+        if (callout.dataset.farosReplaced === '1') return;
+
+        callout.innerHTML = '';
+        callout.href = '#';
+        callout.style.display = 'inline-flex';
+        callout.style.alignItems = 'center';
+        callout.style.gap = '6px';
+        callout.style.textDecoration = 'none';
+
+        const img = document.createElement('img');
+        img.src = LOGO_SRC;
+        img.alt = 'Faros';
+        img.style.height = '22px';
+        img.style.width = 'auto';
+        img.style.borderRadius = '3px';
+
+        const text = document.createElement('span');
+        text.textContent = 'Faros Admin';
+        text.style.color = '#1f2937';
+        text.style.fontWeight = '600';
+        text.style.fontSize = '14px';
+
+        callout.append(img, text);
+        callout.dataset.farosReplaced = '1';
+      }
+
+      const observer = new MutationObserver(swap);
+      observer.observe(document.body, { childList: true, subtree: true });
+      swap();
+      setTimeout(() => observer.disconnect(), 15000);
+    })();
+
     // Replace Decap logo with Faros branding
     (function replaceDecapLogo() {
       const LOGO_ID = 'faros-admin-logo';
