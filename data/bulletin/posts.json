@@ -30,7 +30,7 @@
       ],
       "hero": {
         "layout": "full",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmrMccy_3pEkDxfcAaXzKX1H7b8y9eIxZyEQ&s",
+        "image": "/images/uploads/team3.jpg",
         "alt": "alt textttt"
       },
       "video": {
