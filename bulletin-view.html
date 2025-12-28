@@ -354,6 +354,7 @@
     if (!postId) {
       renderNotFound();
     } else {
+      const previewMode = new URLSearchParams(window.location.search).get('preview') === '1';
       fetch('data/bulletin/posts.json', { cache: 'no-store' })
         .then(response => {
           if (!response.ok) throw new Error('Unable to load bulletin data.');
@@ -361,12 +362,15 @@
         })
         .then(data => {
           const posts = Array.isArray(data.posts) ? data.posts : [];
-          const post = posts.find(item => item.id === postId && item.status === 'published');
+          const post = posts.find(item => item.id === postId && (previewMode || item.status === 'published'));
           if (!post) {
             renderNotFound();
             return;
           }
           renderDetail(post);
+          if (previewMode && post.status === 'draft') {
+            setStatus('Previewing draft (not published)', 'warning');
+          }
         })
         .catch(() => {
           setStatus('We could not load the bulletin right now. Please try again later.', 'warning');
