@@ -169,13 +169,17 @@
       const imgSrc = '/images/Faros_Logo.jpeg';
 
       function findLogoContainer() {
+        const decapLogo = document.querySelector('[class*="DecapLogoIcon"]');
+        if (decapLogo) {
+          const linkParent = decapLogo.closest('a');
+          if (linkParent) return linkParent;
+          return decapLogo.parentElement;
+        }
         return (
           document.querySelector('.nc-app-header a[class*="Logo"]') ||
           document.querySelector('.nc-app-header a[href="/"]') ||
           document.querySelector('header[class*="AppHeader"] a[class*="Logo"]') ||
-          document.querySelector('header[class*="AppHeader"] a[href="/"]') ||
-          document.querySelector('.DecapLogoIcon')?.closest('a') ||
-          document.querySelector('.DecapLogoIcon')?.parentElement
+          document.querySelector('header[class*="AppHeader"] a[href="/"]')
         );
       }
 
