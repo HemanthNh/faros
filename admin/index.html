@@ -82,6 +82,29 @@
         return `<figure class="img-wrap ${align}">\n  <img src="${src}" class="${size}" alt="${alt}" />\n</figure>`;
       }
     });
+
+    // Add a drafts link into the CMS header so drafts are accessible only from admin
+    (function addDraftsShortcut() {
+      function insert() {
+        const header = document.querySelector('.nc-app-header');
+        if (!header || header.dataset.draftsLinkAdded) return false;
+        const link = document.createElement('a');
+        link.href = '/bulletin-drafts.html';
+        link.className = 'btn btn-outline-secondary btn-sm';
+        link.textContent = 'View drafts';
+        link.style.marginLeft = '12px';
+
+        const container = header.querySelector('.nc-header-actions') || header;
+        container.appendChild(link);
+        header.dataset.draftsLinkAdded = 'true';
+        return true;
+      }
+
+      const interval = setInterval(() => {
+        if (insert()) clearInterval(interval);
+      }, 600);
+      setTimeout(() => clearInterval(interval), 10000);
+    })();
   </script>
 </body>
 </html>
