@@ -71,7 +71,7 @@
       "date": "2025-12-28",
       "gallery": [
         {
-          "layout": "full",
+          "layout": "half",
           "image": "https://www.imperva.com/learn/wp-content/uploads/sites/13/2020/12/Group-13573.png",
           "caption": "Img1"
         },
@@ -86,6 +86,10 @@
         {
           "url": "https://cloudian.com/guides/data-protection/data-protection-and-privacy-7-ways-to-protect-user-data/",
           "label": "Data Protection"
+        },
+        {
+          "url": "https://cloudian.com/guides/data-protection/data-protection-and-privacy-7-ways-to-protect-user-data/",
+          "label": "Other Links"
         }
       ],
       "hero": {
