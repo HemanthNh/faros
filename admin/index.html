@@ -136,6 +136,26 @@
       // Stop observing after 15s to avoid leaks
       setTimeout(() => observer.disconnect(), 15000);
     })();
+
+    // Rename Netlify Identity login button text
+    (function renameIdentityCTA() {
+      const targetText = /netlify identity/i;
+      const replacement = 'Log in';
+
+      function updateLabels() {
+        document.querySelectorAll('button, a').forEach(el => {
+          if (!el || !el.textContent) return;
+          if (targetText.test(el.textContent)) {
+            el.textContent = replacement;
+          }
+        });
+      }
+
+      const observer = new MutationObserver(updateLabels);
+      observer.observe(document.body, { childList: true, subtree: true });
+      updateLabels();
+      setTimeout(() => observer.disconnect(), 15000);
+    })();
   </script>
 </body>
 </html>
