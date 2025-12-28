@@ -161,10 +161,10 @@
     (function replaceNetlifyCallout() {
       const LOGO_SRC = '/images/Faros_Logo.jpeg';
 
-      function swap() {
-        const callout = document.querySelector('a.callOut[href*="netlify.com"]');
-        if (!callout) return;
-        if (callout.dataset.farosReplaced === '1') return;
+      function swapInDoc(doc) {
+        if (!doc) return;
+        const callout = doc.querySelector('a.callOut[href*="netlify.com"]');
+        if (!callout || callout.dataset.farosReplaced === '1') return;
 
         callout.innerHTML = '';
         callout.href = '#';
@@ -173,14 +173,14 @@
         callout.style.gap = '6px';
         callout.style.textDecoration = 'none';
 
-        const img = document.createElement('img');
+        const img = doc.createElement('img');
         img.src = LOGO_SRC;
         img.alt = 'Faros';
         img.style.height = '22px';
         img.style.width = 'auto';
         img.style.borderRadius = '3px';
 
-        const text = document.createElement('span');
+        const text = doc.createElement('span');
         text.textContent = 'Faros Admin';
         text.style.color = '#1f2937';
         text.style.fontWeight = '600';
@@ -190,10 +190,21 @@
         callout.dataset.farosReplaced = '1';
       }
 
-      const observer = new MutationObserver(swap);
+      function swapAll() {
+        swapInDoc(document);
+        document.querySelectorAll('iframe').forEach(frame => {
+          try {
+            swapInDoc(frame.contentDocument || frame.contentWindow?.document);
+          } catch (e) {
+            /* ignore cross-origin if any */
+          }
+        });
+      }
+
+      const observer = new MutationObserver(swapAll);
       observer.observe(document.body, { childList: true, subtree: true });
-      swap();
-      setTimeout(() => observer.disconnect(), 15000);
+      swapAll();
+      setTimeout(() => observer.disconnect(), 20000);
     })();
 
     // Replace Decap logo with Faros branding
