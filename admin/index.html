@@ -252,6 +252,32 @@
       applyLogo();
       setTimeout(() => observer.disconnect(), 15000);
     })();
+
+    // Confirm before deleting list items (e.g., posts) in the CMS UI
+    (function addDeleteConfirmation() {
+      function shouldConfirm(target) {
+        const btn = target.closest('button, a');
+        if (!btn) return false;
+        const cls = (btn.className || '').toLowerCase();
+        const label = (btn.getAttribute('aria-label') || btn.textContent || '').toLowerCase();
+        return (
+          cls.includes('nc-arraycontrol-remove') ||
+          cls.includes('nc-arraycontrol-delete') ||
+          cls.includes('nc-array-control-remove') ||
+          label.includes('delete') ||
+          label.includes('remove')
+        );
+      }
+
+      document.addEventListener('click', event => {
+        if (!shouldConfirm(event.target)) return;
+        const ok = window.confirm('Remove this item? This will delete it from the entry.');
+        if (!ok) {
+          event.stopPropagation();
+          event.preventDefault();
+        }
+      }, true);
+    })();
   </script>
 </body>
 </html>
