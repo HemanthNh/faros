@@ -255,27 +255,82 @@
 
     // Confirm before deleting list items (e.g., posts) in the CMS UI
     (function addDeleteConfirmation() {
-      function shouldConfirm(target) {
-        const btn = target.closest('button, a');
-        if (!btn) return false;
-        const cls = (btn.className || '').toLowerCase();
-        const label = (btn.getAttribute('aria-label') || btn.textContent || '').toLowerCase();
+      const DELETE_KEYWORDS = ['delete', 'remove', 'trash', 'discard'];
+
+      function matchesKeyword(value = '') {
+        const lower = value.toLowerCase();
+        return DELETE_KEYWORDS.some(k => lower.includes(k));
+      }
+
+      function isTopBarDelete(el) {
+        const clsLower = (el.className || '').toLowerCase();
+        if (!clsLower.includes('topbarbutton')) return false;
+        const aria = (el.getAttribute?.('aria-label') || '').toLowerCase();
+        const title = (el.getAttribute?.('title') || '').toLowerCase();
+        const testid = (el.getAttribute?.('data-testid') || '').toLowerCase();
+        const text = (el.textContent || '').toLowerCase();
+        if ([aria, title, testid, text].some(matchesKeyword)) return true;
+        const dialog = el.closest?.('[role="dialog"], [class*="Dialog"], [class*="Modal"]');
+        const context = (dialog?.textContent || '').toLowerCase();
+        return matchesKeyword(context);
+      }
+
+      function isCrossIconDelete(el) {
+        const svg = el.querySelector?.('svg');
+        if (!svg) return false;
+        const viewBox = (svg.getAttribute('viewBox') || '').trim();
+        const pathD = svg.querySelector('path')?.getAttribute('d') || '';
         return (
-          cls.includes('nc-arraycontrol-remove') ||
-          cls.includes('nc-arraycontrol-delete') ||
-          cls.includes('nc-array-control-remove') ||
-          label.includes('delete') ||
-          label.includes('remove')
+          viewBox === '0 0 24 24' &&
+          (pathD.includes('11.916 9.96') || pathD.includes('5.616 5.617') || pathD.includes('5.633-5.634'))
         );
       }
 
-      document.addEventListener('click', event => {
-        if (!shouldConfirm(event.target)) return;
+      function findDeleteControl(target) {
+        let el = target;
+        for (let i = 0; i < 4 && el; i += 1) {
+          if (el.matches?.('button, a, [role="button"]')) {
+            const cls = el.className || '';
+            const clsLower = cls.toLowerCase();
+            const aria = el.getAttribute?.('aria-label') || '';
+            const title = el.getAttribute?.('title') || '';
+            const testid = el.getAttribute?.('data-testid') || '';
+            const text = el.textContent || '';
+            if (
+              matchesKeyword(cls) ||
+              matchesKeyword(aria) ||
+              matchesKeyword(title) ||
+              matchesKeyword(testid) ||
+              matchesKeyword(text) ||
+              isTopBarDelete(el) ||
+              isCrossIconDelete(el)
+            ) {
+              return el;
+            }
+          }
+          el = el.parentElement;
+        }
+        return null;
+      }
+
+      function confirmDelete(event, target) {
+        if (!target) return;
         const ok = window.confirm('Remove this item? This will delete it from the entry.');
         if (!ok) {
-          event.stopPropagation();
           event.preventDefault();
+          event.stopPropagation();
         }
+      }
+
+      document.addEventListener('pointerdown', event => {
+        const btn = findDeleteControl(event.target);
+        if (btn) confirmDelete(event, btn);
+      }, true);
+
+      document.addEventListener('keydown', event => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        const btn = findDeleteControl(event.target);
+        if (btn) confirmDelete(event, btn);
       }, true);
     })();
   </script>
