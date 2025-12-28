@@ -8,6 +8,12 @@
 <body>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script src="https://unpkg.com/decap-cms@^3/dist/decap-cms.js"></script>
+  <style>
+    /* Hide default Decap logo icon */
+    .DecapLogoIcon {
+      display: none !important;
+    }
+  </style>
   <script>
     // Redirect to the admin once logged in through Netlify Identity
     if (window.netlifyIdentity) {
@@ -154,6 +160,57 @@
       const observer = new MutationObserver(updateLabels);
       observer.observe(document.body, { childList: true, subtree: true });
       updateLabels();
+      setTimeout(() => observer.disconnect(), 15000);
+    })();
+
+    // Replace Decap logo with Faros branding
+    (function replaceDecapLogo() {
+      const LOGO_ID = 'faros-admin-logo';
+      const imgSrc = '/images/Faros_Logo.jpeg';
+
+      function findLogoContainer() {
+        return (
+          document.querySelector('.nc-app-header a[class*="Logo"]') ||
+          document.querySelector('.nc-app-header a[href="/"]') ||
+          document.querySelector('header[class*="AppHeader"] a[class*="Logo"]') ||
+          document.querySelector('header[class*="AppHeader"] a[href="/"]') ||
+          document.querySelector('.DecapLogoIcon')?.closest('a') ||
+          document.querySelector('.DecapLogoIcon')?.parentElement
+        );
+      }
+
+      function applyLogo() {
+        const container = findLogoContainer();
+        if (!container || container.querySelector(`#${LOGO_ID}`)) return;
+
+        container.innerHTML = '';
+        container.style.display = 'inline-flex';
+        container.style.alignItems = 'center';
+        container.style.gap = '8px';
+        container.style.textDecoration = 'none';
+
+        const img = document.createElement('img');
+        img.id = LOGO_ID;
+        img.src = imgSrc;
+        img.alt = 'Faros Admin';
+        img.style.height = '32px';
+        img.style.width = 'auto';
+        img.style.display = 'block';
+        img.style.borderRadius = '4px';
+
+        const label = document.createElement('span');
+        label.textContent = 'Faros Admin';
+        label.style.fontWeight = '600';
+        label.style.color = '#1f2937';
+        label.style.fontSize = '15px';
+
+        container.appendChild(img);
+        container.appendChild(label);
+      }
+
+      const observer = new MutationObserver(applyLogo);
+      observer.observe(document.body, { childList: true, subtree: true });
+      applyLogo();
       setTimeout(() => observer.disconnect(), 15000);
     })();
   </script>
