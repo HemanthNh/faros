@@ -29,7 +29,7 @@
         }
       ],
       "hero": {
-        "layout": "full",
+        "layout": "contained",
         "image": "/images/uploads/team3.jpg",
         "alt": "alt textttt"
       },
