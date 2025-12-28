@@ -103,10 +103,28 @@
         const item = document.createElement('li');
         item.id = LINK_ID;
         item.style.listStyle = 'none';
+        item.style.display = 'inline-flex';
+        item.style.alignItems = 'center';
+        item.style.marginLeft = '16px';
         const link = document.createElement('a');
         link.href = '/bulletin-drafts.html';
         link.className = 'nc-nav-link';
         link.textContent = 'View drafts';
+        link.style.display = 'inline-flex';
+        link.style.alignItems = 'center';
+        link.style.gap = '6px';
+        const icon = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        icon.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+        icon.setAttribute('viewBox', '0 0 24 24');
+        icon.setAttribute('width', '16');
+        icon.setAttribute('height', '16');
+        icon.setAttribute('fill', 'none');
+        icon.setAttribute('stroke', '#295f9e');
+        icon.setAttribute('stroke-width', '2');
+        icon.setAttribute('stroke-linecap', 'round');
+        icon.setAttribute('stroke-linejoin', 'round');
+        icon.innerHTML = '<path d="M4 4h9l5 5v11H4z"/><path d="M13 4v5h5"/><path d="M9 13h6m-6 4h6"/>';
+        link.prepend(icon);
         item.appendChild(link);
         navList.appendChild(item);
       }
