@@ -145,6 +145,38 @@
       }
     }
 
+    function getHeroLayoutClass(layout) {
+      const allowed = ['full', 'contained', 'left', 'right'];
+      const value = allowed.includes(layout) ? layout : 'contained';
+      return `layout-${value}`;
+    }
+
+    function normalizeGalleryItems(post) {
+      if (Array.isArray(post.gallery)) return post.gallery.filter(item => item && (item.image || item.src));
+      if (Array.isArray(post.images)) {
+        return post.images
+          .filter(item => item && (item.src || item.image))
+          .map(item => ({
+            image: item.image || item.src,
+            alt: item.alt || item.caption,
+            caption: item.caption,
+            layout: item.layout,
+          }));
+      }
+      return [];
+    }
+
+    function getGalleryColClass(layout) {
+      switch (layout) {
+        case 'half':
+          return 'col-12 col-md-6';
+        case 'third':
+          return 'col-12 col-md-4 col-lg-3';
+        default:
+          return 'col-12';
+      }
+    }
+
     function renderNotFound() {
       clearDetail();
       const wrapper = document.createElement('div');
@@ -198,6 +230,19 @@
 
       detailEl.appendChild(header);
 
+      if (post.hero && (post.hero.image || post.hero.src)) {
+        const heroWrapper = document.createElement('div');
+        heroWrapper.className = `bulletin-hero ${getHeroLayoutClass(post.hero.layout)}`;
+        const figure = document.createElement('figure');
+        figure.className = 'mb-3';
+        const img = document.createElement('img');
+        img.src = post.hero.image || post.hero.src;
+        img.alt = post.hero.alt || post.title || 'Bulletin hero image';
+        figure.appendChild(img);
+        heroWrapper.appendChild(figure);
+        detailEl.appendChild(heroWrapper);
+      }
+
       const bodySection = renderSection('Update');
       const body = document.createElement('div');
       body.className = 'bulletin-body bulletin-content';
@@ -224,26 +269,28 @@
         detailEl.appendChild(linksSection);
       }
 
-      if (Array.isArray(post.images) && post.images.length) {
-        const imagesSection = renderSection('Images');
+      const galleryItems = normalizeGalleryItems(post);
+      if (galleryItems.length) {
+        const gallerySection = renderSection('Gallery');
+        gallerySection.classList.add('bulletin-gallery');
         const grid = document.createElement('div');
         grid.className = 'row g-4 bulletin-media';
-        post.images.forEach(item => {
-          if (!item || !item.src) return;
+        galleryItems.forEach(item => {
+          if (!item || !(item.image || item.src)) return;
           const col = document.createElement('div');
-          col.className = 'col-md-6';
+          col.className = getGalleryColClass(item.layout);
           const figure = document.createElement('figure');
           const img = document.createElement('img');
-          img.src = item.src;
-          img.alt = item.caption || post.title || 'Bulletin image';
+          img.src = item.image || item.src;
+          img.alt = item.alt || item.caption || post.title || 'Bulletin image';
           const caption = document.createElement('figcaption');
           caption.textContent = item.caption || '';
           figure.append(img, caption);
           col.appendChild(figure);
           grid.appendChild(col);
         });
-        imagesSection.appendChild(grid);
-        detailEl.appendChild(imagesSection);
+        gallerySection.appendChild(grid);
+        detailEl.appendChild(gallerySection);
       }
 
       if (post.video && post.video.url) {
