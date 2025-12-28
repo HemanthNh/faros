@@ -16,7 +16,7 @@
           "image": "https://www.titanfile.com/wp-content/uploads/2023/12/Top-5-Methods-of-Protecting-Data-2.jpg"
         }
       ],
-      "status": "published",
+      "status": "draft",
       "title": "Understanding Data Protection Obligations for Indian Businesses in 2025",
       "links": [
         {
@@ -38,6 +38,17 @@
         "url": "https://www.youtube.com/shorts/z3Yfcjzkr90"
       },
       "id": "Hero-LA-001"
+    },
+    {
+      "status": "draft",
+      "hero": {
+        "layout": "contained"
+      },
+      "id": "UP-01",
+      "title": "Some Post",
+      "date": "2025-12-28",
+      "summary": "asdnasdnkl",
+      "body": "asfasfasd"
     }
   ]
 }
