@@ -356,7 +356,7 @@
     const postId = params.get('id');
     const postSlug = normalizeSlug(params.get('slug'));
 
-    if (!postId) {
+    if (!postId && !postSlug) {
       renderNotFound();
     } else {
       const previewMode = new URLSearchParams(window.location.search).get('preview') === '1';
