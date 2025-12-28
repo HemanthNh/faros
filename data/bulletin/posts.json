@@ -49,6 +49,17 @@
       "date": "2025-12-28",
       "summary": "asdnasdnkl",
       "body": "asfasfasd"
+    },
+    {
+      "status": "draft",
+      "hero": {
+        "layout": "contained"
+      },
+      "id": "Why Maps Lie",
+      "title": "Why Maps Lie (and Why That’s Not a Bad Thing)",
+      "summary": "We grow up trusting maps. They’re printed with crisp lines, soothing colors, and an air of quiet authority. A map feels like a promise: this is how the world really is. But that promise is broken the moment a round planet is flattened onto a rectangle.",
+      "body": "\n\nEvery map lies. Not maliciously—more like a polite, necessary fib.\n\nThe problem is geometry. Earth is roughly spherical, and paper is stubbornly flat. When you try to translate one onto the other, something has to give. Shape, size, distance, or direction—pick at least one to sacrifice. Different map projections make different trade-offs, and those choices quietly shape how we see the world.\n\nTake size. Some projections make Greenland look comparable to Africa, when in reality Africa could swallow Greenland whole several times over and still have room for dessert. Other projections preserve relative area but twist coastlines into surreal curves that look like they escaped from a Salvador Dalí painting. Neither is “wrong.” They’re just optimizing for different truths.\n\nThis is where maps become philosophical objects. A map is not reality; it’s an argument about reality. It answers questions like: What matters here? Navigation? Political boundaries? Climate? Subway stops? The moment you choose what to emphasize, you choose what to distort.\n\nEven digital maps, which feel dynamic and god-like as they zoom smoothly from continents to coffee shops, are full of compromises. At one scale, a road is a thin line. At another, it’s a complex organism of lanes, turn restrictions, and traffic moods. Reality doesn’t change when you zoom—your *model* of it does.\n\nThe danger isn’t that maps lie. The danger is forgetting that they do.\n\nOnce you remember that a map is a tool rather than a mirror, it becomes more powerful, not less. You stop asking whether it’s *true* and start asking whether it’s *useful*. That shift—from absolute truth to contextual usefulness—is a small mental move with big consequences, not just for geography, but for how we interpret data, news, and even other people.\n\nSo keep using maps. Trust them enough to get where you’re going. Just don’t confuse the lines for the land itself. The world is always messier, larger, and stranger than any diagram that tries to contain it—and that’s part of the fun.",
+      "date": "2025-12-29"
     }
   ]
 }
