@@ -103,6 +103,10 @@
       statusEl.style.display = 'block';
     }
 
+    function normalizeSlug(value) {
+      return (value || '').toString().trim().toLowerCase();
+    }
+
     function clearList() {
       while (listEl.firstChild) {
         listEl.removeChild(listEl.firstChild);
@@ -146,7 +150,7 @@
         summary.textContent = renderPlainText(summarySource);
 
         const link = document.createElement('a');
-        const slug = post.slug && String(post.slug).trim();
+        const slug = normalizeSlug(post.slug);
         const target = slug ? `bulletin-view.html?slug=${encodeURIComponent(slug)}` : `bulletin-view.html?id=${encodeURIComponent(post.id)}`;
         link.href = target;
         link.className = 'stretched-link text-primary';

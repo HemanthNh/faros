@@ -112,6 +112,10 @@
       return `${dd}-${mm}-${yyyy}`;
     }
 
+    function normalizeSlug(value) {
+      return (value || '').toString().trim().toLowerCase();
+    }
+
     function getYouTubeId(url) {
       try {
         const parsed = new URL(url);
@@ -350,7 +354,7 @@
 
     const params = new URLSearchParams(window.location.search);
     const postId = params.get('id');
-    const postSlug = params.get('slug');
+    const postSlug = normalizeSlug(params.get('slug'));
 
     if (!postId) {
       renderNotFound();
@@ -366,7 +370,7 @@
           const post = posts.find(item => {
             if (!(previewMode || item.status === 'published')) return false;
             if (postSlug) {
-              return item.slug && item.slug.toString() === postSlug;
+              return normalizeSlug(item.slug) === postSlug;
             }
             return item.id === postId;
           });

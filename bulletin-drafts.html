@@ -87,6 +87,10 @@
       return `${dd}-${mm}-${yyyy}`;
     }
 
+    function normalizeSlug(value) {
+      return (value || '').toString().trim().toLowerCase();
+    }
+
     function renderMarkdown(md) {
       return DOMPurify.sanitize(marked.parse(md || ''), {
         ADD_TAGS: ['iframe'],
@@ -128,7 +132,7 @@
         summary.textContent = renderPlainText(summarySource);
 
         const link = document.createElement('a');
-        const slug = post.slug && String(post.slug).trim();
+        const slug = normalizeSlug(post.slug);
         const target = slug
           ? `bulletin-view.html?slug=${encodeURIComponent(slug)}&preview=1`
           : `bulletin-view.html?id=${encodeURIComponent(post.id)}&preview=1`;
