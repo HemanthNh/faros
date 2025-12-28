@@ -30,7 +30,8 @@
       ],
       "hero": {
         "layout": "contained",
-        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmrMccy_3pEkDxfcAaXzKX1H7b8y9eIxZyEQ&s"
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmrMccy_3pEkDxfcAaXzKX1H7b8y9eIxZyEQ&s",
+        "alt": "alt textttt"
       },
       "video": {
         "type": "youtube",
