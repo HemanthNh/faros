@@ -87,26 +87,28 @@
     (function addDraftsShortcut() {
       const LINK_ID = 'drafts-shortcut-link';
 
-      function findContainer() {
+      function findNavList() {
         return (
-          document.querySelector('.nc-app-header .nc-header-actions') ||
-          document.querySelector('.nc-app-header') ||
-          document.querySelector('header[class*="AppHeader"] .nc-header-actions') ||
-          document.querySelector('header[class*="AppHeader"]')
+          document.querySelector('.nc-app-header nav ul') ||
+          document.querySelector('header[class*="AppHeader"] nav ul') ||
+          document.querySelector('.nc-app-header ul') ||
+          document.querySelector('header[class*="AppHeader"] ul')
         );
       }
 
       function ensureLink() {
         if (document.getElementById(LINK_ID)) return;
-        const container = findContainer();
-        if (!container) return;
+        const navList = findNavList();
+        if (!navList) return;
+        const item = document.createElement('li');
+        item.id = LINK_ID;
+        item.style.listStyle = 'none';
         const link = document.createElement('a');
-        link.id = LINK_ID;
         link.href = '/bulletin-drafts.html';
-        link.className = 'btn btn-outline-secondary btn-sm';
+        link.className = 'nc-nav-link';
         link.textContent = 'View drafts';
-        link.style.marginLeft = '12px';
-        container.appendChild(link);
+        item.appendChild(link);
+        navList.appendChild(item);
       }
 
       const observer = new MutationObserver(() => ensureLink());
