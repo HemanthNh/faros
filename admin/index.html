@@ -176,10 +176,16 @@
 
         callout.innerHTML = '';
         callout.href = '#';
+        callout.className = '';
         callout.style.display = 'inline-flex';
         callout.style.alignItems = 'center';
         callout.style.gap = '6px';
         callout.style.textDecoration = 'none';
+        callout.style.background = 'none';
+        callout.style.padding = '0';
+        callout.style.border = 'none';
+        callout.style.boxShadow = 'none';
+        callout.style.color = '#1f2937';
 
         const img = doc.createElement('img');
         img.src = LOGO_SRC;
