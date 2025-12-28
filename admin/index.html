@@ -8,12 +8,6 @@
 <body>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <script src="https://unpkg.com/decap-cms@^3/dist/decap-cms.js"></script>
-  <style>
-    /* Hide default Decap logo icon */
-    .DecapLogoIcon {
-      display: none !important;
-    }
-  </style>
   <script>
     // Redirect to the admin once logged in through Netlify Identity
     if (window.netlifyIdentity) {
@@ -168,33 +162,14 @@
       const LOGO_ID = 'faros-admin-logo';
       const imgSrc = '/images/Faros_Logo.jpeg';
 
-      function findLogoContainer() {
-        const decapLogo = document.querySelector('[class*="DecapLogoIcon"]');
-        if (decapLogo) {
-          const linkParent = decapLogo.closest('a');
-          if (linkParent) return linkParent;
-          return decapLogo.parentElement;
-        }
-        return (
-          document.querySelector('.nc-app-header a[class*="Logo"]') ||
-          document.querySelector('.nc-app-header a[href="/"]') ||
-          document.querySelector('header[class*="AppHeader"] a[class*="Logo"]') ||
-          document.querySelector('header[class*="AppHeader"] a[href="/"]')
-        );
-      }
-
-      function applyLogo() {
-        const container = findLogoContainer();
-        if (!container || container.querySelector(`#${LOGO_ID}`)) return;
-
-        container.innerHTML = '';
-        container.style.display = 'inline-flex';
-        container.style.alignItems = 'center';
-        container.style.gap = '8px';
-        container.style.textDecoration = 'none';
+      function createLogoNode() {
+        const wrapper = document.createElement('span');
+        wrapper.id = LOGO_ID;
+        wrapper.style.display = 'inline-flex';
+        wrapper.style.alignItems = 'center';
+        wrapper.style.gap = '8px';
 
         const img = document.createElement('img');
-        img.id = LOGO_ID;
         img.src = imgSrc;
         img.alt = 'Faros Admin';
         img.style.height = '32px';
@@ -208,8 +183,32 @@
         label.style.color = '#1f2937';
         label.style.fontSize = '15px';
 
-        container.appendChild(img);
-        container.appendChild(label);
+        wrapper.appendChild(img);
+        wrapper.appendChild(label);
+        return wrapper;
+      }
+
+      function applyLogo() {
+        if (document.getElementById(LOGO_ID)) return;
+        const decapLogo = document.querySelector('[class*="DecapLogoIcon"]');
+        if (decapLogo) {
+          decapLogo.replaceWith(createLogoNode());
+          return;
+        }
+        const container =
+          document.querySelector('.nc-app-header a[class*="Logo"]') ||
+          document.querySelector('.nc-app-header a[href="/"]') ||
+          document.querySelector('header[class*="AppHeader"] a[class*="Logo"]') ||
+          document.querySelector('header[class*="AppHeader"] a[href="/"]');
+        if (container) {
+          const node = createLogoNode();
+          container.innerHTML = '';
+          container.style.display = 'inline-flex';
+          container.style.alignItems = 'center';
+          container.style.gap = '8px';
+          container.style.textDecoration = 'none';
+          container.appendChild(node);
+        }
       }
 
       const observer = new MutationObserver(applyLogo);
