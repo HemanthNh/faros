@@ -322,7 +322,7 @@
         }
       }
 
-      document.addEventListener('pointerdown', event => {
+      document.addEventListener('click', event => {
         const btn = findDeleteControl(event.target);
         if (btn) confirmDelete(event, btn);
       }, true);
