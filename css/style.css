@@ -369,7 +369,16 @@ section { padding: 96px 0; }
 .bulletin-gallery .bulletin-media img {
   width: 100%;
   height: 240px;
-  object-fit: cover;
+  object-fit: contain;
+  background: #f8fafc;
+  padding: 8px;
+}
+
+@media (max-width: 576px) {
+  .bulletin-gallery .bulletin-media img {
+    height: 180px;
+    padding: 6px;
+  }
 }
 
 /* Call to action */
