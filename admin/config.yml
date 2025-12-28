@@ -20,6 +20,10 @@ collections:
             widget: "list"
             fields:
               - { name: "id", label: "ID", widget: "string" }
+              - name: "slug"
+                label: "Slug"
+                widget: "string"
+                hint: "URL-friendly identifier (e.g., \"privacy-update-2025\")"
               - { name: "title", label: "Title", widget: "string" }
               - name: "date"
                 label: "Date"

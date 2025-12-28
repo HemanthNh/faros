@@ -146,7 +146,9 @@
         summary.textContent = renderPlainText(summarySource);
 
         const link = document.createElement('a');
-        link.href = `bulletin-view.html?id=${encodeURIComponent(post.id)}`;
+        const slug = post.slug && String(post.slug).trim();
+        const target = slug ? `bulletin-view.html?slug=${encodeURIComponent(slug)}` : `bulletin-view.html?id=${encodeURIComponent(post.id)}`;
+        link.href = target;
         link.className = 'stretched-link text-primary';
         link.textContent = 'Read full bulletin';
 
