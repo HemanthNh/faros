@@ -29,7 +29,7 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="practice-areas.html">Practice Areas</a></li>
-          <li class="nav-item"><a class="nav-link" href="insights.html">Insights & Highlights</a></li>
+          <!-- <li class="nav-item"><a class="nav-link" href="insights.html">Insights & Highlights</a></li> -->
           <li class="nav-item"><a class="nav-link active" href="bulletin.html">Bulletin</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
@@ -37,12 +37,12 @@
     </div>
   </nav>
 
-  <section class="py-5 text-center" style="background: var(--bg-section);">
+  <!-- <section class="py-5 text-center" style="background: var(--bg-section);">
     <div class="container">
       <h1 class="fw-semibold">Bulletin Detail</h1>
-      <p class="text-muted mb-0">Review the full bulletin entry and related resources.</p>
+      <p class="text-muted mb-0">Explore the complete bulletin with any linked guidance and downloads.</p>
     </div>
-  </section>
+  </section> -->
 
   <section class="py-5">
     <div class="container">
@@ -212,9 +212,11 @@
     function renderSection(titleText) {
       const section = document.createElement('div');
       section.className = 'mt-4';
-      const heading = document.createElement('h4');
-      heading.textContent = titleText;
-      section.appendChild(heading);
+      if (titleText) {
+        const heading = document.createElement('h4');
+        heading.textContent = titleText;
+        section.appendChild(heading);
+      }
       return section;
     }
 
@@ -257,7 +259,7 @@
         detailEl.appendChild(heroWrapper);
       }
 
-      const bodySection = renderSection('Update');
+      const bodySection = renderSection(null);
       const body = document.createElement('div');
       body.className = 'bulletin-body bulletin-content';
       body.innerHTML = renderMarkdown(post.body);
