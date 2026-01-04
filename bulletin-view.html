@@ -46,13 +46,19 @@
 
   <section class="py-5">
     <div class="container">
+      <div class="d-flex mb-4">
+        <button type="button" class="btn btn-outline-dark d-flex align-items-center gap-2" id="bulletin-back">
+          <i class="lucide lucide-arrow-left"></i>
+          <span>Back</span>
+        </button>
+      </div>
       <div id="bulletin-status" class="alert alert-info" style="display: none;"></div>
       <div id="bulletin-detail"></div>
     </div>
   </section>
 
   <footer class="bg-black text-white text-center py-3">
-    <small>Ac 2025 Faros Legal | Bengaluru, India</small>
+    <small>&copy; 2025 Faros Legal | Bengaluru, India</small>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -90,6 +96,14 @@
         ADD_ATTR: ['allow', 'allowfullscreen', 'frameborder', 'src', 'width', 'height', 'referrerpolicy'],
       });
     }
+
+    document.getElementById('bulletin-back').addEventListener('click', () => {
+      if (document.referrer && window.history.length > 1) {
+        window.history.back();
+      } else {
+        window.location.href = 'bulletin.html';
+      }
+    });
 
     function setStatus(message, type) {
       statusEl.textContent = message;
@@ -191,11 +205,7 @@
       const text = document.createElement('p');
       text.className = 'text-muted';
       text.textContent = 'The requested bulletin is unavailable.';
-      const link = document.createElement('a');
-      link.href = 'bulletin.html';
-      link.className = 'btn btn-outline-dark';
-      link.textContent = 'Back to Bulletin';
-      wrapper.append(title, text, link);
+      wrapper.append(title, text);
       detailEl.appendChild(wrapper);
     }
 
@@ -354,7 +364,7 @@
 
     const params = new URLSearchParams(window.location.search);
     const postId = params.get('id');
-    const postSlug = normalizeSlug(params.get('slug'));
+    const postSlug = normalizeSlug(params.get('post') || params.get('slug'));
 
     if (!postId && !postSlug) {
       renderNotFound();

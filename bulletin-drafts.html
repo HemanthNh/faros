@@ -54,11 +54,12 @@
       </div>
       <div id="draft-status" class="alert alert-info" style="display: none;"></div>
       <div id="draft-list" class="row g-4"></div>
+      <div id="draft-pagination" class="d-flex justify-content-center mt-4"></div>
     </div>
   </section>
 
   <footer class="bg-black text-white text-center py-3">
-    <small>Ac 2025 Faros Legal | Bengaluru, India</small>
+    <small>&copy; 2025 Faros Legal | Bengaluru, India</small>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -67,6 +68,10 @@
   <script>
     const listEl = document.getElementById('draft-list');
     const statusEl = document.getElementById('draft-status');
+    const paginationEl = document.getElementById('draft-pagination');
+    const pageSize = 6;
+    let currentPage = 1;
+    let currentPosts = [];
 
     function setStatus(message, type) {
       statusEl.textContent = message;
@@ -108,6 +113,7 @@
       clearList();
       if (!posts.length) {
         setStatus('No drafts available.', 'light');
+        while (paginationEl.firstChild) paginationEl.removeChild(paginationEl.firstChild);
         return;
       }
       statusEl.style.display = 'none';
@@ -134,7 +140,7 @@
         const link = document.createElement('a');
         const slug = normalizeSlug(post.slug);
         const target = slug
-          ? `bulletin-view.html?slug=${encodeURIComponent(slug)}&preview=1`
+          ? `bulletin-view.html?post=${encodeURIComponent(slug)}&preview=1`
           : `bulletin-view.html?id=${encodeURIComponent(post.id)}&preview=1`;
         link.href = target;
         link.className = 'stretched-link text-primary';
@@ -146,6 +152,50 @@
       });
     }
 
+    function renderPagination(totalPages) {
+      while (paginationEl.firstChild) paginationEl.removeChild(paginationEl.firstChild);
+      if (totalPages <= 1) return;
+
+      const nav = document.createElement('nav');
+      nav.setAttribute('aria-label', 'Draft pagination');
+      const list = document.createElement('ul');
+      list.className = 'pagination';
+
+      const addItem = (label, page, disabled, active) => {
+        const li = document.createElement('li');
+        li.className = `page-item${disabled ? ' disabled' : ''}${active ? ' active' : ''}`;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'page-link';
+        btn.textContent = label;
+        if (!disabled) btn.addEventListener('click', () => renderPage(page));
+        li.appendChild(btn);
+        list.appendChild(li);
+      };
+
+      addItem('Previous', currentPage - 1, currentPage === 1, false);
+      for (let page = 1; page <= totalPages; page += 1) {
+        addItem(page, page, false, page === currentPage);
+      }
+      addItem('Next', currentPage + 1, currentPage === totalPages, false);
+
+      nav.appendChild(list);
+      paginationEl.appendChild(nav);
+    }
+
+    function renderPage(page) {
+      if (!currentPosts.length) {
+        renderPosts([]);
+        return;
+      }
+      const totalPages = Math.ceil(currentPosts.length / pageSize);
+      currentPage = Math.min(Math.max(page, 1), totalPages);
+      const start = (currentPage - 1) * pageSize;
+      const slice = currentPosts.slice(start, start + pageSize);
+      renderPosts(slice);
+      renderPagination(totalPages);
+    }
+
     fetch('data/bulletin/posts.json', { cache: 'no-store' })
       .then(response => {
         if (!response.ok) throw new Error('Unable to load bulletin data.');
@@ -155,7 +205,8 @@
         const posts = Array.isArray(data.posts) ? data.posts : [];
         const drafts = posts.filter(post => post.status === 'draft');
         drafts.sort((a, b) => new Date(b.date) - new Date(a.date));
-        renderPosts(drafts);
+        currentPosts = drafts;
+        renderPage(1);
       })
       .catch(() => {
         setStatus('We could not load drafts right now. Please try again later.', 'warning');

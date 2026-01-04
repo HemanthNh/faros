@@ -14,7 +14,7 @@
   <link href="css/theme.css" rel="stylesheet" />
   <link href="css/style.css" rel="stylesheet" />
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-black py-3">
     <div class="container">
@@ -37,22 +37,25 @@
     </div>
   </nav>
 
-  <section class="py-5 text-center" style="background: var(--bg-section);">
-    <div class="container">
-      <h1 class="fw-semibold">Bulletin</h1>
-      <p class="text-muted mb-0">Concise legal updates, firm announcements, and client-ready guidance.</p>
-    </div>
-  </section>
+  <main class="flex-grow-1">
+    <section class="py-5 text-center" style="background: var(--bg-section);">
+      <div class="container">
+        <h1 class="fw-semibold">Bulletin</h1>
+        <p class="text-muted mb-0">Concise legal updates, firm announcements, and client-ready guidance.</p>
+      </div>
+    </section>
 
-  <section class="py-5">
-    <div class="container">
-      <div id="bulletin-status" class="alert alert-info" style="display: none;"></div>
-      <div id="bulletin-list" class="row g-4"></div>
-    </div>
-  </section>
+    <section class="py-5">
+      <div class="container">
+        <div id="bulletin-status" class="alert alert-info" style="display: none;"></div>
+        <div id="bulletin-list" class="row g-4"></div>
+        <div id="bulletin-pagination" class="d-flex justify-content-center mt-4"></div>
+      </div>
+    </section>
+  </main>
 
-  <footer class="bg-black text-white text-center py-3">
-    <small>Ac 2025 Faros Legal | Bengaluru, India</small>
+  <footer class="bg-black text-white text-center py-3 mt-auto">
+    <small>&copy; 2025 Faros Legal | Bengaluru, India</small>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -61,7 +64,11 @@
   <script>
     const listEl = document.getElementById('bulletin-list');
     const statusEl = document.getElementById('bulletin-status');
+    const paginationEl = document.getElementById('bulletin-pagination');
     const allowedIframeHosts = ['youtube.com', 'www.youtube.com', 'youtu.be', 'vimeo.com', 'player.vimeo.com'];
+    const pageSize = 6;
+    let currentPage = 1;
+    let currentPosts = [];
 
     function isAllowedEmbed(src) {
       try {
@@ -113,6 +120,12 @@
       }
     }
 
+    function clearPagination() {
+      while (paginationEl.firstChild) {
+        paginationEl.removeChild(paginationEl.firstChild);
+      }
+    }
+
     function formatDate(value) {
       const date = new Date(value);
       if (Number.isNaN(date.getTime())) return value;
@@ -126,6 +139,7 @@
       clearList();
       if (!posts.length) {
         setStatus('No published bulletins yet. Please check back soon.', 'light');
+        clearPagination();
         return;
       }
       statusEl.style.display = 'none';
@@ -137,29 +151,101 @@
         card.className = 'bulletin-card p-4 h-100';
 
         const meta = document.createElement('small');
-        meta.className = 'bulletin-meta';
-        meta.textContent = formatDate(post.date);
+        meta.className = 'bulletin-meta d-inline-flex align-items-center gap-1';
+        const dateIcon = document.createElement('i');
+        dateIcon.setAttribute('data-lucide', 'calendar');
+        dateIcon.className = 'text-secondary';
+        dateIcon.setAttribute('aria-hidden', 'true');
+        const dateText = document.createElement('span');
+        dateText.textContent = formatDate(post.date);
+        meta.append(dateIcon, dateText);
+
+        const heading = document.createElement('div');
+        heading.className = 'd-flex align-items-center gap-2 mb-2';
+        const icon = document.createElement('i');
+        icon.setAttribute('data-lucide', 'newspaper');
+        icon.className = 'text-primary';
+        icon.setAttribute('aria-hidden', 'true');
 
         const title = document.createElement('h5');
         title.className = 'mt-2';
         title.textContent = post.title || 'Untitled bulletin';
+        heading.append(icon, title);
 
         const summary = document.createElement('p');
-        summary.className = 'mb-3';
+        summary.className = 'mb-3 mt-1';
         const summarySource = post.summary || (post.body ? `${post.body.slice(0, 240)}...` : '');
         summary.textContent = renderPlainText(summarySource);
 
         const link = document.createElement('a');
         const slug = normalizeSlug(post.slug);
-        const target = slug ? `bulletin-view.html?slug=${encodeURIComponent(slug)}` : `bulletin-view.html?id=${encodeURIComponent(post.id)}`;
+        const target = slug ? `bulletin-view.html?post=${encodeURIComponent(slug)}` : `bulletin-view.html?id=${encodeURIComponent(post.id)}`;
         link.href = target;
         link.className = 'stretched-link text-primary';
-        link.textContent = 'Read full bulletin';
+        link.classList.add('d-inline-flex', 'align-items-center', 'gap-2');
+        const linkText = document.createElement('span');
+        linkText.textContent = 'Read full bulletin';
+        const linkIcon = document.createElement('i');
+        linkIcon.setAttribute('data-lucide', 'arrow-right');
+        linkIcon.setAttribute('aria-hidden', 'true');
+        link.append(linkText, linkIcon);
 
-        card.append(meta, title, summary, link);
+        card.append(meta, heading, summary, link);
         col.appendChild(card);
         listEl.appendChild(col);
       });
+
+      if (window.lucide) {
+        window.lucide.createIcons();
+      }
+    }
+
+    function renderPagination(totalPages) {
+      clearPagination();
+      if (totalPages <= 1) return;
+
+      const nav = document.createElement('nav');
+      nav.setAttribute('aria-label', 'Bulletin pagination');
+      const list = document.createElement('ul');
+      list.className = 'pagination';
+
+      const addItem = (label, page, disabled, active) => {
+        const li = document.createElement('li');
+        li.className = `page-item${disabled ? ' disabled' : ''}${active ? ' active' : ''}`;
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'page-link';
+        btn.textContent = label;
+        if (!disabled) {
+          btn.addEventListener('click', () => {
+            renderPage(page);
+          });
+        }
+        li.appendChild(btn);
+        list.appendChild(li);
+      };
+
+      addItem('Previous', currentPage - 1, currentPage === 1, false);
+      for (let page = 1; page <= totalPages; page += 1) {
+        addItem(page, page, false, page === currentPage);
+      }
+      addItem('Next', currentPage + 1, currentPage === totalPages, false);
+
+      nav.appendChild(list);
+      paginationEl.appendChild(nav);
+    }
+
+    function renderPage(page) {
+      if (!currentPosts.length) {
+        renderPosts([]);
+        return;
+      }
+      const totalPages = Math.ceil(currentPosts.length / pageSize);
+      currentPage = Math.min(Math.max(page, 1), totalPages);
+      const start = (currentPage - 1) * pageSize;
+      const slice = currentPosts.slice(start, start + pageSize);
+      renderPosts(slice);
+      renderPagination(totalPages);
     }
 
     fetch('data/bulletin/posts.json', { cache: 'no-store' })
@@ -171,7 +257,8 @@
         const posts = Array.isArray(data.posts) ? data.posts : [];
         const published = posts.filter(post => post.status === 'published');
         published.sort((a, b) => new Date(b.date) - new Date(a.date));
-        renderPosts(published);
+        currentPosts = published;
+        renderPage(1);
       })
       .catch(() => {
         setStatus('We could not load the bulletin right now. Please try again later.', 'warning');
