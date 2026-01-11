@@ -1,34 +1,6 @@
 {
   "posts": [
     {
-      "body": "Legal risk rarely announces itself.\n\nIt accumulates silently—until it explodes.",
-      "summary": "Most legal failures start quietly.",
-      "slug": "legal-risk-is-boring",
-      "date": "2025-12-01",
-      "gallery": [
-        {
-          "layout": "half",
-          "image": "https://photographylife.com/wp-content/uploads/2023/05/Nikon-Z8-Official-Samples-00002.jpg",
-          "caption": "Aurora"
-        },
-        {
-          "layout": "full",
-          "image": "https://camo.githubusercontent.com/5e45bc648dba68520ce949a53690af6bcef2880f84a1d46cbb1636649afd6d84/68747470733a2f2f796176757a63656c696b65722e6769746875622e696f2f73616d706c652d696d616765732f696d6167652d313032312e6a7067"
-        }
-      ],
-      "status": "draft",
-      "title": "Legal Risk Is Usually Boring—Until It Isn’t",
-      "hero": {
-        "layout": "left",
-        "image": "https://images.unsplash.com/photo-1521791136064-7986c2920216"
-      },
-      "video": {
-        "url": "https://www.youtube.com/watch?v=pyZI5oM6hWk",
-        "type": "youtube"
-      },
-      "id": "POST-001"
-    },
-    {
       "id": "POST-002",
       "status": "published",
       "title": "Policies Don’t Enforce Themselves",
