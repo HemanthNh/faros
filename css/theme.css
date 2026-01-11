@@ -24,20 +24,20 @@ html {
 }
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins',sans-serif;
   color: var(--fg-grey);
   background: var(--bg-light);
   line-height: 1.7;
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Poppins',sans-serif;
   color: var(--fg-dark);
   letter-spacing: 0.3px;
 }
 
 p, li, a, small {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins',sans-serif;
 }
 
 a {
