@@ -127,7 +127,7 @@
     .card-link:focus { outline: none; }
     .card-link:focus .card-item { outline: 2px solid var(--accent-blue); outline-offset: 2px; }
     .cta-band {
-      background: linear-gradient(135deg, #1f4d7c 0%, #295f9e 55%, #1a3c61 100%);
+      background: linear-gradient(135deg, #1f4d7c 0%, #295f9e 55%, #1a3c61 100%) !important;
       color: #fdfdfd;
     }
     .cta-band h2,
@@ -187,7 +187,7 @@
       <div class="hero-grid">
         <div>
           <span class="eyebrow">Strategic counsel</span>
-          <h1 class="fw-semibold">Practice Areas <span>Built for Growth</span></h1>
+          <h1 class="fw-semibold">Practice <span>Areas</span></h1>
           <p class="hero-tagline">We combine partner oversight with specialist pods so that every mandate gets precise attention - whether it is an everyday contract review, a complex acquisition, or a sensitive dispute.</p>
           <div class="hero-chip-group">
             <span class="hero-chip">General Counsel-as-a-Service</span>
@@ -196,12 +196,54 @@
             <span class="hero-chip">Sector-led playbooks</span>
           </div>
         </div>
-        <div>
-          <div class="hero-card">
-            <span class="eyebrow mb-2">Embedded advantage</span>
-            <h3>Dedicated pods for scale-ups and enterprises</h3>
-            <p>Our teams plug into internal stakeholders, bringing structured reporting, proactive risk tracking, and on-call responsiveness.</p>
-            <ul>
+      </div>
+      <!-- <div class="hero-stats">
+        <div class="hero-stat">
+          <span>Active mandates</span>
+          <strong>100+</strong>
+          <span>Multi-jurisdictional engagements</span>
+        </div>
+        <div class="hero-stat">
+          <span>Sector coverage</span>
+          <strong>15</strong>
+          <span>From deep tech to consumer brands</span>
+        </div>
+      </div> -->
+    </div>
+  </section>
+  <!-- Practice Areas Grid -->
+  <section class="section practice-areas-section">
+    <div class="container-xxl px-4 px-xl-5">
+      <div class="practice-lede mb-4">
+        <span class="eyebrow">Explore by focus</span>
+        <h2 class="fw-semibold mb-2">Find the right team for your matter</h2>
+        <p class="text-muted mb-0">Pick a stream to see how we deliver and jump into the detailed capability page.</p>
+      </div>
+      <!-- Filter Tabs -->
+      <div class="filter-tabs">
+        <button class="filter-btn active" data-filter="all">All Areas</button>
+        <button class="filter-btn" data-filter="corporate">Corporate & Advisory</button>
+        <button class="filter-btn" data-filter="transactions">Transactions & Investment</button>
+        <button class="filter-btn" data-filter="realstate">Real Estate & Infrastructure</button>
+        <button class="filter-btn" data-filter="dispute">Dispute & Specialized</button>
+      </div>
+      <!-- Cards Grid (3 columns) -->
+      <div class="cards-grid" id="cards-grid"></div>
+    </div>
+  </section>
+  <br>
+  <section class="section section-soft pt-0">
+    <br>
+    <div class="container-xxl px-4 px-xl-5">
+      <div class="row align-items-start g-5">
+        <div class="col-lg-5">
+          <span class="eyebrow mb-2">Embedded advantage</span>
+          <h3 class="fw-semibold mb-3">Dedicated pods for scale-ups and enterprises</h3>
+          <p class="mb-0">Our teams plug into internal stakeholders, bringing structured reporting, proactive risk tracking, and on-call responsiveness across functions.</p>
+        </div>
+        <div class="col-lg-7">
+          <div class="hero-card mb-0">
+            <ul class="mb-0">
               <li>
                 <span class="material-icons">handshake</span>
                 <div>
@@ -227,132 +269,11 @@
           </div>
         </div>
       </div>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <span>Active mandates</span>
-          <strong>100+</strong>
-          <span>Multi-jurisdictional engagements</span>
-        </div>
-        <div class="hero-stat">
-          <span>Sector coverage</span>
-          <strong>15</strong>
-          <span>From deep tech to consumer brands</span>
-        </div>
-      </div>
     </div>
   </section>
-  <!-- Practice Areas Grid -->
-  <section class="section practice-areas-section">
-    <div class="container-xxl px-4 px-xl-5">
-      <div class="practice-lede mb-4">
-        <span class="eyebrow">Explore by focus</span>
-        <h2 class="fw-semibold mb-2">Find the right team for your matter</h2>
-        <p class="text-muted mb-0">Pick a stream to see how we deliver and jump into the detailed capability page.</p>
-      </div>
-      <!-- Filter Tabs -->
-      <div class="filter-tabs">
-        <button class="filter-btn active" data-filter="all">All Areas</button>
-        <button class="filter-btn" data-filter="corporate">Corporate & Advisory</button>
-        <button class="filter-btn" data-filter="transactions">Transactions & Investment</button>
-        <button class="filter-btn" data-filter="realstate">Real Estate & Infrastructure</button>
-        <button class="filter-btn" data-filter="dispute">Dispute & Specialized</button>
-      </div>
-      <!-- Cards Grid (3 columns) -->
-      <div class="cards-grid" id="cards-grid"></div>
-    </div>
-  </section>
-  <!-- Matrix -->
-  <!-- <section class="section pt-0">
-    <div class="container">
-      <div class="row align-items-center mb-4">
-        <div class="col-lg-8">
-          <span class="eyebrow">Sector depth</span>
-          <h2 class="fw-semibold mb-3">Representative mandates</h2>
-          <p>Snapshots of how Faros counsels corporations, investors, real estate developers, and technology-led businesses.</p>
-        </div>
-        <div class="col-lg-4 text-lg-end">
-          <a href="contact.html" class="btn btn-outline-dark">Book a scoping call</a>
-        </div>
-      </div>
-      <div class="matrix-container">
-        <table class="matrix-table">
-          <thead>
-            <tr>
-              <th style="width:60px;"></th>
-              <th>Practice</th>
-              <th>Typical scope</th>
-              <th>Delivery style</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="matrix-icon"><span class="material-icons">description</span></td>
-              <td>
-                <div class="matrix-title">Corporate & Commercial</div>
-                <span class="matrix-category">Corporate Advisory</span>
-              </td>
-              <td>Commercial contracts, governance frameworks, policy refreshes.</td>
-              <td>Partner + GC pods embedded with business teams.</td>
-              <td><a href="areas/corporate-commercial.html" class="matrix-link">View capability <span class="material-icons">arrow_outward</span></a></td>
-            </tr>
-            <tr>
-              <td class="matrix-icon"><span class="material-icons">handshake</span></td>
-              <td>
-                <div class="matrix-title">Mergers & Acquisitions</div>
-                <span class="matrix-category">Transactions</span>
-              </td>
-              <td>Buy-side/sell-side diligence, negotiation, closing documentation.</td>
-              <td>Deal desks with sector specialists and regulatory leads.</td>
-              <td><a href="areas/mergers-acquisitions.html" class="matrix-link">View capability <span class="material-icons">arrow_outward</span></a></td>
-            </tr>
-            <tr>
-              <td class="matrix-icon"><span class="material-icons">sync_alt</span></td>
-              <td>
-                <div class="matrix-title">Investment Transactions</div>
-                <span class="matrix-category">Capital Solutions</span>
-              </td>
-              <td>Private equity, VC, and strategic tie-ups with multi-disciplinary diligence.</td>
-              <td>Cross-functional squads across tax, regulatory, disputes, and HR.</td>
-              <td><a href="areas/investment-transactions.html" class="matrix-link">View capability <span class="material-icons">arrow_outward</span></a></td>
-            </tr>
-            <tr>
-              <td class="matrix-icon"><span class="material-icons">real_estate_agent</span></td>
-              <td>
-                <div class="matrix-title">Real Estate</div>
-                <span class="matrix-category">Real Assets</span>
-              </td>
-              <td>Title diligence, leasing programs, development and financing support.</td>
-              <td>On-ground coordination with surveyors, lenders, and authorities.</td>
-              <td><a href="areas/real-estate.html" class="matrix-link">View capability <span class="material-icons">arrow_outward</span></a></td>
-            </tr>
-            <tr>
-              <td class="matrix-icon"><span class="material-icons">memory</span></td>
-              <td>
-                <div class="matrix-title">Communication, Technology & Media</div>
-                <span class="matrix-category">Digital & IP</span>
-              </td>
-              <td>IT, cloud, and media agreements plus cybersecurity, IP, and compliance.</td>
-              <td>Product-counsel pods partnering with engineering and product owners.</td>
-              <td><a href="areas/communication-technology-media.html" class="matrix-link">View capability <span class="material-icons">arrow_outward</span></a></td>
-            </tr>
-            <tr>
-              <td class="matrix-icon"><span class="material-icons">gavel</span></td>
-              <td>
-                <div class="matrix-title">Litigation & Disputes</div>
-                <span class="matrix-category">Dispute Resolution</span>
-              </td>
-              <td>Strategy, filings, appearances, and enforcement across forums.</td>
-              <td>Rapid-response teams with documentation and evidence units.</td>
-              <td><a href="areas/litigation.html" class="matrix-link">View capability <span class="material-icons">arrow_outward</span></a></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section> -->
+ 
   <!-- CTA -->
-  <section class="text-white py-5 cta-band">
+  <section class="cta-band text-white section py-5">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-8">
