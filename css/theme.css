@@ -5,10 +5,10 @@
 :root {
   --fg-dark: #0F0F0F;
   --fg-grey: #454545;
-  --bg-light: #ffffff;
-  --bg-section: #F4F4F2;
+  --bg-light: #f6f8fd;
+  --bg-section: #eef1f7;
   --accent-blue: #295F9E;
-  --beige: #EAE5DC;
+  --beige: #e1d8c9;
 
   --radius: 10px;
   --shadow-soft: 0 4px 14px rgba(0,0,0,0.07);
@@ -61,7 +61,7 @@ section:nth-of-type(even) {
 /* Navbar */
 
 .navbar {
-  background: rgba(0,0,0,0.85) !important;
+  background: rgba(0,0,0,0.9) !important;
   backdrop-filter: blur(8px);
 }
 .navbar a:hover {
@@ -135,7 +135,7 @@ section:nth-of-type(even) {
 /* Hero */
 
 .hero {
-  background: linear-gradient(135deg, #111, #1b1b1b);
+  background: linear-gradient(135deg, #0d1f38, #1a2f49);
   color: #fff;
   padding: 140px 20px;
   text-align: center;

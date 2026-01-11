@@ -38,15 +38,16 @@
   </nav>
 
   <main class="flex-grow-1">
-    <section class="py-5 text-center" style="background: var(--bg-section);">
+    <!-- <section class="bulletin-hero-shell py-5">
       <div class="container">
-        <h1 class="fw-semibold">Bulletin</h1>
-        <p class="text-muted mb-0">Legal updates, firm announcements, and client-ready guidance.</p>
+
       </div>
-    </section>
+    </section> -->
 
     <section class="py-5">
       <div class="container">
+        <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+        </div>
         <div id="bulletin-status" class="alert alert-info" style="display: none;"></div>
         <div id="bulletin-list" class="row g-4"></div>
         <div id="bulletin-pagination" class="d-flex justify-content-center mt-4"></div>
@@ -69,6 +70,9 @@
     const pageSize = 6;
     let currentPage = 1;
     let currentPosts = [];
+    const publishedStatEl = document.getElementById('stat-published');
+    const draftStatEl = document.getElementById('stat-drafts');
+    const latestStatEl = document.getElementById('stat-latest');
 
     function isAllowedEmbed(src) {
       try {
@@ -135,6 +139,25 @@
       return `${dd}-${mm}-${yyyy}`;
     }
 
+    function getInitialPage() {
+      const params = new URLSearchParams(window.location.search);
+      const pageParam = parseInt(params.get('page'), 10);
+      if (!Number.isNaN(pageParam) && pageParam > 0) return pageParam;
+      return 1;
+    }
+
+    function setPageParam(page) {
+      const params = new URLSearchParams(window.location.search);
+      if (page > 1) {
+        params.set('page', page);
+      } else {
+        params.delete('page');
+      }
+      const query = params.toString();
+      const newUrl = query ? `${window.location.pathname}?${query}` : window.location.pathname;
+      window.history.replaceState({}, '', newUrl);
+    }
+
     function renderPosts(posts) {
       clearList();
       if (!posts.length) {
@@ -147,11 +170,31 @@
         const col = document.createElement('div');
         col.className = 'col-md-6 col-lg-4';
 
-        const card = document.createElement('div');
-        card.className = 'bulletin-card p-4 h-100';
+        const card = document.createElement('article');
+        card.className = 'bulletin-card h-100';
+
+        const cover = document.createElement('div');
+        cover.className = 'bulletin-cover';
+        const image = post.hero && post.hero.image ? post.hero.image : '';
+        if (image) {
+          cover.style.setProperty('--cover-image', `url("${image}")`);
+        } else {
+          cover.classList.add('no-image');
+          const placeholder = document.createElement('div');
+          placeholder.className = 'bulletin-cover-placeholder d-flex align-items-center gap-2';
+          const phIcon = document.createElement('i');
+          phIcon.setAttribute('data-lucide', 'image-off');
+          phIcon.setAttribute('aria-hidden', 'true');
+          const phText = document.createElement('span');
+          phText.textContent = 'No image available';
+          placeholder.append(phIcon, phText);
+          cover.appendChild(placeholder);
+        }
+        const body = document.createElement('div');
+        body.className = 'bulletin-card-body';
 
         const meta = document.createElement('small');
-        meta.className = 'bulletin-meta d-inline-flex align-items-center gap-1';
+        meta.className = 'bulletin-meta d-inline-flex align-items-center gap-2';
         const dateIcon = document.createElement('i');
         dateIcon.setAttribute('data-lucide', 'calendar');
         dateIcon.className = 'text-secondary';
@@ -160,29 +203,22 @@
         dateText.textContent = formatDate(post.date);
         meta.append(dateIcon, dateText);
 
-        const heading = document.createElement('div');
-        heading.className = 'd-flex align-items-center gap-2 mb-2';
-        const icon = document.createElement('i');
-        icon.setAttribute('data-lucide', 'newspaper');
-        icon.className = 'text-primary';
-        icon.setAttribute('aria-hidden', 'true');
-
         const title = document.createElement('h5');
-        title.className = 'mt-2';
+        title.className = 'mb-1';
         title.textContent = post.title || 'Untitled bulletin';
-        heading.append(icon, title);
 
         const summary = document.createElement('p');
-        summary.className = 'mb-3 mt-1';
+        summary.className = 'bulletin-summary mb-2';
         const summarySource = post.summary || (post.body ? `${post.body.slice(0, 240)}...` : '');
-        summary.textContent = renderPlainText(summarySource);
+        const summaryText = renderPlainText(summarySource);
+        summary.textContent = summaryText.length > 190 ? `${summaryText.slice(0, 187)}...` : summaryText;
 
         const link = document.createElement('a');
         const slug = normalizeSlug(post.slug);
         const target = slug ? `bulletin-view.html?post=${encodeURIComponent(slug)}` : `bulletin-view.html?id=${encodeURIComponent(post.id)}`;
         link.href = target;
-        link.className = 'stretched-link text-primary';
-        link.classList.add('d-inline-flex', 'align-items-center', 'gap-2');
+        link.className = 'stretched-link text-primary fw-semibold';
+        link.classList.add('d-inline-flex', 'align-items-center', 'gap-2', 'mt-auto');
         const linkText = document.createElement('span');
         linkText.textContent = 'Read full bulletin';
         const linkIcon = document.createElement('i');
@@ -190,7 +226,8 @@
         linkIcon.setAttribute('aria-hidden', 'true');
         link.append(linkText, linkIcon);
 
-        card.append(meta, heading, summary, link);
+        body.append(meta, title, summary, link);
+        card.append(cover, body);
         col.appendChild(card);
         listEl.appendChild(col);
       });
@@ -235,7 +272,8 @@
       paginationEl.appendChild(nav);
     }
 
-    function renderPage(page) {
+    function renderPage(page, options = {}) {
+      const { updateUrl = true } = options;
       if (!currentPosts.length) {
         renderPosts([]);
         return;
@@ -246,6 +284,21 @@
       const slice = currentPosts.slice(start, start + pageSize);
       renderPosts(slice);
       renderPagination(totalPages);
+      if (updateUrl) {
+        setPageParam(currentPage);
+      }
+    }
+
+    function updateStats({ publishedCount, draftCount, latestDate }) {
+      if (publishedStatEl) {
+        publishedStatEl.textContent = publishedCount || '0';
+      }
+      if (draftStatEl) {
+        draftStatEl.textContent = draftCount || '0';
+      }
+      if (latestStatEl) {
+        latestStatEl.textContent = latestDate || '—';
+      }
     }
 
     fetch('data/bulletin/posts.json', { cache: 'no-store' })
@@ -256,9 +309,13 @@
       .then(data => {
         const posts = Array.isArray(data.posts) ? data.posts : [];
         const published = posts.filter(post => post.status === 'published');
+        const drafts = posts.filter(post => post.status === 'draft');
         published.sort((a, b) => new Date(b.date) - new Date(a.date));
         currentPosts = published;
-        renderPage(1);
+        const latestDate = published.length ? formatDate(published[0].date) : '—';
+        updateStats({ publishedCount: published.length, draftCount: drafts.length, latestDate });
+        renderPage(getInitialPage(), { updateUrl: false });
+        setPageParam(currentPage);
       })
       .catch(() => {
         setStatus('We could not load the bulletin right now. Please try again later.', 'warning');
