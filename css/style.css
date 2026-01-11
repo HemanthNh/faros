@@ -7,7 +7,7 @@
   --bg-light: #f2efe8;
   --bg-section: #e7e9f0;
   --accent-blue: #295f9e;
-  --accent-emerald: #35c4a3;
+  --accent-emerald: #4fa3ff;
   --beige: #e0d6c7;
   --card-shadow: 0 18px 50px rgba(12, 24, 43, 0.08);
   --blur: blur(14px);
@@ -60,7 +60,7 @@ img {
   letter-spacing: 0.5px;
 }
 .navbar-brand img {
-  height: 44px;
+  height: 60px;
   width: auto;
   display: block;
   transition: transform 0.2s ease, filter 0.2s ease;
@@ -140,7 +140,7 @@ img {
 .hero {
   background:
     radial-gradient(circle at 12% 20%, rgba(41, 95, 158, 0.15), transparent 32%),
-    radial-gradient(circle at 88% 18%, rgba(53, 196, 163, 0.18), transparent 30%),
+    radial-gradient(circle at 88% 18%, rgba(79, 163, 255, 0.18), transparent 30%),
     linear-gradient(135deg, #f1eee7, #e0e7f2);
   color: var(--fg-dark);
   text-align: center;
@@ -183,7 +183,7 @@ img {
 }
 
 .shape-1 { width: 180px; height: 180px; background: rgba(41, 95, 158, 0.32); top: 18%; left: 12%; animation-delay: -2s; }
-.shape-2 { width: 220px; height: 220px; background: rgba(53, 196, 163, 0.3); bottom: 16%; right: 14%; animation-delay: 1s; }
+.shape-2 { width: 220px; height: 220px; background: rgba(79, 163, 255, 0.3); bottom: 16%; right: 14%; animation-delay: 1s; }
 .shape-3 { width: 140px; height: 140px; background: rgba(58, 110, 181, 0.28); bottom: 24%; left: 32%; animation-delay: -4s; }
 
 .hero .card-spotlight {
@@ -240,7 +240,7 @@ section { padding: 96px 0; }
 .practice-card:hover, .area-card:hover, .insight-card:hover, .cta-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 24px 60px rgba(12, 24, 43, 0.12);
-  border-color: rgba(53, 196, 163, 0.3);
+  border-color: rgba(79, 163, 255, 0.3);
 }
 
 .practice-card i {
@@ -264,7 +264,7 @@ section { padding: 96px 0; }
 .bulletin-hero-shell {
   position: relative;
   overflow: hidden;
-  background: radial-gradient(circle at 18% 20%, rgba(53, 196, 163, 0.15), transparent 30%),
+  background: radial-gradient(circle at 18% 20%, rgba(79, 163, 255, 0.15), transparent 30%),
               radial-gradient(circle at 82% 12%, rgba(41, 95, 158, 0.2), transparent 28%),
               linear-gradient(135deg, #f3f4f9, #e6ecf7);
 }
@@ -392,7 +392,7 @@ section { padding: 96px 0; }
 .bulletin-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 26px 60px rgba(12, 24, 43, 0.16);
-  border-color: rgba(53, 196, 163, 0.3);
+  border-color: rgba(79, 163, 255, 0.3);
 }
 
 .bulletin-meta {
@@ -561,7 +561,7 @@ section { padding: 96px 0; }
   content: '';
   position: absolute;
   inset: -80px;
-  background: radial-gradient(circle at 30% 40%, rgba(53, 196, 163, 0.26), transparent 30%),
+  background: radial-gradient(circle at 30% 40%, rgba(79, 163, 255, 0.26), transparent 30%),
               radial-gradient(circle at 70% 60%, rgba(41, 95, 158, 0.28), transparent 28%);
   filter: blur(60px);
   opacity: 0.8;
