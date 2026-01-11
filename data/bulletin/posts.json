@@ -1,29 +1,29 @@
 {
   "posts": [
     {
-      "id": "POST-001",
-      "status": "published",
-      "title": "Legal Risk Is Usually Boring—Until It Isn’t",
-      "slug": "legal-risk-boring",
-      "date": "2025-12-01",
-      "summary": "Most legal failures start quietly.",
-      "body": "Legal risk rarely announces itself.\n\nIt accumulates silently—until it explodes.",
+      "id": "POST-011",
+      "status": "draft",
+      "title": "Data Retention Is a Design Choice",
+      "slug": "data-retention-design",
+      "date": "2025-12-11",
+      "summary": "Keeping less is often safer.",
+      "body": "Data doesn’t just create value—it creates obligation.\n\nRetention policies define how long risk stays alive.\n\nDeletion is not loss; it’s governance.",
       "hero": {
-        "layout": "contained",
-        "image": "https://images.unsplash.com/photo-1521791136064-7986c2920216"
+        "layout": "left",
+        "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31"
       }
     },
     {
-      "id": "POST-002",
-      "status": "published",
-      "title": "Policies Don’t Enforce Themselves",
-      "slug": "policies-dont-enforce",
-      "date": "2025-12-02",
-      "summary": "Documents don’t change behavior.",
-      "body": "A policy without training is just optimism in PDF form.",
+      "id": "POST-006",
+      "status": "draft",
+      "title": "Why Boilerplate Clauses Matter",
+      "slug": "boilerplate-matter",
+      "date": "2025-12-06",
+      "summary": "The boring parts decide disputes.",
+      "body": "Most disputes aren’t won on grand principles.\n\nThey’re won on jurisdiction clauses, limitation language, and notice requirements that nobody read carefully.\n\nBoilerplate is where risk hides.",
       "hero": {
         "layout": "contained",
-        "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df"
+        "image": "https://images.unsplash.com/photo-1523289333742-be1143f6b766"
       }
     },
     {
@@ -52,7 +52,19 @@
         "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b"
       }
     },
-
+    {
+      "id": "POST-002",
+      "status": "published",
+      "title": "Policies Don’t Enforce Themselves",
+      "slug": "policies-dont-enforce",
+      "date": "2025-12-02",
+      "summary": "Documents don’t change behavior.",
+      "body": "A policy without training is just optimism in PDF form.",
+      "hero": {
+        "layout": "contained",
+        "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df"
+      }
+    },
     {
       "id": "POST-005",
       "status": "published",
@@ -64,19 +76,6 @@
       "hero": {
         "layout": "left",
         "image": "https://images.unsplash.com/photo-1581092919534-7f79ff2d4c8c"
-      }
-    },
-    {
-      "id": "POST-006",
-      "status": "draft",
-      "title": "Why Boilerplate Clauses Matter",
-      "slug": "boilerplate-matter",
-      "date": "2025-12-06",
-      "summary": "The boring parts decide disputes.",
-      "body": "Most disputes aren’t won on grand principles.\n\nThey’re won on jurisdiction clauses, limitation language, and notice requirements that nobody read carefully.\n\nBoilerplate is where risk hides.",
-      "hero": {
-        "layout": "contained",
-        "image": "https://images.unsplash.com/photo-1523289333742-be1143f6b766"
       }
     },
     {
@@ -105,7 +104,6 @@
         "image": "https://images.unsplash.com/photo-1557200134-90327ee9fafa"
       }
     },
-
     {
       "id": "POST-009",
       "status": "published",
@@ -133,19 +131,6 @@
       }
     },
     {
-      "id": "POST-011",
-      "status": "draft",
-      "title": "Data Retention Is a Design Choice",
-      "slug": "data-retention-design",
-      "date": "2025-12-11",
-      "summary": "Keeping less is often safer.",
-      "body": "Data doesn’t just create value—it creates obligation.\n\nRetention policies define how long risk stays alive.\n\nDeletion is not loss; it’s governance.",
-      "hero": {
-        "layout": "left",
-        "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31"
-      }
-    },
-    {
       "id": "POST-012",
       "status": "published",
       "title": "Why Audits Fail Repeatedly",
@@ -158,7 +143,6 @@
         "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df"
       }
     },
-
     {
       "id": "POST-013",
       "status": "published",
@@ -172,7 +156,6 @@
         "image": "https://images.unsplash.com/photo-1526378722370-8d63b9f0f8c3"
       }
     },
-
     {
       "id": "POST-014",
       "status": "published",
@@ -186,7 +169,6 @@
         "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
       }
     },
-
     {
       "id": "POST-015",
       "status": "published",
@@ -200,7 +182,6 @@
         "image": "https://images.unsplash.com/photo-1605902711622-cfb43c44367f"
       }
     },
-
     {
       "id": "POST-016",
       "status": "published",
@@ -214,7 +195,6 @@
         "image": "https://images.unsplash.com/photo-1584697964403-1cdb3f9c4f30"
       }
     },
-
     {
       "id": "POST-017",
       "status": "published",
@@ -228,7 +208,6 @@
         "image": "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5"
       }
     },
-
     {
       "id": "POST-018",
       "status": "published",
@@ -242,7 +221,6 @@
         "image": "https://images.unsplash.com/photo-1554224155-6726b3ff858f"
       }
     },
-
     {
       "id": "POST-019",
       "status": "published",
@@ -256,7 +234,6 @@
         "image": "https://images.unsplash.com/photo-1521791136064-7986c2920216"
       }
     },
-
     {
       "id": "POST-020",
       "status": "published",
