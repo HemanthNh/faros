@@ -1,6 +1,19 @@
 {
   "posts": [
     {
+      "id": "POST-006",
+      "status": "draft",
+      "title": "Why Boilerplate Clauses Matter",
+      "slug": "boilerplate-matter",
+      "date": "2025-12-06",
+      "summary": "The boring parts decide disputes.",
+      "body": "Most disputes aren’t won on grand principles.\n\nThey’re won on jurisdiction clauses, limitation language, and notice requirements that nobody read carefully.\n\nBoilerplate is where risk hides.",
+      "hero": {
+        "layout": "contained",
+        "image": "https://images.unsplash.com/photo-1523289333742-be1143f6b766"
+      }
+    },
+    {
       "id": "POST-002",
       "status": "published",
       "title": "Policies Don’t Enforce Themselves",
@@ -50,19 +63,6 @@
       "hero": {
         "layout": "left",
         "image": "https://images.unsplash.com/photo-1581092919534-7f79ff2d4c8c"
-      }
-    },
-    {
-      "id": "POST-006",
-      "status": "draft",
-      "title": "Why Boilerplate Clauses Matter",
-      "slug": "boilerplate-matter",
-      "date": "2025-12-06",
-      "summary": "The boring parts decide disputes.",
-      "body": "Most disputes aren’t won on grand principles.\n\nThey’re won on jurisdiction clauses, limitation language, and notice requirements that nobody read carefully.\n\nBoilerplate is where risk hides.",
-      "hero": {
-        "layout": "contained",
-        "image": "https://images.unsplash.com/photo-1523289333742-be1143f6b766"
       }
     },
     {
