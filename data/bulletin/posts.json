@@ -1,6 +1,19 @@
 {
   "posts": [
     {
+      "id": "POST-011",
+      "status": "draft",
+      "title": "Data Retention Is a Design Choice",
+      "slug": "data-retention-design",
+      "date": "2025-12-11",
+      "summary": "Keeping less is often safer.",
+      "body": "Data doesn’t just create value—it creates obligation.\n\nRetention policies define how long risk stays alive.\n\nDeletion is not loss; it’s governance.",
+      "hero": {
+        "layout": "left",
+        "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31"
+      }
+    },
+    {
       "id": "POST-006",
       "status": "draft",
       "title": "Why Boilerplate Clauses Matter",
@@ -11,19 +24,6 @@
       "hero": {
         "layout": "contained",
         "image": "https://images.unsplash.com/photo-1523289333742-be1143f6b766"
-      }
-    },
-    {
-      "id": "POST-002",
-      "status": "published",
-      "title": "Policies Don’t Enforce Themselves",
-      "slug": "policies-dont-enforce",
-      "date": "2025-12-02",
-      "summary": "Documents don’t change behavior.",
-      "body": "A policy without training is just optimism in PDF form.",
-      "hero": {
-        "layout": "contained",
-        "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df"
       }
     },
     {
@@ -50,6 +50,19 @@
       "hero": {
         "layout": "contained",
         "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b"
+      }
+    },
+    {
+      "id": "POST-002",
+      "status": "published",
+      "title": "Policies Don’t Enforce Themselves",
+      "slug": "policies-dont-enforce",
+      "date": "2025-12-02",
+      "summary": "Documents don’t change behavior.",
+      "body": "A policy without training is just optimism in PDF form.",
+      "hero": {
+        "layout": "contained",
+        "image": "https://images.unsplash.com/photo-1551836022-d5d88e9218df"
       }
     },
     {
@@ -115,19 +128,6 @@
       "hero": {
         "layout": "contained",
         "image": "https://images.unsplash.com/photo-1584036561566-baf8f5f1b144"
-      }
-    },
-    {
-      "id": "POST-011",
-      "status": "draft",
-      "title": "Data Retention Is a Design Choice",
-      "slug": "data-retention-design",
-      "date": "2025-12-11",
-      "summary": "Keeping less is often safer.",
-      "body": "Data doesn’t just create value—it creates obligation.\n\nRetention policies define how long risk stays alive.\n\nDeletion is not loss; it’s governance.",
-      "hero": {
-        "layout": "left",
-        "image": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31"
       }
     },
     {
