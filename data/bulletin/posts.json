@@ -8,7 +8,8 @@
       "gallery": [
         {
           "layout": "half",
-          "image": "https://photographylife.com/wp-content/uploads/2023/05/Nikon-Z8-Official-Samples-00002.jpg"
+          "image": "https://photographylife.com/wp-content/uploads/2023/05/Nikon-Z8-Official-Samples-00002.jpg",
+          "caption": "Aurora"
         },
         {
           "layout": "full",
