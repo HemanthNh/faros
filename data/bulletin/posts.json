@@ -1,6 +1,19 @@
 {
   "posts": [
     {
+      "id": "POST-015",
+      "status": "published",
+      "title": "Compliance as Organizational Memory",
+      "slug": "compliance-organizational-memory",
+      "date": "2025-12-15",
+      "summary": "Systems remember what people forget.",
+      "body": "Long-form content intentionally included here.\n\nCompliance functions as institutional memory. It encodes lessons learned from past failures into repeatable systems. When done well, it reduces dependency on individuals and protects against turnover-driven amnesia.\n\nOrganizations without this memory repeat mistakes confidently.",
+      "hero": {
+        "layout": "left",
+        "image": "https://images.unsplash.com/photo-1605902711622-cfb43c44367f"
+      }
+    },
+    {
       "id": "POST-006",
       "status": "draft",
       "title": "Why Boilerplate Clauses Matter",
@@ -167,19 +180,6 @@
       "hero": {
         "layout": "contained",
         "image": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee"
-      }
-    },
-    {
-      "id": "POST-015",
-      "status": "published",
-      "title": "Compliance as Organizational Memory",
-      "slug": "compliance-organizational-memory",
-      "date": "2025-12-15",
-      "summary": "Systems remember what people forget.",
-      "body": "Long-form content intentionally included here.\n\nCompliance functions as institutional memory. It encodes lessons learned from past failures into repeatable systems. When done well, it reduces dependency on individuals and protects against turnover-driven amnesia.\n\nOrganizations without this memory repeat mistakes confidently.",
-      "hero": {
-        "layout": "left",
-        "image": "https://images.unsplash.com/photo-1605902711622-cfb43c44367f"
       }
     },
     {
