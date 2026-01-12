@@ -762,3 +762,18 @@ section { padding: 96px 0; }
 .bulletin-content img.img-full {
   max-width: 100%;
 }
+
+/* Home page typography override */
+.home-page,
+.home-page h1,
+.home-page h2,
+.home-page h3,
+.home-page h4,
+.home-page h5,
+.home-page p,
+.home-page li,
+.home-page a,
+.home-page small,
+.home-page .btn {
+  font-family: 'Palatino Linotype', sans-serif;
+}
