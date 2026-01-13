@@ -24,20 +24,20 @@ html {
 }
 
 body {
-  font-family: 'Poppins',sans-serif;
+  font-family: 'Palatino Linotype', sans-serif;
   color: var(--fg-grey);
   background: var(--bg-light);
   line-height: 1.7;
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: 'Poppins',sans-serif;
+  font-family: 'Palatino Linotype', sans-serif;
   color: var(--fg-dark);
   letter-spacing: 0.3px;
 }
 
 p, li, a, small {
-  font-family: 'Poppins',sans-serif;
+  font-family: 'Palatino Linotype', sans-serif;
 }
 
 a {
@@ -65,7 +65,7 @@ section:nth-of-type(even) {
   backdrop-filter: blur(8px);
 }
 .navbar a:hover {
-  color: var(--accent-blue) !important;
+  color: #fff !important;
 }
 
 /* Buttons */

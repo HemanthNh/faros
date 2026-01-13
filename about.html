@@ -7,9 +7,6 @@
 
   <!-- Bootstrap & Fonts -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
 
   <script>
@@ -194,10 +191,18 @@
       box-shadow: 0 10px 24px rgba(12, 24, 43, 0.18);
       z-index: 1;
     }
+
+    /* Tighter vertical rhythm for About page */
+    .about-page section {
+      padding: 25px 0;
+    }
+    .about-page .hero {
+      padding: 110px 20px;
+    }
   </style>
 </head>
 
-<body>
+<body class="about-page">
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-black py-3">
     <div class="container">
@@ -212,6 +217,7 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="practice-areas.html">Practice Areas</a></li>
+          <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
           <!-- <li class="nav-item"><a class="nav-link" href="insights.html">Insights & Highlights</a></li> -->
           <li class="nav-item"><a class="nav-link" href="bulletin.html">Bulletin</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
@@ -232,12 +238,16 @@
       </div>
       <div class="card card-spotlight mx-auto p-4 p-md-5 text-center">
         <h1 class="fw-semibold mb-3">A Modern Corporate Law Firm Built for Momentum</h1>
-        <p>Faros Legal blends senior partner experience with agile execution. We advise on complex corporate transactions, investments, real estate, and disputes &mdash; always with measurable business outcomes in mind.</p>
+        <p>Faros Legal is a premier, Bengaluru-based law firm dedicated to providing comprehensive, end-to-end corporate legal services. Our team of highly skilled legal professionals possesses extensive cross-industry experience, enabling the firm to deliver meticulous, effective, and sophisticated legal solutions tailored to the specific needs of our clientele.
+
+Founded on the principle of client-centric excellence, Faros Legal is committed to providing commercially astute legal advice and steadfast representation. By maintaining a balance between rigorous professional standards and a personalized approach, we collaborate closely with our clients to navigate complex legal landscapes and achieve optimal business outcomes.
+
+With a proven track record of managing intricate domestic and international mandates, Faros Legal has established a distinguished reputation for depth of expertise and operational excellence.</p>
         <div class="d-flex flex-column flex-md-row justify-content-center gap-3">
           <a href="practice-areas.html" class="btn btn-primary">Explore our capabilities</a>
           <a href="contact.html" class="btn btn-outline-light">Meet the partners</a>
         </div>
-        <div class="row row-cols-1 row-cols-md-3 g-3 mt-4">
+        <!-- <div class="row row-cols-1 row-cols-md-3 g-3 mt-4">
           <div class="col">
             <div class="metrics-card">
               <h3>35</h3>
@@ -256,7 +266,7 @@
               <p class="mb-0">core practice clusters covering corporate to contentious mandates.</p>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
     </div>
   </section>
@@ -276,7 +286,7 @@
                 <h2 class="section-title mb-0">Why Faros?</h2>
               </div>
             </div>
-            <p>Founded in Bengaluru, Faros (Greek for &ldquo;lighthouse&rdquo;) captures our role as steady navigators for founders, investors, and enterprises scaling new horizons. We recognized that clients needed legal partners who could move with deal pace, pre-empt regulatory issues, and provide crisp communication across stakeholders.</p>
+            <p>Founded in Bengaluru, we prioritize our role as steady navigators for founders, investors, and enterprises scaling new horizons. We recognized that clients needed legal partners who could move with deal pace, pre-empt regulatory issues, and provide crisp communication across stakeholders.</p>
             <p>Our partners bring Big Law pedigree and in-house leadership experience. We intentionally built a lean structure that pairs senior involvement on every mandate with technology-enabled project management.</p>
             <ul class="principles-list mt-4">
               <li>
@@ -357,45 +367,7 @@
   <section id="leadership">
     <div class="container">
       <div class="row g-5">
-        <div class="col-lg-6">
-          <div class="timeline-card position-relative reveal-up">
-            <div class="section-heading">Milestones</div>
-            <h2 class="section-title">Growth with intent</h2>
-            <ul class="timeline-list mt-4">
-              <li>
-                <span></span>
-                <strong>2020</strong>
-                <p class="mb-0">Founded as a focused corporate firm with partner-led delivery.</p>
-              </li>
-              <li>
-                <span></span>
-                <strong>2021</strong>
-                <p class="mb-0">First marquee investment project; IP cell set up and technology law capability introduced.</p>
-              </li>
-              <li>
-                <span></span>
-                <strong>2022</strong>
-                <p class="mb-0">Expanded the team and broadened sector coverage, taking on a wider mix of mandates.</p>
-              </li>
-              <li>
-                <span></span>
-                <strong>2023</strong>
-                <p class="mb-0">Deepened real estate and energy work while supporting a higher volume of investment transactions.</p>
-              </li>
-              <li>
-                <span></span>
-                <strong>2024</strong>
-                <p class="mb-0">Built out dispute resolution and risk management offerings with rapid-response protocols.</p>
-              </li>
-              <li>
-                <span></span>
-                <strong>2025</strong>
-                <p class="mb-0">Still going strong, business-first, pragmatic, and scaling deliberately.</p>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-6">
+        <div class="col-lg-12">
           <div class="section-heading">Leadership focus</div>
           <h2 class="section-title">Partner-led, collaborative execution</h2>
           <p>Our leadership team has advised on marquee M&amp;A deals, cross-border investments, and high-value litigations. They bring boardroom communication skills, regulatory foresight, and empathy for decision-makers under pressure.</p>
@@ -475,4 +447,3 @@
   </script>
 </body>
 </html>
-
