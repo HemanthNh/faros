@@ -115,6 +115,67 @@
       font-size: 1rem;
       margin-bottom: 6px;
     }
+    .member-card {
+      background: #fff;
+      border-radius: 18px;
+      border: 1px solid rgba(17,24,39,0.08);
+      box-shadow: var(--card-shadow);
+      padding: 36px 28px;
+      text-align: center;
+      height: 100%;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .member-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(12, 24, 43, 0.14);
+    }
+    .member-photo-wrap {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin: 0 auto 22px;
+      border: 3px solid rgba(41, 95, 158, 0.18);
+      box-shadow: 0 6px 20px rgba(41, 95, 158, 0.12);
+    }
+    .member-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top;
+    }
+    .member-initials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #295F9E, #4a9eff);
+      color: #fff;
+      font-size: 2rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      font-family: 'Palatino Linotype', Palatino, serif;
+    }
+    .member-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0F0F0F;
+      margin-bottom: 4px;
+    }
+    .member-role {
+      font-size: 0.78rem;
+      color: var(--accent-blue);
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .member-bio {
+      font-size: 0.88rem;
+      color: var(--fg-grey);
+      line-height: 1.75;
+      text-align: left;
+      margin-bottom: 0;
+    }
     .principles-list {
       list-style: none;
       padding-left: 0;
@@ -215,9 +276,9 @@
       </button>
       <div class="collapse navbar-collapse" id="nav">
         <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
           <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
           <li class="nav-item"><a class="nav-link" href="practice-areas.html">Practice Areas</a></li>
-          <li class="nav-item"><a class="nav-link" href="testimonials.html">Testimonials</a></li>
           <!-- <li class="nav-item"><a class="nav-link" href="insights.html">Insights & Highlights</a></li> -->
           <li class="nav-item"><a class="nav-link" href="bulletin.html">Bulletin</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
@@ -396,6 +457,70 @@ With a proven track record of managing intricate domestic and international mand
     </div>
   </section>
 
+  <!-- Our Team -->
+  <section id="our-team">
+    <div class="container">
+      <div class="text-center mb-5">
+        <div class="section-heading">Our People</div>
+        <h2 class="section-title">The team behind Faros Legal</h2>
+        <p class="mx-auto" style="max-width: 600px;">Experienced legal professionals committed to delivering practical, business-focused counsel across corporate, commercial, and contentious matters.</p>
+      </div>
+      <div class="row g-4 justify-content-center">
+
+        <!-- Rahul Varma -->
+        <div class="col-lg-4 col-md-6">
+          <div class="member-card reveal-up">
+            <div class="member-photo-wrap">
+              <img src="images/team/Rahul Varma.jpeg" alt="Rahul Varma" class="member-photo">
+            </div>
+            <h4 class="member-name">Rahul Varma</h4>
+            <div class="member-role">Founding Partner</div>
+            <p class="member-bio">Rahul Varma is the founding partner of Faros Legal and has been spearheading the firm since its inception. A seasoned legal professional with over 17 years of experience, he advises businesses on corporate, commercial, and investment matters — working extensively with Indian and international clients on company structuring, foreign investment, transaction documentation, regulatory compliance, and financing-related legal support.</p>
+            <p class="member-bio mt-2">His experience spans intellectual property strategy and enforcement, including IP portfolio management, filings, audits, and cross-jurisdictional brand protection. He has also handled high-value commercial contracts, cross-border transactions, employment matters, and litigation, bringing a practical, business-focused approach to complex legal issues.</p>
+          </div>
+        </div>
+
+        <!-- Suchitra Varma -->
+        <div class="col-lg-4 col-md-6">
+          <div class="member-card reveal-up" style="transition-delay: .1s;">
+            <div class="member-photo-wrap">
+              <img src="images/team/Suchitra Varma.jpeg" alt="Suchitra Varma" class="member-photo">
+            </div>
+            <h4 class="member-name">Suchitra Varma</h4>
+            <div class="member-role">Partner</div>
+            <p class="member-bio">A distinguished cross-border corporate lawyer with over 15 years of experience specialising in maritime law, intellectual property, and high-stakes commercial transactions. She has led ship sale and purchase transactions, structured complex ship financing and mortgages, and managed the global legal operations of a 400+ vessel ship management company as Senior Manager, overseeing a team of five lawyers across India, Germany, Hong Kong, and Greece.</p>
+            <p class="member-bio mt-2">Her transactional expertise includes guiding seed-to-series investments, conducting M&amp;A due diligence, and negotiating shareholders' agreements. In intellectual property, she built and managed client portfolios — filing and prosecuting trademarks, copyrights, and designs — while serving as a Trademark Examiner for the Government of India. Renowned for her strategic counsel, precise drafting, and ability to deliver practical solutions that mitigate risk and drive commercial success.</p>
+          </div>
+        </div>
+
+        <!-- Mayank Patni -->
+        <div class="col-lg-4 col-md-6">
+          <div class="member-card reveal-up" style="transition-delay: .2s;">
+            <div class="member-photo-wrap">
+              <img src="images/team/Mayank Patni.jpeg" alt="Mayank Patni" class="member-photo">
+            </div>
+            <h4 class="member-name">Mayank Patni</h4>
+            <div class="member-role">Associate</div>
+            <p class="member-bio">Mayank Patni is a legal professional with over 5 years of experience in contract management, corporate advisory, fintech, litigation, and consultancy. At Faros Legal for close to 3 years, he has actively advised clients across IT, technology, media, telecom, hospitality, startups, and financial services.</p>
+            <p class="member-bio mt-2">His work spans corporate drafting, legal opinions, regulatory compliance, trademark prosecution, company incorporation, and dispute resolution. He has supported clients on RBI-related compliance matters, handled commercial agreements, and represented matters before courts, tribunals, and regulatory authorities — with additional experience in arbitration, mediation, and strategic legal support.</p>
+          </div>
+        </div>
+
+        <!-- Shane Nicholson G -->
+        <div class="col-lg-4 col-md-6">
+          <div class="member-card reveal-up" style="transition-delay: .3s;">
+            <div class="member-photo-wrap member-initials">SNG</div>
+            <h4 class="member-name">Shane Nicholson G</h4>
+            <div class="member-role">Litigation Lawyer</div>
+            <p class="member-bio">Shane Nicholson G is a dynamic litigation lawyer with an LL.M. in Criminology from Amity University, Mumbai, and a B.A., LL.B. (Hons.) from S.D.M. Law College, Mangalore. His practice focuses on civil and criminal writs, bail matters, land acquisition disputes, forest law, endowment cases, and public authority litigation before the Bombay High Court and district forums.</p>
+            <p class="member-bio mt-2">Shane excels in procedural drafting, statutory research, trial preparation, and property documentation — including leases, sales, and mortgages — complemented by internships at the Supreme Court of India and practical training in medico-legal protocols.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta-section text-center">
     <div class="container py-5">
@@ -410,7 +535,7 @@ With a proven track record of managing intricate domestic and international mand
 
   <!-- Footer -->
   <footer class="bg-black text-white text-center py-3">
-    <small>&copy; 2025 Faros Legal | Bengaluru, India</small>
+    <small>&copy; 2026 Faros Legal | Bengaluru, India</small>
   </footer>
 
   <button id="scrollTopBtn"><i data-lucide="arrow-up"></i></button>
