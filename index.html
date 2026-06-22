@@ -14,106 +14,6 @@
   <link href="css/style.css" rel="stylesheet" />
 
   <style>
-    #clients {
-      background: #111;
-      overflow: hidden;
-    }
-    .clients-mosaic {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
-      background: #111;
-    }
-    .client-tile {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 44px 32px;
-      min-height: 160px;
-      background: #fff;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: background 0.25s ease, opacity 0.55s ease, transform 0.55s ease;
-    }
-    .client-tile:hover {
-      background: #f0f4ff;
-    }
-    .clients-mosaic.tiles-visible .client-tile {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .clients-mosaic .client-tile:nth-child(1)  { transition-delay: 0s, 0.08s, 0.08s; }
-    .clients-mosaic .client-tile:nth-child(2)  { transition-delay: 0s, 0.00s, 0.00s; }
-    .clients-mosaic .client-tile:nth-child(3)  { transition-delay: 0s, 0.16s, 0.16s; }
-    .clients-mosaic .client-tile:nth-child(4)  { transition-delay: 0s, 0.24s, 0.24s; }
-    .clients-mosaic .client-tile:nth-child(5)  { transition-delay: 0s, 0.32s, 0.32s; }
-    .clients-mosaic .client-tile:nth-child(6)  { transition-delay: 0s, 0.40s, 0.40s; }
-    .clients-mosaic .client-tile:nth-child(7)  { transition-delay: 0s, 0.48s, 0.48s; }
-    .clients-mosaic .client-tile:nth-child(8)  { transition-delay: 0s, 0.56s, 0.56s; }
-    .clients-mosaic .client-tile:nth-child(9)  { transition-delay: 0s, 0.64s, 0.64s; }
-    .clients-mosaic .client-tile:nth-child(10) { transition-delay: 0s, 0.72s, 0.72s; }
-    .client-tile--header {
-      grid-column: span 2;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      padding: 52px 48px;
-      background: #111;
-    }
-    .client-tile--header:hover {
-      background: #111;
-    }
-    .client-tile--wide {
-      grid-column: span 2;
-    }
-    .clients-eyebrow {
-      display: block;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: #c9a227;
-      border-left: 3px solid #c9a227;
-      padding-left: 12px;
-      margin-bottom: 18px;
-    }
-    .clients-title {
-      font-family: 'Palatino Linotype', Palatino, Georgia, serif;
-      font-size: clamp(2.4rem, 4.5vw, 3.8rem);
-      color: #c9a227;
-      font-style: italic;
-      font-weight: 400;
-      line-height: 1.1;
-      margin: 0;
-    }
-    .client-logo {
-      max-width: 150px;
-      max-height: 64px;
-      width: 100%;
-      object-fit: contain;
-    }
-    @media (max-width: 767px) {
-      .clients-mosaic {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .client-tile--header {
-        grid-column: span 2;
-        padding: 36px 28px;
-      }
-      .client-tile--wide {
-        grid-column: span 2;
-      }
-      .client-tile {
-        padding: 32px 20px;
-        min-height: 120px;
-      }
-      .client-logo {
-        max-width: 110px;
-        max-height: 48px;
-      }
-    }
-
-    /* Marquee strip */
     #clients-strip {
       background: var(--bg-section);
       padding: 56px 0;
@@ -174,112 +74,6 @@
       object-fit: contain;
     }
 
-    /* Spotlight variant */
-    #clients-spotlight {
-      --mx: -500px;
-      --my: -500px;
-      background: #07090f;
-      padding: 72px 0 0;
-      position: relative;
-      overflow: hidden;
-    }
-    #clients-spotlight::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(700px circle at var(--mx) var(--my), rgba(41, 95, 158, 0.13), transparent 55%);
-      pointer-events: none;
-      z-index: 0;
-    }
-    .spotlight-header {
-      text-align: center;
-      margin-bottom: 52px;
-      position: relative;
-      z-index: 1;
-    }
-    .spotlight-eyebrow {
-      display: inline-block;
-      font-size: 0.68rem;
-      font-weight: 700;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: #c9a227;
-      border-bottom: 1px solid rgba(201,162,39,0.35);
-      padding-bottom: 8px;
-      margin-bottom: 16px;
-    }
-    .spotlight-title {
-      font-family: 'Palatino Linotype', Palatino, Georgia, serif;
-      font-size: clamp(1.9rem, 3.5vw, 3rem);
-      color: rgba(255,255,255,0.88);
-      font-weight: 400;
-      font-style: italic;
-      margin: 0;
-      line-height: 1.2;
-    }
-    .spotlight-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1px;
-      background: rgba(255,255,255,0.04);
-      position: relative;
-      z-index: 1;
-    }
-    .spotlight-card {
-      --cx: 50%;
-      --cy: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 54px 40px;
-      min-height: 175px;
-      background: #07090f;
-      position: relative;
-      overflow: hidden;
-      cursor: default;
-      transition: background 0.3s ease;
-    }
-    .spotlight-card::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(360px circle at var(--cx) var(--cy), rgba(41,95,158,0.22), transparent 65%);
-      opacity: 0;
-      transition: opacity 0.35s ease;
-      pointer-events: none;
-    }
-    .spotlight-card:hover {
-      background: #0c1018;
-    }
-    .spotlight-card:hover::after {
-      opacity: 1;
-    }
-    .spotlight-logo {
-      max-width: 145px;
-      max-height: 62px;
-      object-fit: contain;
-      position: relative;
-      z-index: 1;
-      transition: transform 0.3s ease, filter 0.3s ease;
-      filter: grayscale(0.3) brightness(0.85);
-    }
-    .spotlight-card:hover .spotlight-logo {
-      transform: scale(1.06);
-      filter: grayscale(0) brightness(1);
-    }
-    @media (max-width: 767px) {
-      .spotlight-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-      .spotlight-card {
-        padding: 36px 24px;
-        min-height: 130px;
-      }
-      .spotlight-logo {
-        max-width: 100px;
-        max-height: 44px;
-      }
-    }
   </style>
 </head>
 
@@ -367,50 +161,6 @@
     </div>
   </section>
 
-  <!-- Our Clients -->
-  <section id="clients">
-    <div class="clients-mosaic">
-
-      <!-- Row 1 -->
-      <div class="client-tile">
-        <img src="images/client_images/Apollo Paints.jpeg" alt="Apollo Paints" class="client-logo">
-      </div>
-      <div class="client-tile client-tile--header">
-        <span class="clients-eyebrow">The Heroes of Our Story</span>
-        <h2 class="clients-title">Our Clients</h2>
-      </div>
-      <div class="client-tile">
-        <img src="images/client_images/Dogsee.jpeg" alt="Dogsee" class="client-logo">
-      </div>
-
-      <!-- Row 2 -->
-      <div class="client-tile">
-        <img src="images/client_images/Flow.jpeg" alt="Flow" class="client-logo">
-      </div>
-      <div class="client-tile">
-        <img src="images/client_images/HOGR.jpeg" alt="HOGR" class="client-logo">
-      </div>
-      <div class="client-tile">
-        <img src="images/client_images/Himalayan Natives.jpeg" alt="Himalayan Natives" class="client-logo">
-      </div>
-      <div class="client-tile">
-        <img src="images/client_images/Mahyco Grow.jpeg" alt="Mahyco Grow" class="client-logo">
-      </div>
-
-      <!-- Row 3 -->
-      <div class="client-tile">
-        <img src="images/client_images/Realfast.jpeg" alt="Realfast" class="client-logo">
-      </div>
-      <div class="client-tile client-tile--wide">
-        <img src="images/client_images/Slixta Azympto.jpeg" alt="Slixta Azympto" class="client-logo">
-      </div>
-      <div class="client-tile">
-        <img src="images/client_images/Star Health Insurance.jpeg" alt="Star Health Insurance" class="client-logo">
-      </div>
-
-    </div>
-  </section>
-
   <!-- Clients Marquee Strip -->
   <section id="clients-strip">
     <div class="strip-heading">
@@ -439,43 +189,6 @@
         <div class="marquee-item"><img src="images/client_images/Realfast.jpeg" alt="Realfast"></div>
         <div class="marquee-item"><img src="images/client_images/Slixta Azympto.jpeg" alt="Slixta Azympto"></div>
         <div class="marquee-item"><img src="images/client_images/Star Health Insurance.jpeg" alt="Star Health Insurance"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Clients Spotlight -->
-  <section id="clients-spotlight">
-    <div class="spotlight-header">
-      <span class="spotlight-eyebrow">Who We Serve</span>
-      <h2 class="spotlight-title">A Practice Built on Trust</h2>
-    </div>
-    <div class="spotlight-grid">
-      <div class="spotlight-card">
-        <img src="images/client_images/Apollo Paints.jpeg" alt="Apollo Paints" class="spotlight-logo">
-      </div>
-      <div class="spotlight-card">
-        <img src="images/client_images/Dogsee.jpeg" alt="Dogsee" class="spotlight-logo">
-      </div>
-      <div class="spotlight-card">
-        <img src="images/client_images/Flow.jpeg" alt="Flow" class="spotlight-logo">
-      </div>
-      <div class="spotlight-card">
-        <img src="images/client_images/HOGR.jpeg" alt="HOGR" class="spotlight-logo">
-      </div>
-      <div class="spotlight-card">
-        <img src="images/client_images/Himalayan Natives.jpeg" alt="Himalayan Natives" class="spotlight-logo">
-      </div>
-      <div class="spotlight-card">
-        <img src="images/client_images/Mahyco Grow.jpeg" alt="Mahyco Grow" class="spotlight-logo">
-      </div>
-      <div class="spotlight-card">
-        <img src="images/client_images/Realfast.jpeg" alt="Realfast" class="spotlight-logo">
-      </div>
-      <div class="spotlight-card">
-        <img src="images/client_images/Slixta Azympto.jpeg" alt="Slixta Azympto" class="spotlight-logo">
-      </div>
-      <div class="spotlight-card">
-        <img src="images/client_images/Star Health Insurance.jpeg" alt="Star Health Insurance" class="spotlight-logo">
       </div>
     </div>
   </section>
@@ -534,33 +247,6 @@ function triggerReveal() {
 
 document.addEventListener('DOMContentLoaded', triggerReveal);
 
-// Mosaic entrance animation
-const mosaic = document.querySelector('.clients-mosaic');
-if (mosaic) {
-  new IntersectionObserver(([entry]) => {
-    if (entry.isIntersecting) {
-      mosaic.classList.add('tiles-visible');
-    }
-  }, { threshold: 0.1 }).observe(mosaic);
-}
-
-// Spotlight: section-level cursor glow
-const spotSection = document.getElementById('clients-spotlight');
-if (spotSection) {
-  spotSection.addEventListener('mousemove', e => {
-    const r = spotSection.getBoundingClientRect();
-    spotSection.style.setProperty('--mx', (e.clientX - r.left) + 'px');
-    spotSection.style.setProperty('--my', (e.clientY - r.top) + 'px');
-  });
-  // Per-card inner glow
-  spotSection.querySelectorAll('.spotlight-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-      const r = card.getBoundingClientRect();
-      card.style.setProperty('--cx', (e.clientX - r.left) + 'px');
-      card.style.setProperty('--cy', (e.clientY - r.top) + 'px');
-    });
-  });
-}
 </script>
 
 
