@@ -258,6 +258,18 @@
       "date": "2026-01-11",
       "summary": "adsad",
       "body": "gdsgsg"
+    },
+    {
+      "status": "draft",
+      "hero": {
+        "layout": "contained"
+      },
+      "id": "new-post",
+      "slug": "privacy-update-26",
+      "title": "privacy updates",
+      "summary": "TEST",
+      "body": "TEST",
+      "date": "2026-07-06"
     }
   ]
 }
