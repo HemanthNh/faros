@@ -151,6 +151,19 @@ footer {
   color: #fff;
 }
 
+.footer-legal-links {
+  margin-top: 8px;
+}
+
+.footer-legal-links a {
+  color: rgba(255, 255, 255, 0.82);
+  text-decoration: none;
+}
+
+.footer-legal-links a:hover {
+  color: #fff;
+}
+
 /* Forms */
 
 input, textarea {
